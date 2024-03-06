@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "Laptop",
+        "brand": "ABC",
+        "price": 999.99,
+        "category": "Electronics",
+        "description": "High-performance laptop with the latest specifications.",
+        "image": "laptop.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Smartphone",
+        "brand": "XYZ",
+        "price": 599.99,
+        "category": "Electronics",
+        "description": "Feature-packed smartphone with a stunning display.",
+        "image": "smartphone.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Headphones",
+        "brand": "PQR",
+        "price": 99.99,
+        "category": "Electronics",
+        "description": "Premium headphones with noise-canceling technology.",
+        "image": "headphones.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Running Shoes",
+        "brand": "Nike",
+        "price": 129.99,
+        "category": "Footwear",
+        "description": "Comfortable and stylish running shoes for your active lifestyle.",
+        "image": "runningshoes.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Backpack",
+        "brand": "Adidas",
+        "price": 49.99,
+        "category": "Accessories",
+        "description": "Durable backpack with multiple compartments for all your essentials.",
+        "image": "backpack.jpg"
+    }
+]
