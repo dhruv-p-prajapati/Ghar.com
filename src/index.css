@@ -3,3 +3,17 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.light{
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 2px 4px;
+}
+
+.dark{
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  padding: 2px 4px;
+}
