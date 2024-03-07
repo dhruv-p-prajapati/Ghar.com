@@ -1,19 +1,46 @@
 import React from "react";
-import { Home, Login, Register } from "./components/pages";
-import { useSelector } from "react-redux";
+import { Admin, ErrorPage, Home, Login, Register } from "./components/pages";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Layout } from "./components/layout";
+import CheckAuthentication from "./utils/authCheckProtectedRoutes/CheckAuthentication";
 
 const App = () => {
-  const viteCommand =
-    "npm create vite@latest YOUR_PROJECT_TITLE -- --template react";
-
-  const theme = useSelector((state) => state.theme);
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "admin",
+          element: (
+            <CheckAuthentication>
+              <Admin />
+            </CheckAuthentication>
+          ),
+        },
+      ],
+    },
+    {
+      path: "login",
+      element: <Login />,
+    },
+    {
+      path: "register",
+      element: <Register />,
+    },
+    {
+      path: "*",
+      element: <ErrorPage />,
+    },
+  ]);
 
   return (
     <>
-      <p>This App is created using Vite app with command given below</p>
-      <h3>{viteCommand}</h3>
-      <Home />
-      Current Theme :- <span className={`${theme ? "light" : "dark"}`}>{theme ? "Light" : "Dark"}</span>
+      <RouterProvider router={router} />
     </>
   );
 };
