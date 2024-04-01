@@ -1,9 +1,8 @@
 import React from 'react';
-import './login.css';
 
 const Login = () => {
   return (
-    <div className='login'>
+    <div className='text-5xl flex justify-center items-center min-h-screen'>
         <h1>Login</h1>
     </div>
   )

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import './button.css';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../../../redux/actions/ThemeAction';
 
@@ -12,7 +11,7 @@ const Button = () => {
     dispatch(toggleTheme(theme));
   }
   return (
-    <button className='btn' onClick={handleToggleMode}>Change Theme</button>
+    <button className='py-1 px-2 border-2 border-black rounded-md transition-all duration-300 hover:bg-black hover:text-white' onClick={handleToggleMode}>Change Theme</button>
   )
 }
 

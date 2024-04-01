@@ -2,7 +2,7 @@ import React from 'react'
 
 const ErrorPage = () => {
   return (
-    <div>ErrorPage</div>
+    <div className='text-7xl flex justify-center items-center min-h-screen'>ErrorPage</div>
   )
 }
 
