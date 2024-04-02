@@ -1,5 +1,6 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
+import { RegisterBuilder } from "../components/pages";
 const Layout = React.lazy(() => import("../components/layout/layout/Layout"));
 const Admin = React.lazy(() => import("../components/pages/Admin/Admin"));
 const Home = React.lazy(() => import("../components/pages/home/Home"));
@@ -24,7 +25,7 @@ const Routes = () => {
         },
         {
           path: "builder/register",
-          element: <Register />
+          element: <RegisterBuilder />
         },
         {
           path: "admin",

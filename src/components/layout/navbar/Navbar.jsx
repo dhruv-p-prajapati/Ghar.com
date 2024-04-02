@@ -55,9 +55,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div>
-        <div
-          className={`fixed top-0 h-screen w-screen bg-black ${show ? "opacity-30" : "opacity-0 -z-10"} transition-all duration-1000`}
-          onClick={toggleNavbar}></div>
+        <div className={`fixed top-0 h-screen w-screen bg-black ${show ? "opacity-30" : "opacity-0 hidden"}`} onClick={toggleNavbar}></div>
         <div
           className={`bg-primary fixed right-0 top-0 h-screen ${
             show ? "w-[min(80vw,300px)]" : "invisible md:visible w-[70px]"
