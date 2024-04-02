@@ -1,46 +1,18 @@
-import React from "react";
-import { Admin, ErrorPage, Home, Login, Register } from "./components/pages";
+import React, { Suspense } from "react";
+import { ToastContainer } from "react-toastify";
+import Routes from "./routes/Routes";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Layout } from "./components/layout";
-import CheckAuthentication from "./utils/authCheckProtectedRoutes/CheckAuthentication";
+import { Loader } from "./components/common";
 
 const App = () => {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Layout />,
-      children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "admin",
-          element: (
-            <CheckAuthentication>
-              <Admin />
-            </CheckAuthentication>
-          ),
-        },
-      ],
-    },
-    {
-      path: "login",
-      element: <Login />,
-    },
-    {
-      path: "register",
-      element: <Register />,
-    },
-    {
-      path: "*",
-      element: <ErrorPage />,
-    },
-  ]);
+  const router = Routes();
 
   return (
     <>
-      <RouterProvider router={router} />
+      <Suspense fallback={<Loader />}>
+        <ToastContainer autoClose={2000} closeOnClick pauseOnFocusLoss={false} pauseOnHover className="mt-16 min-w-[200px] xsm:min-w-[320px] left-auto text-sm xsm:text-sm md:text-base" />
+        <RouterProvider router={router} />
+      </Suspense>
     </>
   );
 };

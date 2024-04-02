@@ -1,17 +1,17 @@
-import React from 'react';
-import {Footer, Navbar} from '../index';
-import { Outlet } from 'react-router-dom';
+import React from "react";
+import { Footer, Navbar } from "../index";
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <div className='flex flex-col justify-around items-center min-h-screen'>
-        <Navbar />
+    <div>
+      <Navbar />
 
-        <Outlet />
+      <Outlet />
 
-        <Footer />
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

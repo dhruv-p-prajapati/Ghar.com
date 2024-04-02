@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const ErrorPage = () => {
   return (
-    <div className='text-7xl flex justify-center items-center min-h-screen'>ErrorPage</div>
-  )
-}
+    <div className="flex justify-center items-center min-h-screen">
+      <img src="./images/Error.gif" alt="" />
+    </div>
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;
