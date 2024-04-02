@@ -15,8 +15,16 @@ const Routes = () => {
       element: <Layout />,
       children: [
         {
-          path: "",
+          path: "/",
           element: <Home />
+        },
+        {
+          path: "login",
+          element: <Login />
+        },
+        {
+          path: "builder/register",
+          element: <Register />
         },
         {
           path: "admin",
@@ -25,14 +33,6 @@ const Routes = () => {
               <Admin />
             </CheckAuthentication>
           )
-        },
-        {
-          path: "login",
-          element: <Login />
-        },
-        {
-          path: "register",
-          element: <Register />
         }
       ]
     },
