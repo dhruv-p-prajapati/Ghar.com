@@ -36,7 +36,8 @@ Button.propTypes = {
     "warning",
     "warningOutline",
     "danger",
-    "dangerOutline"
+    "dangerOutline",
+    "whiteOutline"
   ]),
   children: PropTypes.node.isRequired,
   className: PropTypes.string

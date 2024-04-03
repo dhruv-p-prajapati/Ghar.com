@@ -1,11 +1,11 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { RegisterBuilder } from "../components/pages";
 const Layout = React.lazy(() => import("../components/layout/layout/Layout"));
+const RegisterBuilder = React.lazy(() => import("../components/pages/register/RegisterBuilder"));
+const RegisterUser = React.lazy(() => import("../components/pages/register/RegisterUser"));
 const Admin = React.lazy(() => import("../components/pages/Admin/Admin"));
 const Home = React.lazy(() => import("../components/pages/home/Home"));
 const CheckAuthentication = React.lazy(() => import("../utils/authCheckProtectedRoutes/CheckAuthentication"));
-const Register = React.lazy(() => import("../components/pages/register/Register"));
 const Login = React.lazy(() => import("../components/pages/login/Login"));
 const ErrorPage = React.lazy(() => import("./../components/pages/ErrorPage/ErrorPage"));
 
@@ -22,6 +22,10 @@ const Routes = () => {
         {
           path: "login",
           element: <Login />
+        },
+        {
+          path: "user/register",
+          element: <RegisterUser />
         },
         {
           path: "builder/register",
