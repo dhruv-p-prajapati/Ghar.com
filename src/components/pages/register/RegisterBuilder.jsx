@@ -25,6 +25,10 @@ const builderSchema = yup.object({
   phNo: yup.string().required("*required").matches(phNoRules, "*Phone No. is not valid"),
   reraId: yup.string().required("*required").matches(reraIdRules, "*RERA Id is not valid"),
   panNo: yup.string().required("*required").matches(panNoRules, "*PAN No. is not valid"),
+  streetNo: yup.string().required("*required"),
+  addressLine: yup.string().required("*required"),
+  city: yup.string().required("*required"),
+  state: yup.string().required("*required"),
   password: yup
     .string()
     .required("*required")
@@ -43,7 +47,7 @@ const RegisterBuilder = () => {
   const [builders, setBuilders] = useState([]);
 
   const handleSubmit = async (values, { resetForm }) => {
-    const { name, email, phNo, reraId, panNo, password } = values;
+    const { name, email, phNo, reraId, panNo, password, streetNo, addressLine, city, state } = values;
 
     const emailExistsInUsers = users.findIndex((user) => user.email === email);
     const emailExistsInBuilders = builders.findIndex((builder) => builder.email === email);
@@ -57,6 +61,12 @@ const RegisterBuilder = () => {
         reraId,
         panNo,
         password,
+        address: {
+          streetNo,
+          addressLine,
+          city,
+          state
+        },
         amount: 0,
         listedProperties: []
       };
@@ -107,18 +117,13 @@ const RegisterBuilder = () => {
         phNo: "",
         reraId: "",
         panNo: "",
-        address: {
-          officeNo: "",
-          officeName: "",
-          additionalInfo: "",
-          city: "",
-          state: "",
-          country: ""
-        }
+        streetNo: "",
+        addressLine: "",
+        city: "",
+        state: ""
       }}
       onSubmit={handleSubmit}
-      // validationSchema={builderSchema}
-    >
+      validationSchema={builderSchema}>
       {({ handleSubmit, handleChange, handleBlur, handleReset, values, errors, touched }) => (
         <div className="flex justify-center flex-col gap-5 items-center mt-10 sm:px-[5rem]">
           <span className="text-black font-bold text-3xl pb-3">Register Builder</span>
@@ -185,6 +190,61 @@ const RegisterBuilder = () => {
                 touched={touched?.panNo}
                 error={errors?.panNo}
               />
+
+              <div className="flex justify-between gap-2 max-w-96">
+                <Input
+                  id="streetNo"
+                  name="streetNo"
+                  value={values.streetNo}
+                  labelText="Street No."
+                  placeholder="25/A"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  touched={touched?.streetNo}
+                  error={errors?.streetNo}
+                  className="w-[min(150px,6rem)]"
+                />
+                <Input
+                  id="addressLine"
+                  name="addressLine"
+                  value={values.addressLine}
+                  labelText="Address"
+                  placeholder="Shrinagar society"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  touched={touched?.addressLine}
+                  error={errors?.addressLine}
+                  className="w-[min(300px,16rem)]"
+                />
+              </div>
+
+              <div className="flex justify-between gap-2 max-w-96">
+                <Input
+                  id="city"
+                  name="city"
+                  value={values.city}
+                  labelText="City"
+                  placeholder="Visnagar"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  touched={touched?.city}
+                  error={errors?.city}
+                  className="w-[min(160px,12rem)]"
+                />
+
+                <Input
+                  id="state"
+                  name="state"
+                  value={values.state}
+                  labelText="State"
+                  placeholder="Gujarat"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  touched={touched?.state}
+                  error={errors?.state}
+                  className="w-[max(160px,12rem)]"
+                />
+              </div>
 
               <Input
                 id="password"

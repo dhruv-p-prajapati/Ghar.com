@@ -96,6 +96,34 @@
       "phNo": "7890123456",
       "reraId": "RERAGJ80246",
       "panNo": "WXYZAB7890N"
+    },
+    {
+      "id": "6",
+      "name": "",
+      "email": "",
+      "phNo": "",
+      "reraId": "",
+      "panNo": "",
+      "password": "",
+      "amount": 0,
+      "listedProperties": []
+    },
+    {
+      "id": "7",
+      "name": "sk",
+      "email": "dppp@gmail.com",
+      "phNo": 9313914399,
+      "reraId": "reragj12345",
+      "panNo": "abcde1234f",
+      "password": "Dhruv123@",
+      "address": {
+        "streetNo": "25/1",
+        "addressLine": "xsjnjnj",
+        "city": "visnagar",
+        "state": "gujarat"
+      },
+      "amount": 0,
+      "listedProperties": []
     }
   ]
 }
