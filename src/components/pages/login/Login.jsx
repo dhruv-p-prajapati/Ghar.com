@@ -1,12 +1,12 @@
 import { Form, Formik } from "formik";
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Input } from "../../common";
 import * as yup from "yup";
 import { setRole } from "../../../redux/actions/roleAction";
 import { toast } from "react-toastify";
 import { findBuilder, findUser } from "../../../utils/axiosGloableInstance";
-import { useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const loginSchema = yup.object({
   role: yup.string().required("*required").oneOf(["user", "admin", "builder"], "*Please select a valid role"),
@@ -15,7 +15,9 @@ const loginSchema = yup.object({
 });
 
 const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { isAuth, user, builder, admin } = useSelector((state) => state.role);
 
   const handleSubmit = async (values, { resetForm }) => {
     const { role, email, password } = values;
@@ -57,6 +59,10 @@ const Login = () => {
 
     resetForm();
   };
+
+  useEffect(() => {
+    user ? navigate("/user") : builder ? navigate("/builder") : admin ? navigate("/admin") : null;
+  });
 
   return (
     <Formik

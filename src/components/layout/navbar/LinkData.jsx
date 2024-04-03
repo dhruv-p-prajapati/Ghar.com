@@ -3,8 +3,27 @@ import { MdOutlineContactPhone } from "react-icons/md";
 import { CiBookmarkCheck } from "react-icons/ci";
 import { TbBuildingCommunity } from "react-icons/tb";
 import { MdOutlineSell } from "react-icons/md";
+import { RiBuilding2Fill } from "react-icons/ri";
+import { FaUserAlt } from "react-icons/fa";
+import { TbHomeDown } from "react-icons/tb";
+import { MdOutlineAddHomeWork } from "react-icons/md";
+import { MdPendingActions } from "react-icons/md";
+import { TiTick } from "react-icons/ti";
+import { HiUsers } from "react-icons/hi";
+import { SiCodereview } from "react-icons/si";
+import { FaHome } from "react-icons/fa";
 
 export const publicLinks = [
+  {
+    label: "Home",
+    slug: "/",
+    icon: <FaHome />
+  },
+  {
+    label: "All Products",
+    slug: "/all-products",
+    icon: <RiBuilding2Fill />
+  },
   {
     label: "About",
     slug: "/about",
@@ -19,18 +38,18 @@ export const publicLinks = [
 
 export const userLinks = [
   {
-    label: "login",
-    slug: "/login",
-    icon: <CiBookmarkCheck />
+    label: "Home",
+    slug: "/user",
+    icon: <FaHome />
   },
   {
-    label: "builder registration",
-    slug: "/builder/register",
-    icon: <CiBookmarkCheck />
+    label: "Profile",
+    slug: "/user-profile",
+    icon: <FaUserAlt />
   },
   {
-    label: "My Wishlist",
-    slug: "/wishlist",
+    label: "Saved Properties",
+    slug: "/saved-properties",
     icon: <CiBookmarkCheck />
   },
   {
@@ -47,51 +66,66 @@ export const userLinks = [
     label: "Properties for Sell",
     slug: "/for-sell",
     icon: <MdOutlineSell />
+  },
+  {
+    label: "Owned Properties",
+    slug: "/owned-properties",
+    icon: <TbHomeDown />
   }
 ];
 
 export const builderLinks = [
   {
     label: "Home",
-    slug: "/builder/home",
-    icon: ""
-  },
-  {
-    label: "Listed Properties",
-    slug: "/builder-property",
-    icon: ""
+    slug: "/builder",
+    icon: <FaHome />
   },
   {
     label: "Pending Requests",
     slug: "/builder-pending-request",
-    icon: ""
+    icon: <MdPendingActions />
   },
   {
     label: "Accepted Request",
     slug: "/builder-accepted-request",
-    icon: ""
+    icon: <TiTick />
+  },
+  {
+    label: "Create new Property",
+    slug: "/create-property",
+    icon: <MdOutlineAddHomeWork />
+  },
+  {
+    label: "Listed Properties",
+    slug: "/builder-property",
+    icon: <TbBuildingCommunity />
   },
   {
     label: "Profile",
     slug: "/builder-profile",
-    icon: ""
+    icon: <FaUserAlt />
   }
 ];
 
 export const adminLinks = [
   {
+    label: "Home",
+    slug: "/admin",
+    icon: <FaHome />
+  },
+  {
     label: "users",
     slug: "/admin-users",
-    icon: ""
+    icon: <HiUsers />
   },
   {
     label: "Properties",
     slug: "/admin-properties",
-    icon: ""
+    icon: <TbBuildingCommunity />
   },
   {
     label: "Review Property Request",
     slug: "/admin-review-request",
-    icon: ""
+    icon: <SiCodereview />
   }
 ];
