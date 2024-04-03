@@ -5,6 +5,7 @@ const Links = ({ linksToRender = [], toggleNavbar, show }) => {
   return linksToRender.map((currLink, index) => {
     return (
       <NavLink
+        key={currLink.slug}
         to={currLink?.slug}
         className={({ isActive }) =>
           `${
