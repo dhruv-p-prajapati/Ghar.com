@@ -31,6 +31,8 @@ export const getBuilders = () => API.get("builders");
 
 export const registerBuilder = (builderObj) => API.post("builders", builderObj);
 
+export const registerUser = (userObj) => API.post("users", userObj);
+
 export const findUser = (email) => API.get(`users?email=${email}`);
 
 export const findBuilder = (email) => API.get(`builders?email=${email}`);
