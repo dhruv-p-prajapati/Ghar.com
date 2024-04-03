@@ -8,7 +8,7 @@ const ErrorPage = () => {
   const { isAuth, user, builder, admin } = useSelector((state) => state.role);
 
   const handleClick = () => {
-    user ? navigate("/") : builder ? navigate("/builder/home") : admin ? navigate("/admin/home") : navigate("/");
+    user ? navigate("/user") : builder ? navigate("/builder") : admin ? navigate("/admin") : navigate("/");
   };
   return (
     <div className="flex flex-col justify-center items-center min-h-screen">

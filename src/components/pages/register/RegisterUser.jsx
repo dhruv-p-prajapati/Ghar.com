@@ -2,7 +2,7 @@ import { Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
 import { Button, Input } from "../../common";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getBuilders, getUsers, registerUser } from "../../../utils/axiosGloableInstance";
 import * as yup from "yup";
 import { setLoader } from "../../../redux/actions/appAction";
@@ -35,6 +35,8 @@ const userSchema = yup.object({
 const RegisterUser = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const { isAuth, user, builder, admin } = useSelector((state) => state.role);
 
   const [users, setUsers] = useState([]);
   const [builders, setBuilders] = useState([]);
@@ -83,6 +85,8 @@ const RegisterUser = () => {
   };
 
   useEffect(() => {
+    user ? navigate("/user") : builder ? navigate("/builder") : admin ? navigate("/admin") : null;
+
     (async () => {
       const { data: usersData, error: usersError } = await getUsers();
       const { data: buildersData, error: buildersError } = await getBuilders();

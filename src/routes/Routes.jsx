@@ -1,5 +1,12 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
+import AuthCheckUser from "../utils/authCheckProtectedRoutes/AuthCheckUser";
+import { useSelector } from "react-redux";
+import HomeUser from "../components/pages/home/HomeUser";
+import AuthCheckBuilder from "../utils/authCheckProtectedRoutes/AuthCheckBuilder";
+import AuthCheckAdmin from "../utils/authCheckProtectedRoutes/AuthCheckAdmin";
+import HomeAdmin from "../components/pages/home/HomeAdmin";
+import HomeBuilder from "../components/pages/home/HomeBuilder";
 const Layout = React.lazy(() => import("../components/layout/layout/Layout"));
 const RegisterBuilder = React.lazy(() => import("../components/pages/register/RegisterBuilder"));
 const RegisterUser = React.lazy(() => import("../components/pages/register/RegisterUser"));
@@ -10,6 +17,8 @@ const Login = React.lazy(() => import("../components/pages/login/Login"));
 const ErrorPage = React.lazy(() => import("./../components/pages/ErrorPage/ErrorPage"));
 
 const Routes = () => {
+  const { user, builder, admin } = useSelector((state) => state.role);
+
   return createBrowserRouter([
     {
       path: "/",
@@ -30,6 +39,33 @@ const Routes = () => {
         {
           path: "builder/register",
           element: <RegisterBuilder />
+        },
+        {
+          element: <AuthCheckUser isAuth={user !== null ? true : false} />,
+          children: [
+            {
+              path: "user",
+              element: <HomeUser />
+            }
+          ]
+        },
+        {
+          element: <AuthCheckBuilder isAuth={builder !== null ? true : false} />,
+          children: [
+            {
+              path: "builder",
+              element: <HomeBuilder />
+            }
+          ]
+        },
+        {
+          element: <AuthCheckAdmin isAuth={admin !== null ? true : false} />,
+          children: [
+            {
+              path: "admin",
+              element: <HomeAdmin />
+            }
+          ]
         },
         {
           path: "admin",

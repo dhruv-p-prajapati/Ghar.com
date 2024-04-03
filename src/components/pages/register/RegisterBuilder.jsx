@@ -5,7 +5,7 @@ import * as yup from "yup";
 import { getBuilders, getUsers, registerBuilder } from "../../../utils/axiosGloableInstance";
 import { toast } from "react-toastify";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setRole } from "../../../redux/actions/roleAction";
 import { setLoader } from "../../../redux/actions/appAction";
 
@@ -42,6 +42,8 @@ const builderSchema = yup.object({
 const RegisterBuilder = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const { isAuth, user, builder, admin } = useSelector((state) => state.role);
 
   const [users, setUsers] = useState([]);
   const [builders, setBuilders] = useState([]);
@@ -98,6 +100,8 @@ const RegisterBuilder = () => {
   };
 
   useEffect(() => {
+    user ? navigate("/user") : builder ? navigate("/builder") : admin ? navigate("/admin") : null;
+
     (async () => {
       const { data: usersData, error: userError } = await getUsers();
       const { data: buildersData, error: buildersError } = await getBuilders();
