@@ -99,8 +99,8 @@ const RegisterBuilder = () => {
 
   useEffect(() => {
     (async () => {
-      const { success: usersSuccess, data: usersData, error: userError } = await getUsers();
-      const { success: sellerSuccess, data: buildersData, error: buildersError } = await getBuilders();
+      const { data: usersData, error: userError } = await getUsers();
+      const { data: buildersData, error: buildersError } = await getBuilders();
 
       setUsers(usersData);
       setBuilders(buildersData);

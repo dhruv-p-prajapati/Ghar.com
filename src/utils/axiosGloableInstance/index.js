@@ -16,13 +16,12 @@ API.interceptors.response.use(
       error: null
     };
   },
-  (error) => {
-    console.error("Global error interceptor:", error);
-    return Promise.reject({
+  (err) => {
+    return {
       success: false,
       data: [],
-      error: error.message
-    });
+      error: err.message
+    };
   }
 );
 
@@ -31,5 +30,11 @@ export const getUsers = () => API.get("users");
 export const getBuilders = () => API.get("builders");
 
 export const registerBuilder = (builderObj) => API.post("builders", builderObj);
+
+export const registerUser = (userObj) => API.post("users", userObj);
+
+export const findUser = (email) => API.get(`users?email=${email}`);
+
+export const findBuilder = (email) => API.get(`builders?email=${email}`);
 
 export default API;
