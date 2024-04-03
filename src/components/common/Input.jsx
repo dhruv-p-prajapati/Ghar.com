@@ -25,7 +25,7 @@ const Input = ({
     <div className="relative">
       <label
         htmlFor={id}
-        className="relative block rounded-md border border-gray-300 shadow focus-within:border-primary focus-within:ring-1 focus-within:ring-primary z-0">
+        className={`relative block rounded-md border border-gray-300 shadow focus-within:border-primary focus-within:ring-1 focus-within:ring-primary z-0 ${className}`}>
         <input
           type={type === "password" ? (showPass ? "text" : "password") : type}
           id={id}

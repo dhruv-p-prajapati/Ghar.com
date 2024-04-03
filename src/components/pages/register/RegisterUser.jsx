@@ -1,20 +1,18 @@
-import { Form, Formik, useFormik } from "formik";
+import { Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
 import { Button, Input } from "../../common";
-import * as yup from "yup";
-import { getBuilders, getUsers, registerBuilder } from "../../../utils/axiosGloableInstance";
-import { toast } from "react-toastify";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setRole } from "../../../redux/actions/roleAction";
+import { getBuilders, getUsers, registerUser } from "../../../utils/axiosGloableInstance";
+import * as yup from "yup";
 import { setLoader } from "../../../redux/actions/appAction";
+import { setRole } from "../../../redux/actions/roleAction";
+import { toast } from "react-toastify";
 
 const passwordRules = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/;
 const phNoRules = /^[6-9]\d{9}$/;
-const reraIdRules = /^[A-Za-z]{6}[0-9]{5}$/;
-const panNoRules = /^[A-Za-z]{5}\d{4}[A-Za-z]{1}$/;
 
-const builderSchema = yup.object({
+const userSchema = yup.object({
   name: yup
     .string()
     .required("*required")
@@ -23,12 +21,7 @@ const builderSchema = yup.object({
     .trim(),
   email: yup.string().required("*required").email("*Email is not valid").trim(),
   phNo: yup.string().required("*required").matches(phNoRules, "*Phone No. is not valid"),
-  reraId: yup.string().required("*required").matches(reraIdRules, "*RERA Id is not valid"),
-  panNo: yup.string().required("*required").matches(panNoRules, "*PAN No. is not valid"),
-  streetNo: yup.string().required("*required"),
-  addressLine: yup.string().required("*required"),
-  city: yup.string().required("*required"),
-  state: yup.string().required("*required"),
+  amount: yup.number().min(0, "*Enter valid amount").max(50000, "*Enter amount less than 50,000"),
   password: yup
     .string()
     .required("*required")
@@ -39,7 +32,7 @@ const builderSchema = yup.object({
     .oneOf([yup.ref("password")], "*Passwords must match")
 });
 
-const RegisterBuilder = () => {
+const RegisterUser = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -47,60 +40,54 @@ const RegisterBuilder = () => {
   const [builders, setBuilders] = useState([]);
 
   const handleSubmit = async (values, { resetForm }) => {
-    const { name, email, phNo, reraId, panNo, password, streetNo, addressLine, city, state } = values;
+    const { name, email, phNo, amount, password } = values;
 
     const emailExistsInUsers = users.findIndex((user) => user.email === email);
     const emailExistsInBuilders = builders.findIndex((builder) => builder.email === email);
 
     if (emailExistsInUsers === -1 && emailExistsInBuilders === -1) {
-      let builderObj = {
-        id: builders.length !== 0 ? (parseInt(builders[builders.length - 1].id) + 1).toString() : "1",
+      let userObj = {
+        id: users.length !== 0 ? (parseInt(users[users.length - 1].id) + 1).toString() : "1",
         name: name.trim(),
         email: email.trim(),
         phNo,
-        reraId,
-        panNo,
+        amount,
         password,
-        address: {
-          streetNo,
-          addressLine,
-          city,
-          state
-        },
-        amount: 0,
-        listedProperties: []
+        favouriteProperties: []
       };
 
       try {
         dispatch(setLoader(true));
 
-        const { success, error } = await registerBuilder(builderObj);
+        const { success, error } = await registerUser(userObj);
 
         if (success) {
-          dispatch(setRole("builder", builderObj));
+          toast.success("User registered successfully");
+          dispatch(setRole("user", userObj));
           resetForm();
-          toast.success("Builder registered successfully");
           navigate("/");
         } else {
-          console.log("Failed to register builder ", error);
-          toast.error("Problem for registering Builder, Please try after some time!");
+          console.log("Failed to register User ", error);
+          toast.error("Problem for registering User, Please try after some time!");
           resetForm();
         }
       } catch (error) {
-        console.log("Failed to register Builder ", error);
+        console.log("Failed to register User ", error);
       } finally {
         dispatch(setLoader(false));
       }
     } else {
-      toast.error("Builder already exists!!");
+      toast.error("User already exists!!");
       resetForm();
     }
   };
 
   useEffect(() => {
     (async () => {
-      const { success: usersSuccess, data: usersData, error: userError } = await getUsers();
-      const { success: sellerSuccess, data: buildersData, error: buildersError } = await getBuilders();
+      const { data: usersData, error: usersError } = await getUsers();
+      const { data: buildersData, error: buildersError } = await getBuilders();
+
+      console.log(usersError, buildersError);
 
       setUsers(usersData);
       setBuilders(buildersData);
@@ -115,18 +102,13 @@ const RegisterBuilder = () => {
         password: "",
         cpassword: "",
         phNo: "",
-        reraId: "",
-        panNo: "",
-        streetNo: "",
-        addressLine: "",
-        city: "",
-        state: ""
+        amount: ""
       }}
       onSubmit={handleSubmit}
-      validationSchema={builderSchema}>
+      validationSchema={userSchema}>
       {({ handleSubmit, handleChange, handleBlur, handleReset, values, errors, touched }) => (
         <div className="flex justify-center flex-col gap-5 items-center mt-10 sm:px-[5rem]">
-          <span className="text-black font-bold text-3xl pb-3">Register Builder</span>
+          <span className="text-secondary font-bold text-3xl pb-3">Register User</span>
           <div className="flex justify-center items-center lg:gap-24">
             <Form className="flex flex-col gap-2" onSubmit={handleSubmit}>
               <Input
@@ -168,83 +150,17 @@ const RegisterBuilder = () => {
               />
 
               <Input
-                id="reraId"
-                name="reraId"
-                value={values.reraId}
-                labelText="RERA Id"
-                placeholder="RERAGJ12345"
+                id="amount"
+                name="amount"
+                type="number"
+                value={values.amount}
+                labelText="Amount"
+                placeholder="15000"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                touched={touched?.reraId}
-                error={errors?.reraId}
+                touched={touched?.amount}
+                error={errors?.amount}
               />
-
-              <Input
-                id="panNo"
-                name="panNo"
-                value={values.panNo}
-                labelText="PAN No."
-                placeholder="ABCPD1234F"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                touched={touched?.panNo}
-                error={errors?.panNo}
-              />
-
-              <div className="flex justify-between gap-2 max-w-96">
-                <Input
-                  id="streetNo"
-                  name="streetNo"
-                  value={values.streetNo}
-                  labelText="Street No."
-                  placeholder="25/A"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.streetNo}
-                  error={errors?.streetNo}
-                  className="w-[min(150px,6rem)]"
-                />
-                <Input
-                  id="addressLine"
-                  name="addressLine"
-                  value={values.addressLine}
-                  labelText="Address"
-                  placeholder="Shrinagar society"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.addressLine}
-                  error={errors?.addressLine}
-                  className="w-[min(300px,16rem)]"
-                />
-              </div>
-
-              <div className="flex justify-between gap-2 max-w-96">
-                <Input
-                  id="city"
-                  name="city"
-                  value={values.city}
-                  labelText="City"
-                  placeholder="Visnagar"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.city}
-                  error={errors?.city}
-                  className="w-[min(160px,12rem)]"
-                />
-
-                <Input
-                  id="state"
-                  name="state"
-                  value={values.state}
-                  labelText="State"
-                  placeholder="Gujarat"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.state}
-                  error={errors?.state}
-                  className="w-[max(160px,12rem)]"
-                />
-              </div>
 
               <Input
                 id="password"
@@ -297,4 +213,4 @@ const RegisterBuilder = () => {
   );
 };
 
-export default RegisterBuilder;
+export default RegisterUser;
