@@ -49,3 +49,49 @@ export const userLinks = [
     icon: <MdOutlineSell />
   }
 ];
+
+export const builderLinks = [
+  {
+    label: "Home",
+    slug: "/builder/home",
+    icon: ""
+  },
+  {
+    label: "Listed Properties",
+    slug: "/builder-property",
+    icon: ""
+  },
+  {
+    label: "Pending Requests",
+    slug: "/builder-pending-request",
+    icon: ""
+  },
+  {
+    label: "Accepted Request",
+    slug: "/builder-accepted-request",
+    icon: ""
+  },
+  {
+    label: "Profile",
+    slug: "/builder-profile",
+    icon: ""
+  }
+];
+
+export const adminLinks = [
+  {
+    label: "users",
+    slug: "/admin-users",
+    icon: ""
+  },
+  {
+    label: "Properties",
+    slug: "/admin-properties",
+    icon: ""
+  },
+  {
+    label: "Review Property Request",
+    slug: "/admin-review-request",
+    icon: ""
+  }
+];

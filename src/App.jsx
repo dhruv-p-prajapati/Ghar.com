@@ -1,16 +1,23 @@
 import React, { Suspense } from "react";
-import { ToastContainer } from "react-toastify";
+import { Bounce, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Routes from "./routes/Routes";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Loader } from "./components/common";
+import { useSelector } from "react-redux";
 
 const App = () => {
   const router = Routes();
+  const loader = useSelector((state) => state.app.loader);
+
+  if (loader) {
+    return <Loader />;
+  }
 
   return (
     <>
       <Suspense fallback={<Loader />}>
-        <ToastContainer autoClose={2000} closeOnClick pauseOnFocusLoss={false} pauseOnHover className="mt-16 min-w-[200px] xsm:min-w-[320px] left-auto text-sm xsm:text-sm md:text-base" />
+        <ToastContainer autoClose={2000} closeOnClick pauseOnFocusLoss={false} pauseOnHover transition={Bounce} />
         <RouterProvider router={router} />
       </Suspense>
     </>

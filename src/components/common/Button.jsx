@@ -12,7 +12,8 @@ const Button = ({ variant = "primary", children, className, ...props }) => {
     secondaryOutline: "border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-white",
     successOutline: "border-green-500 text-green-500 hover:bg-green-500 hover:text-white",
     warningOutline: "border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white",
-    dangerOutline: "border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+    dangerOutline: "border-red-500 text-red-500 hover:bg-red-500 hover:text-white",
+    whiteOutline: "border-white text-white hover:text-[#2b7cff]"
   };
 
   return (
