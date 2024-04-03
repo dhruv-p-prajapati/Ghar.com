@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { BiAlignRight } from "react-icons/bi";
-
 import { AiOutlineClose } from "react-icons/ai";
 import { FaBuildingUser } from "react-icons/fa6";
 import { FaRegUserCircle } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { TbLogout2 } from "react-icons/tb";
+import { NavLink, useNavigate } from "react-router-dom";
 import Links from "./Links";
 import { adminLinks, builderLinks, publicLinks, userLinks } from "./LinkData";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,6 +14,7 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { isAuth, user, builder, admin } = useSelector((state) => state.role);
 
@@ -115,12 +115,14 @@ const Navbar = () => {
                   Login
                 </NavLink>
               </>
+            ) : show ? (
+              <Button variant="whiteOutline" onClick={handleLogOut}>
+                Logout
+              </Button>
             ) : (
-              show && (
-                <Button variant="whiteOutline" onClick={handleLogOut}>
-                  Logout
-                </Button>
-              )
+              <div>
+                <TbLogout2 className="text-2xl cursor-pointer" onClick={handleLogOut} />
+              </div>
             )}
           </div>
         </div>

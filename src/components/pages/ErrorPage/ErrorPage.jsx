@@ -12,7 +12,7 @@ const ErrorPage = () => {
   };
   return (
     <div className="flex flex-col justify-center items-center min-h-screen">
-      <img src="./images/Error.gif" alt="Error image" />
+      <img src="/images/Error.gif" alt="Error image" />
       <Button variant="primary" onClick={handleClick}>
         Go To Home
       </Button>
