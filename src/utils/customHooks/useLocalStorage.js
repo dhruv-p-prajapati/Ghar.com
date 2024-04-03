@@ -12,7 +12,7 @@ const useLocalStorage = (key) => {
     window.localStorage.removeItem(key);
   };
 
-  return [setItem, getItem, removeItem];
+  return { setItem, getItem, removeItem };
 };
 
 export default useLocalStorage;

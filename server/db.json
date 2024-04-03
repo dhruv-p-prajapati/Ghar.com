@@ -1,7 +1,167 @@
 {
-    "products": [
-        {
-            "id": "1"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "name": "Dhruv P",
+      "email": "dhruv@example.com",
+      "password": "password123",
+      "phNo": "9313914401",
+      "amount": 10000,
+      "favouriteProperties": []
+    },
+    {
+      "id": "2",
+      "name": "Rahul Sharma",
+      "email": "rahul@example.com",
+      "password": "password456",
+      "phNo": "9876543210",
+      "amount": 20000,
+      "favouriteProperties": []
+    },
+    {
+      "id": "3",
+      "name": "Neha Gupta",
+      "email": "neha@example.com",
+      "password": "password789",
+      "phNo": "9870123456",
+      "amount": 15000,
+      "favouriteProperties": []
+    },
+    {
+      "id": "4",
+      "name": "Priya Singh",
+      "email": "priya@example.com",
+      "password": "passwordabc",
+      "phNo": "9123456789",
+      "amount": 25000,
+      "favouriteProperties": []
+    },
+    {
+      "id": "5",
+      "name": "Amit Kumar",
+      "email": "amit@example.com",
+      "password": "passwordxyz",
+      "phNo": "8765432109",
+      "amount": 30000,
+      "favouriteProperties": []
+    }
+  ],
+  "builders": [
+    {
+      "id": "1",
+      "name": "Ravi Kumar",
+      "email": "ravi@example.com",
+      "password": "password123",
+      "cpassword": "password123",
+      "phNo": "9876543210",
+      "reraId": "RERAGJ12345",
+      "panNo": "ABCDE1234F"
+    },
+    {
+      "id": "2",
+      "name": "Priya Sharma",
+      "email": "priya@example.com",
+      "password": "password456",
+      "cpassword": "password456",
+      "phNo": "9123456789",
+      "reraId": "RERAGJ67890",
+      "panNo": "FGHIJ5678K"
+    },
+    {
+      "id": "3",
+      "name": "Amit Patel",
+      "email": "amit@example.com",
+      "password": "password789",
+      "cpassword": "password789",
+      "phNo": "8765432109",
+      "reraId": "RERAGJ24680",
+      "panNo": "LMNOP9012L"
+    },
+    {
+      "id": "4",
+      "name": "Neha Gupta",
+      "email": "neha@example.com",
+      "password": "passwordabc",
+      "cpassword": "passwordabc",
+      "phNo": "9870123456",
+      "reraId": "RERAGJ13579",
+      "panNo": "QRSTUV3456M"
+    },
+    {
+      "id": "5",
+      "name": "Sandeep Singh",
+      "email": "sandeep@example.com",
+      "password": "passwordxyz",
+      "cpassword": "passwordxyz",
+      "phNo": "7890123456",
+      "reraId": "RERAGJ80246",
+      "panNo": "WXYZAB7890N"
+    },
+    {
+      "id": "6",
+      "name": "dhruv",
+      "email": "abc@gmail.com",
+      "phNo": 931391407,
+      "reraId": "",
+      "panNo": "",
+      "password": "",
+      "amount": 0,
+      "listedProperties": []
+    },
+    {
+      "id": "7",
+      "name": "",
+      "email": "dhruv@example.commm",
+      "phNo": "",
+      "reraId": "",
+      "panNo": "",
+      "password": "",
+      "amount": 0,
+      "listedProperties": []
+    },
+    {
+      "id": "8",
+      "name": "",
+      "email": "dhruv@example.commmmm",
+      "phNo": "",
+      "reraId": "",
+      "panNo": "",
+      "password": "",
+      "amount": 0,
+      "listedProperties": []
+    },
+    {
+      "id": "9",
+      "name": "new product",
+      "email": "dhruv@example.commmmmm",
+      "phNo": "",
+      "reraId": "",
+      "panNo": "",
+      "password": "",
+      "amount": 0,
+      "listedProperties": []
+    },
+    {
+      "id": "10",
+      "name": "",
+      "email": "dp@gmail.commm",
+      "phNo": "",
+      "reraId": "",
+      "panNo": "",
+      "password": "",
+      "amount": 0,
+      "listedProperties": []
+    },
+    {
+      "id": "11",
+      "name": "",
+      "email": "dp11@gmail.com",
+      "phNo": "",
+      "reraId": "",
+      "panNo": "",
+      "password": "",
+      "amount": 0,
+      "listedProperties": []
+    }
+  ]
 }

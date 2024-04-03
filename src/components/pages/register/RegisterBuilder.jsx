@@ -1,7 +1,13 @@
 import { Form, Formik, useFormik } from "formik";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Input } from "../../common";
 import * as yup from "yup";
+import { getBuilders, getUsers, registerBuilder } from "../../../utils/axiosGloableInstance";
+import { toast } from "react-toastify";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setRole } from "../../../redux/actions/roleAction";
+import { setLoader } from "../../../redux/actions/appAction";
 
 const passwordRules = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/;
 const phNoRules = /^[6-9]\d{9}$/;
@@ -30,140 +36,204 @@ const builderSchema = yup.object({
 });
 
 const RegisterBuilder = () => {
-  const handleSubmit = (values) => {
-    console.log(values);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [users, setUsers] = useState([]);
+  const [builders, setBuilders] = useState([]);
+
+  const handleSubmit = async (values, { resetForm }) => {
+    const { name, email, phNo, reraId, panNo, password } = values;
+
+    const emailExistsInUsers = users.findIndex((user) => user.email === email);
+    const emailExistsInBuilders = builders.findIndex((builder) => builder.email === email);
+
+    if (emailExistsInUsers === -1 && emailExistsInBuilders === -1) {
+      let builderObj = {
+        id: builders.length !== 0 ? (parseInt(builders[builders.length - 1].id) + 1).toString() : "1",
+        name: name.trim(),
+        email: email.trim(),
+        phNo,
+        reraId,
+        panNo,
+        password,
+        amount: 0,
+        listedProperties: []
+      };
+
+      try {
+        dispatch(setLoader(true));
+
+        const { success, error } = await registerBuilder(builderObj);
+
+        if (success) {
+          dispatch(setRole("builder", builderObj));
+          resetForm();
+          toast.success("Builder registered successfully");
+          navigate("/");
+        } else {
+          console.log("Failed to register builder ", error);
+          toast.error("Problem for registering Builder, Please try after some time!");
+          resetForm();
+        }
+      } catch (error) {
+        console.log("Failed to register Builder ", error);
+      } finally {
+        dispatch(setLoader(false));
+      }
+    } else {
+      toast.error("Builder already exists!!");
+      resetForm();
+    }
   };
 
+  useEffect(() => {
+    (async () => {
+      const { success: usersSuccess, data: usersData, error: userError } = await getUsers();
+      const { success: sellerSuccess, data: buildersData, error: buildersError } = await getBuilders();
+
+      setUsers(usersData);
+      setBuilders(buildersData);
+    })();
+  }, []);
+
   return (
-    <div>
-      <Formik
-        initialValues={{
-          name: "",
-          email: "",
-          password: "",
-          cpassword: "",
-          phNo: "",
-          reraId: "",
-          panNo: "",
-          address: {
-            officeNo: "",
-            officeName: "",
-            additionalInfo: "",
-            city: "",
-            state: "",
-            country: ""
-          }
-        }}
-        onSubmit={handleSubmit}
-        validationSchema={builderSchema}>
-        {({ handleSubmit, handleChange, handleBlur, values, errors, touched }) => (
-          <div className="flex justify-center flex-col gap-5 items-center mt-10 sm:px-[5rem]">
-            <span className="text-black font-bold text-3xl pb-3">Register Builder</span>
-            <div className="flex justify-center items-center lg:gap-24">
-              <Form className="flex flex-col gap-2" onSubmit={handleSubmit}>
-                <Input
-                  id="name"
-                  name="name"
-                  value={values.name}
-                  labelText="Name"
-                  placeholder="Dhruv Prajapati"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.name}
-                  error={errors?.name}
-                />
+    <Formik
+      initialValues={{
+        name: "",
+        email: "",
+        password: "",
+        cpassword: "",
+        phNo: "",
+        reraId: "",
+        panNo: "",
+        address: {
+          officeNo: "",
+          officeName: "",
+          additionalInfo: "",
+          city: "",
+          state: "",
+          country: ""
+        }
+      }}
+      onSubmit={handleSubmit}
+      // validationSchema={builderSchema}
+    >
+      {({ handleSubmit, handleChange, handleBlur, handleReset, values, errors, touched }) => (
+        <div className="flex justify-center flex-col gap-5 items-center mt-10 sm:px-[5rem]">
+          <span className="text-black font-bold text-3xl pb-3">Register Builder</span>
+          <div className="flex justify-center items-center lg:gap-24">
+            <Form className="flex flex-col gap-2" onSubmit={handleSubmit}>
+              <Input
+                id="name"
+                name="name"
+                value={values.name}
+                labelText="Name"
+                placeholder="Dhruv Prajapati"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                touched={touched?.name}
+                error={errors?.name}
+              />
 
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={values.email}
-                  labelText="Email"
-                  placeholder="dhruv@example.com"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.email}
-                  error={errors?.email}
-                />
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={values.email}
+                labelText="Email"
+                placeholder="dhruv@example.com"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                touched={touched?.email}
+                error={errors?.email}
+              />
 
-                <Input
-                  id="phNo"
-                  name="phNo"
-                  type="number"
-                  value={values.phNo}
-                  labelText="Phone No."
-                  placeholder="1234567890"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.phNo}
-                  error={errors?.phNo}
-                />
+              <Input
+                id="phNo"
+                name="phNo"
+                type="number"
+                value={values.phNo}
+                labelText="Phone No."
+                placeholder="1234567890"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                touched={touched?.phNo}
+                error={errors?.phNo}
+              />
 
-                <Input
-                  id="reraId"
-                  name="reraId"
-                  value={values.reraId}
-                  labelText="RERA Id"
-                  placeholder="RERAGJ12345"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.reraId}
-                  error={errors?.reraId}
-                />
+              <Input
+                id="reraId"
+                name="reraId"
+                value={values.reraId}
+                labelText="RERA Id"
+                placeholder="RERAGJ12345"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                touched={touched?.reraId}
+                error={errors?.reraId}
+              />
 
-                <Input
-                  id="panNo"
-                  name="panNo"
-                  value={values.panNo}
-                  labelText="PAN No."
-                  placeholder="ABCPD1234F"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.panNo}
-                  error={errors?.panNo}
-                />
+              <Input
+                id="panNo"
+                name="panNo"
+                value={values.panNo}
+                labelText="PAN No."
+                placeholder="ABCPD1234F"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                touched={touched?.panNo}
+                error={errors?.panNo}
+              />
 
-                <Input
-                  id="password"
-                  name="password"
-                  type="password"
-                  value={values.password}
-                  labelText="Password"
-                  placeholder="Example@123"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.password}
-                  error={errors?.password}
-                />
-                <Input
-                  id="cpassword"
-                  name="cpassword"
-                  type="password"
-                  value={values.cpassword}
-                  labelText="Confirm Password"
-                  placeholder="Example@123"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.cpassword}
-                  error={errors?.cpassword}
-                />
-                <div className="flex gap-5">
-                  <Button variant="primary" type="submit">
-                    Submit
-                  </Button>
-                  <Button variant="danger" type="reset">
-                    Reset
-                  </Button>
-                </div>
-              </Form>
-              <div className="hidden lg:block">
-                <img src="/images/loginRegister.gif" alt="" />
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                value={values.password}
+                labelText="Password"
+                placeholder="Example@123"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                touched={touched?.password}
+                error={errors?.password}
+              />
+              <Input
+                id="cpassword"
+                name="cpassword"
+                type="password"
+                value={values.cpassword}
+                labelText="Confirm Password"
+                placeholder="Example@123"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                touched={touched?.cpassword}
+                error={errors?.cpassword}
+              />
+              <div className="flex gap-5">
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+                <Button variant="danger" type="reset">
+                  Reset
+                </Button>
               </div>
+              <div className="mt-2">
+                <p>
+                  Already have an account?{" "}
+                  <NavLink to="/login" className="text-primary">
+                    Login here
+                  </NavLink>
+                </p>
+              </div>
+            </Form>
+            <div className="hidden lg:block">
+              <img src="/images/loginRegister.gif" alt="" />
             </div>
           </div>
-        )}
-      </Formik>
-    </div>
+        </div>
+      )}
+    </Formik>
   );
 };
 
