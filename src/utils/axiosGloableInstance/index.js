@@ -37,4 +37,6 @@ export const findUser = (email) => API.get(`users?email=${email}`);
 
 export const findBuilder = (email) => API.get(`builders?email=${email}`);
 
+export const getAllCategories = () => API.get("categories");
+
 export default API;

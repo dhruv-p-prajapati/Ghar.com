@@ -125,5 +125,36 @@
       "amount": 0,
       "listedProperties": []
     }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "propertyType": "residential",
+      "subPropertyType": [
+        "villa",
+        "apartment",
+        "flat",
+        "bungalow"
+      ]
+    },
+    {
+      "id": 2,
+      "propertyType": "commercial",
+      "subPropertyType": [
+        "office",
+        "retail shop",
+        "showroom",
+        "warehouse"
+      ]
+    },
+    {
+      "id": 3,
+      "propertyType": "land",
+      "subPropertyType": [
+        "agricultural land",
+        "plot",
+        "camping site"
+      ]
+    }
   ]
 }

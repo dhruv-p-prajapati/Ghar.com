@@ -54,25 +54,28 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        {!isAuth && (
-          <ul className="flex justify-between items-center gap-10 font-bold text-white">
-            <NavLink to="/builder/register" className="hidden md:flex justify-center items-center gap-1">
-              <FaBuildingUser className="text-xl" />
-              Become a Builder
-            </NavLink>
-            <NavLink to="/login" className="hidden md:flex justify-center items-center gap-1">
-              <FaRegUserCircle className="text-xl" />
-              Login
-            </NavLink>
-
-            <li className="text-xl md:text-3xl cursor-pointer px-2 md:invisible" onClick={toggleNavbar}>
-              <BiAlignRight />
-            </li>
-          </ul>
-        )}
+        <ul className="flex justify-between items-center gap-10 font-bold text-white">
+          {!isAuth && (
+            <>
+              <NavLink to="/builder/register" className="hidden md:flex justify-center items-center gap-1">
+                <FaBuildingUser className="text-xl" />
+                Become a Builder
+              </NavLink>
+              <NavLink to="/login" className="hidden md:flex justify-center items-center gap-1">
+                <FaRegUserCircle className="text-xl" />
+                Login
+              </NavLink>
+            </>
+          )}
+          <li className="text-xl md:text-3xl cursor-pointer px-2 md:invisible" onClick={toggleNavbar}>
+            <BiAlignRight />
+          </li>
+        </ul>
       </div>
-      <div>
-        <div className={`fixed top-0 h-screen w-screen bg-black z-10  ${show ? "opacity-30" : "opacity-0 hidden"}`} onClick={toggleNavbar}></div>
+      <div className="ml-20">
+        <div
+          className={`fixed top-0 left-0 h-screen w-screen bg-black z-10  ${show ? "opacity-30" : "opacity-0 hidden"}`}
+          onClick={toggleNavbar}></div>
         <div
           className={`bg-primary fixed z-30 right-0 top-0 h-screen ${
             show ? "w-[min(80vw,300px)]" : "invisible md:visible w-[70px]"
