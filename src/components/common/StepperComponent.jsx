@@ -1,23 +1,27 @@
 import React from "react";
 import { Stepper } from "react-form-stepper";
+import { STEPS } from "../../utils/constants";
 
-const StepperComponent = ({ steps = [], activeStep }) => {
+const StepperComponent = ({ activeStep }) => {
   return (
     <>
       <Stepper
-        steps={steps}
+        steps={STEPS}
         activeStep={activeStep}
         styleConfig={{
           activeBgColor: "#2b7cff",
           activeTextColor: "#fff",
-          inactiveBgColor: "#fff",
-          inactiveTextColor: "#2b7cff",
-          completedBgColor: "#fff",
-          completedTextColor: "#2b7cff"
+          //   inactiveBgColor: "#9ca3af",
+          //   inactiveTextColor: "#fff",
+          completedBgColor: "#22c55e",
+          completedTextColor: "#fff"
         }}
-        className="text-xl"
+        className="text-base w-[min(700px,95vw)] m-auto mt-10"
         connectorStyleConfig={{
-          size: 3
+          size: 2,
+          disabledColor: "#9ca3af",
+          activeColor: "#9ca3af",
+          completedColor: "#9ca3af"
         }}
       />
     </>

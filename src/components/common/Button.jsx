@@ -9,7 +9,7 @@ const Button = ({ variant = "primary", children, className, ...props }) => {
     warning: "bg-yellow-500 border-yellow-500 hover:text-yellow-500",
     danger: "bg-red-500 border-red-500 hover:text-red-500",
     primaryOutline: "border-[#2b7cff] text-[#2b7cff] hover:bg-[#2b7cff] hover:text-white",
-    secondaryOutline: "border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-white",
+    secondaryOutline: "border-gray-700 hover:bg-gray-700 hover:text-black",
     successOutline: "border-green-500 text-green-500 hover:bg-green-500 hover:text-white",
     warningOutline: "border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white",
     dangerOutline: "border-red-500 text-red-500 hover:bg-red-500 hover:text-white",

@@ -26,22 +26,37 @@ const Input = ({
       <label
         htmlFor={id}
         className={`relative block rounded-md border border-gray-300 shadow focus-within:border-primary focus-within:ring-1 focus-within:ring-primary z-0 ${className}`}>
-        <input
-          type={type === "password" ? (showPass ? "text" : "password") : type}
-          id={id}
-          name={name}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          onBlur={onBlur}
-          autoComplete={autoComplete}
-          readOnly={readOnly}
-          autoFocus={autoFocus}
-          className={`peer border-none bg-transparent px-4 py-2 placeholder-transparent focus:placeholder-secondary focus:border-transparent focus:outline-none focus:ring-0 w-[min(24rem,85vw)] ${className}`}
-          {...props}
-        />
+        {type !== "textarea" ? (
+          <input
+            type={type === "password" ? (showPass ? "text" : "password") : type}
+            id={id}
+            name={name}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            onBlur={onBlur}
+            autoComplete={autoComplete}
+            readOnly={readOnly}
+            autoFocus={autoFocus}
+            className={`peer border-none bg-transparent px-4 py-2 placeholder-transparent focus:placeholder-secondary focus:border-transparent focus:outline-none focus:ring-0 w-[min(24rem,85vw)] ${className}`}
+            {...props}
+          />
+        ) : (
+          <textarea
+            id={id}
+            name={name}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            onBlur={onBlur}
+            readOnly={readOnly}
+            autoFocus={autoFocus}
+            rows={2}
+            className={`peer border-none bg-transparent px-4 py-2 placeholder-transparent focus:placeholder-secondary focus:border-transparent focus:outline-none focus:ring-0 w-[min(24rem,85vw)] ${className}`}
+            {...props}></textarea>
+        )}
 
-        <span className="pointer-events-none absolute start-2.5 top-0  -translate-y-1/2 text-base text-secondary transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm bg-white peer-focus:text-primary ">
+        <span className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 text-base text-secondary transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm bg-white peer-focus:text-primary ">
           {labelText}
         </span>
       </label>

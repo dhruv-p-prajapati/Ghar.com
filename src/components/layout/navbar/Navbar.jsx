@@ -72,8 +72,10 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div>
-        <div className={`fixed top-0 h-screen w-screen bg-black z-10  ${show ? "opacity-30" : "opacity-0 hidden"}`} onClick={toggleNavbar}></div>
+      <div className="ml-20">
+        <div
+          className={`fixed top-0 left-0 h-screen w-screen bg-black z-10  ${show ? "opacity-30" : "opacity-0 hidden"}`}
+          onClick={toggleNavbar}></div>
         <div
           className={`bg-primary fixed z-30 right-0 top-0 h-screen ${
             show ? "w-[min(80vw,300px)]" : "invisible md:visible w-[70px]"
