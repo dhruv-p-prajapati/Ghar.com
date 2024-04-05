@@ -1,13 +1,18 @@
 import React, { useEffect } from "react";
 import { FaRegBookmark } from "react-icons/fa";
+import { FaBookmark } from "react-icons/fa";
 import { MdCurrencyRupee } from "react-icons/md";
 import Button from "./Button";
 import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { updateUser } from "../../utils/axiosGloableInstance";
+import { setRole } from "../../redux/actions/roleAction";
 
 const PropertyCard = ({ property }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const { user } = useSelector((state) => state.role);
   const {
     id,
@@ -25,10 +30,59 @@ const PropertyCard = ({ property }) => {
     verifyStatusAdmin
   } = property;
 
-  const handleSavedProperty = () => {
+  const handleSavedProperty = async () => {
     if (user === null) {
       toast.warning("Please login to save properties");
       return;
+    } else {
+      const propertyExistsInSavedProperty = user?.savedProperties?.filter((currSavedProperty) => currSavedProperty.id === property?.id);
+
+      if (propertyExistsInSavedProperty.length === 0) {
+        console.log("Inside");
+        // Property not exists in Users
+        try {
+          const newUserObj = {
+            ...user,
+            savedProperties: [...user.savedProperties, property]
+          };
+
+          console.log(newUserObj);
+
+          const { success, error } = await updateUser(user.id, newUserObj);
+
+          if (success) {
+            dispatch(setRole("user", newUserObj));
+            toast.success("Added to saved properties");
+          } else {
+            console.log("Failed to save property " + error);
+            toast.error("Failed to save property");
+          }
+        } catch (error) {
+          console.log("Failed to save property " + error);
+        }
+      } else {
+        // Property already Exists. remove it from saved properties
+        const updatedSavedProperties = user.savedProperties.filter((currSavedProperty) => currSavedProperty.id !== property.id);
+
+        try {
+          const newUserObj = {
+            ...user,
+            savedProperties: updatedSavedProperties
+          };
+
+          const { success, error } = await updateUser(user.id, newUserObj);
+
+          if (success) {
+            dispatch(setRole("user", newUserObj));
+            toast.success("Removed from saved properties");
+          } else {
+            console.log("Failed to remove property " + error);
+            toast.error("Failed to remove property");
+          }
+        } catch (error) {
+          console.log("Failed to remove property " + error);
+        }
+      }
     }
   };
 
@@ -45,7 +99,11 @@ const PropertyCard = ({ property }) => {
             <div className="flex items-center gap-5">
               <div className="text-sm">{lookingFor === "Rent" ? <p>Available for Rent</p> : <p>Available for Sell</p>}</div>
               <div className="text-xl md:text-2xl cursor-pointer" onClick={handleSavedProperty}>
-                <FaRegBookmark />
+                {user !== null && user.savedProperties.some((currSavedProperty) => currSavedProperty.id === property?.id) ? (
+                  <FaBookmark />
+                ) : (
+                  <FaRegBookmark />
+                )}
               </div>
             </div>
           </div>

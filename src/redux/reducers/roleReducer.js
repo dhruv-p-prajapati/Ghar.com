@@ -13,7 +13,6 @@ const initialState = getItem() || {
 const roleReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_ROLE: {
-      console.log("inside");
       const { roleType, roleData } = action.payload;
       const newState = { ...state, isAuth: true, [roleType]: roleData };
       setItem(newState);

@@ -18,6 +18,7 @@ const ErrorPage = React.lazy(() => import("./../components/pages/ErrorPage/Error
 const CreateProperty = React.lazy(() => import("./../components/pages/CreateProperty/CreateProperty"));
 const AllProperties = React.lazy(() => import("../components/pages/AllProperties/AllProperties"));
 const PropertyDetail = React.lazy(() => import("../components/pages/PropertyDetail/PropertyDetail"));
+const SavedProperties = React.lazy(() => import("../components/pages/SavedProperties/SavedProperties"));
 
 const Routes = () => {
   const { user, builder, admin } = useSelector((state) => state.role);
@@ -57,6 +58,10 @@ const Routes = () => {
             {
               path: "user",
               element: <HomeUser />
+            },
+            {
+              path: "saved-properties",
+              element: <SavedProperties />
             }
           ]
         },
