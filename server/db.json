@@ -4,19 +4,134 @@
       "id": "1",
       "name": "Dhruv P",
       "email": "dhruv@example.com",
-      "password": "password123",
+      "password": "",
       "phNo": "9313914401",
       "amount": 10000,
-      "favouriteProperties": []
+      "savedProperties": [
+        {
+          "id": "5",
+          "lookingFor": "Sell",
+          "propertyType": "commercial",
+          "phNo": "9876543210",
+          "subPropertyType": "retail shop",
+          "name": "Dipak Heights",
+          "description": "It’s a 2 bhk independent house situated in Visnagar Road, Mahesana. It has a salable area of 1350 sqft and is available at a price of Rs. 2,592 per sqft. It is a 5 year old ready-to-move-in property. The society is well connected by different modes of transportation. Kindly call us for details.It’s a 2 bhk independent house situated in Visnagar Road, Mahesana. It has a salable area of 1350 sqft and is available at a price of Rs. 2,592 per sqft. It is a 5 year old ready-to-move-in property. The society is well connected by different modes of transportation. Kindly call us for details.",
+          "address": {
+            "streetNo": "25",
+            "addressLine": "dipak society",
+            "city": "visnagar",
+            "state": "gujarat"
+          },
+          "sqFt": 405,
+          "facing": "East",
+          "parking": 5,
+          "nearByPlaces": {
+            "school": 5,
+            "hospital": 8,
+            "bus": 0.5,
+            "shopppingMarket": 0.1
+          },
+          "furnished": "",
+          "bhk": "",
+          "amenitiesForResidential": {
+            "lift": false,
+            "cctv": false,
+            "gym": false,
+            "garden": false,
+            "swimmingPool": false,
+            "clubHouse": false
+          },
+          "amenitiesForCommercial": {
+            "lift": true,
+            "cctv": false,
+            "fireSafety": false,
+            "cafeteria": false,
+            "receptionArea": true
+          },
+          "amenitiesForLand": {
+            "powerBackup": false,
+            "waterStorage": false,
+            "farmHouse": false
+          },
+          "price": "",
+          "tokenAmount": "",
+          "negotiable": true,
+          "constructionStatus": "",
+          "verifyStatusAdmin": false,
+          "builderDetail": {
+            "id": "1",
+            "name": "Ravi Kumar",
+            "phNo": "9876543210"
+          }
+        }
+      ]
     },
     {
       "id": "2",
       "name": "Rahul Sharma",
       "email": "rahul@example.com",
-      "password": "password456",
+      "password": "",
       "phNo": "9876543210",
       "amount": 20000,
-      "favouriteProperties": []
+      "savedProperties": [
+        {
+          "id": "1",
+          "lookingFor": "Rent",
+          "propertyType": "residential",
+          "phNo": "9876543210",
+          "name": "Dhruv",
+          "description": "this ixndjbchb",
+          "address": {
+            "streetNo": "25",
+            "addressLine": "cdcbchd",
+            "city": "visnagar",
+            "state": "gujarat"
+          },
+          "sqFt": 800,
+          "facing": "North",
+          "parking": 2,
+          "nearByPlaces": {
+            "school": 2,
+            "hospital": 0.88,
+            "bus": 2,
+            "shopppingMarket": 2
+          },
+          "furnished": "Semi-Furnished",
+          "bhk": "3 BHK",
+          "amenitiesForResidential": {
+            "lift": false,
+            "cctv": false,
+            "gym": false,
+            "garden": true,
+            "swimmingPool": true,
+            "clubHouse": false
+          },
+          "amenitiesForCommercial": {
+            "Lift": "",
+            "Cctv": "",
+            "powerBackup": "",
+            "fireSafety": "",
+            "waterStorage": "",
+            "cafeteria": "",
+            "receptionArea": ""
+          },
+          "amenitiesForLand": {
+            "powerBackup": "",
+            "waterStorage": "",
+            "farmHouse": ""
+          },
+          "price": "",
+          "tokenAmount": "",
+          "negotiable": "",
+          "constructionStatus": "",
+          "verifyStatusAdmin": false,
+          "builderDetail": {
+            "id": "1",
+            "name": "Ravi Kumar",
+            "phNo": "9876543210"
+          }
+        }
+      ]
     },
     {
       "id": "3",
@@ -25,7 +140,7 @@
       "password": "password789",
       "phNo": "9870123456",
       "amount": 15000,
-      "favouriteProperties": []
+      "savedProperties": []
     },
     {
       "id": "4",
@@ -34,7 +149,7 @@
       "password": "passwordabc",
       "phNo": "9123456789",
       "amount": 25000,
-      "favouriteProperties": []
+      "savedProperties": []
     },
     {
       "id": "5",
@@ -43,7 +158,7 @@
       "password": "passwordxyz",
       "phNo": "8765432109",
       "amount": 30000,
-      "favouriteProperties": []
+      "savedProperties": []
     }
   ],
   "builders": [
@@ -128,7 +243,7 @@
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "propertyType": "residential",
       "subPropertyType": [
         "villa",
@@ -138,7 +253,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "propertyType": "commercial",
       "subPropertyType": [
         "office",
@@ -148,7 +263,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "propertyType": "land",
       "subPropertyType": [
         "agricultural land",
