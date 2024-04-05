@@ -3,9 +3,12 @@ import { FaRegBookmark } from "react-icons/fa";
 import { MdCurrencyRupee } from "react-icons/md";
 import Button from "./Button";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const PropertyCard = ({ property }) => {
-  console.log(property);
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.role);
   const {
     id,
     name,
@@ -22,7 +25,13 @@ const PropertyCard = ({ property }) => {
     verifyStatusAdmin
   } = property;
 
-  const navigate = useNavigate();
+  const handleSavedProperty = () => {
+    if (user === null) {
+      toast.warning("Please login to save properties");
+      return;
+    }
+  };
+
   return (
     <div className="flex flex-col px-4 w-[min(85vw,850px)] relative text-secondary text-xs font-medium shadow duration-300 hover:shadow hover:shadow-gray-600 rounded-md border border-gray-200">
       {verifyStatusAdmin && <div className="absolute top-2 left-2 text-base bg-success rounded-md py-1 px-2 text-white">Verified</div>}
@@ -35,7 +44,7 @@ const PropertyCard = ({ property }) => {
             <div className="font-semibold text-2xl">{name}</div>
             <div className="flex items-center gap-5">
               <div className="text-sm">{lookingFor === "Rent" ? <p>Available for Rent</p> : <p>Available for Sell</p>}</div>
-              <div className="text-xl md:text-2xl cursor-pointer">
+              <div className="text-xl md:text-2xl cursor-pointer" onClick={handleSavedProperty}>
                 <FaRegBookmark />
               </div>
             </div>
@@ -104,7 +113,7 @@ const PropertyCard = ({ property }) => {
           <Button className=" text-primary" variant="primaryOutline" onClick={() => navigate(`/property/${id}`)}>
             View Details
           </Button>
-          <Button>Book Now</Button>
+          {user !== null && <Button>Book Now</Button>}
         </div>
       </div>
     </div>

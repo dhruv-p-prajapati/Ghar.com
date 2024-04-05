@@ -21,7 +21,7 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
 
   const toggleNavbar = () => {
-    setShow((prev) => !prev);
+    show && setShow((prev) => !prev);
   };
 
   const handleLogOut = () => {
@@ -82,7 +82,7 @@ const Navbar = () => {
           } transition-all duration-1000 py-5 px-5 flex flex-col justify-between text-white overflow-y-auto`}>
           <div className="flex flex-col gap-4">
             <div className={`text-2xl cursor-pointer ${show ? "flex flex-row-reverse" : ""}`}>
-              <div onClick={toggleNavbar}>{show ? <AiOutlineClose /> : <BiAlignRight />}</div>
+              <div onClick={() => setShow(!show)}>{show ? <AiOutlineClose /> : <BiAlignRight />}</div>
             </div>
 
             <Links
