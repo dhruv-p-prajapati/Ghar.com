@@ -43,4 +43,6 @@ export const getAllProperties = () => API.get("properties");
 
 export const registerProperty = (propertyObj) => API.post("properties", propertyObj);
 
+export const getPropertyById = (propertyId) => API.get(`properties/${propertyId}`);
+
 export default API;
