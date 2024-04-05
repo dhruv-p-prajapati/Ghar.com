@@ -156,5 +156,235 @@
         "camping site"
       ]
     }
+  ],
+  "properties": [
+    {
+      "id": "1",
+      "lookingFor": "Rent",
+      "propertyType": "residential",
+      "phNo": "9876543210",
+      "name": "Dhruv",
+      "description": "this ixndjbchb",
+      "address": {
+        "streetNo": "25",
+        "addressLine": "cdcbchd",
+        "city": "visnagar",
+        "state": "gujarat"
+      },
+      "sqFt": 800,
+      "facing": "North",
+      "parking": 2,
+      "nearByPlaces": {
+        "school": 2,
+        "hospital": 0.88,
+        "bus": 2,
+        "shopppingMarket": 2
+      },
+      "furnished": "Semi-Furnished",
+      "bhk": "3 BHK",
+      "amenitiesForResidential": {
+        "lift": false,
+        "cctv": false,
+        "gym": false,
+        "garden": true,
+        "swimmingPool": true,
+        "clubHouse": false
+      },
+      "amenitiesForCommercial": {
+        "Lift": "",
+        "Cctv": "",
+        "powerBackup": "",
+        "fireSafety": "",
+        "waterStorage": "",
+        "cafeteria": "",
+        "receptionArea": ""
+      },
+      "amenitiesForLand": {
+        "powerBackup": "",
+        "waterStorage": "",
+        "farmHouse": ""
+      },
+      "price": "",
+      "tokenAmount": "",
+      "negotiable": "",
+      "constructionStatus": "",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "1",
+        "name": "Ravi Kumar",
+        "phNo": "9876543210"
+      }
+    },
+    {
+      "id": "2",
+      "lookingFor": "Sell",
+      "propertyType": "residential",
+      "phNo": "9876543210",
+      "name": "Bhimani Heights",
+      "description": "This is premium bunglows by Meet BHimani(bacany)",
+      "address": {
+        "streetNo": "012",
+        "addressLine": "jay ambe nagar",
+        "city": "ahmedabad",
+        "state": "gujarat"
+      },
+      "sqFt": 1000,
+      "facing": "South",
+      "parking": 3,
+      "nearByPlaces": {
+        "school": 0.5,
+        "hospital": 4,
+        "bus": 2,
+        "shopppingMarket": 9
+      },
+      "furnished": "Full-Furnished",
+      "bhk": "3 BHK",
+      "amenitiesForResidential": {
+        "lift": true,
+        "cctv": true,
+        "gym": true,
+        "garden": false,
+        "swimmingPool": true,
+        "clubHouse": false
+      },
+      "amenitiesForCommercial": {
+        "Lift": "",
+        "Cctv": "",
+        "powerBackup": "",
+        "fireSafety": "",
+        "waterStorage": "",
+        "cafeteria": "",
+        "receptionArea": ""
+      },
+      "amenitiesForLand": {
+        "powerBackup": "",
+        "waterStorage": "",
+        "farmHouse": ""
+      },
+      "price": "",
+      "tokenAmount": "",
+      "negotiable": "",
+      "constructionStatus": "",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "1",
+        "name": "Ravi Kumar",
+        "phNo": "9876543210"
+      }
+    },
+    {
+      "id": "3",
+      "lookingFor": "Sell",
+      "propertyType": "residential",
+      "phNo": "9876543210",
+      "name": "xjsxjnj",
+      "description": "xkskxnkxss",
+      "address": {
+        "streetNo": "25",
+        "addressLine": "xsjnjnj",
+        "city": "visnagar",
+        "state": "gujarat"
+      },
+      "sqFt": 850,
+      "facing": "East",
+      "parking": 2,
+      "nearByPlaces": {
+        "school": 1,
+        "hospital": 1,
+        "bus": 1,
+        "shopppingMarket": 5
+      },
+      "furnished": "Semi-Furnished",
+      "bhk": "1 BHK",
+      "amenitiesForResidential": {
+        "lift": true,
+        "cctv": true,
+        "gym": true,
+        "garden": true,
+        "swimmingPool": true,
+        "clubHouse": true
+      },
+      "amenitiesForCommercial": {
+        "lift": "",
+        "cctv": "",
+        "powerBackup": "",
+        "fireSafety": "",
+        "waterStorage": "",
+        "cafeteria": "",
+        "receptionArea": ""
+      },
+      "amenitiesForLand": {
+        "powerBackup": "",
+        "waterStorage": "",
+        "farmHouse": ""
+      },
+      "price": "",
+      "tokenAmount": "",
+      "negotiable": "",
+      "constructionStatus": "",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "1",
+        "name": "Ravi Kumar",
+        "phNo": "9876543210"
+      }
+    },
+    {
+      "id": "4",
+      "lookingFor": "Sell",
+      "propertyType": "residential",
+      "phNo": "9876543210",
+      "name": "cfhbbhyfc",
+      "description": "vfjnvjfjnvjvfj",
+      "address": {
+        "streetNo": "25",
+        "addressLine": "cdcbchd",
+        "city": "kxmskmxkm",
+        "state": "gujarat"
+      },
+      "sqFt": 850,
+      "facing": "North",
+      "parking": 2,
+      "nearByPlaces": {
+        "school": 458,
+        "hospital": 4,
+        "bus": 8,
+        "shopppingMarket": 44
+      },
+      "furnished": "Semi-Furnished",
+      "bhk": "1 BHK",
+      "amenitiesForResidential": {
+        "lift": false,
+        "cctv": false,
+        "gym": false,
+        "garden": false,
+        "swimmingPool": true,
+        "clubHouse": true
+      },
+      "amenitiesForCommercial": {
+        "lift": false,
+        "cctv": false,
+        "powerBackup": false,
+        "fireSafety": false,
+        "waterStorage": false,
+        "cafeteria": false,
+        "receptionArea": false
+      },
+      "amenitiesForLand": {
+        "powerBackup": false,
+        "waterStorage": false,
+        "farmHouse": false
+      },
+      "price": "",
+      "tokenAmount": "",
+      "negotiable": true,
+      "constructionStatus": "",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "1",
+        "name": "Ravi Kumar",
+        "phNo": "9876543210"
+      }
+    }
   ]
 }

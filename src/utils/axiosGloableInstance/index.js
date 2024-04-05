@@ -39,4 +39,8 @@ export const findBuilder = (email) => API.get(`builders?email=${email}`);
 
 export const getAllCategories = () => API.get("categories");
 
+export const getAllProperties = () => API.get("properties");
+
+export const registerProperty = (propertyObj) => API.post("properties", propertyObj);
+
 export default API;
