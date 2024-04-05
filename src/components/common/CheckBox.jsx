@@ -17,7 +17,7 @@ const CheckBox = ({ checkBoxData = [] }) => {
                   <p className="text-center">{checkbox.text}</p>
                 </div>
                 <div className="sr-only">
-                  <Field type="checkbox" name={checkbox.name} id={checkbox.id} checked={checkbox.value} />
+                  <Field type="checkbox" name={checkbox.name} id={checkbox.id} />
                 </div>
               </label>
             </div>
