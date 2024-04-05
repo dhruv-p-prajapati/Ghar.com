@@ -16,6 +16,8 @@ const CheckAuthentication = React.lazy(() => import("../utils/authCheckProtected
 const Login = React.lazy(() => import("../components/pages/login/Login"));
 const ErrorPage = React.lazy(() => import("./../components/pages/ErrorPage/ErrorPage"));
 const CreateProperty = React.lazy(() => import("./../components/pages/CreateProperty/CreateProperty"));
+const PropertyCard = React.lazy(() => import("../components/common/PropertyCard"));
+const AllProperties = React.lazy(() => import("../components/pages/AllProperties/AllProperties"));
 
 const Routes = () => {
   const { user, builder, admin } = useSelector((state) => state.role);
@@ -40,6 +42,14 @@ const Routes = () => {
         {
           path: "builder/register",
           element: <RegisterBuilder />
+        },
+        {
+          path: "/all-properties",
+          element: <AllProperties />
+        },
+        {
+          path: "property/:propertyId",
+          element: <PropertyCard />
         },
         {
           element: <AuthCheckUser isAuth={user !== null ? true : false} />,

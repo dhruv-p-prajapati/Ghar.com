@@ -21,7 +21,7 @@ export const publicLinks = [
   },
   {
     label: "All Products",
-    slug: "/all-products",
+    slug: "/all-properties",
     icon: <RiBuilding2Fill />
   },
   {
