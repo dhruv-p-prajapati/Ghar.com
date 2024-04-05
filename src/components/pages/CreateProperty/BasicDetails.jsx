@@ -3,6 +3,7 @@ import { Button, Input, RadioButton, StepperComponent } from "../../common";
 import { MdSell } from "react-icons/md";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
+import { STEPS } from "../../../utils/constants";
 
 const lookingFor = [
   {
@@ -42,12 +43,12 @@ const BasicDetails = ({ data, setData, nextStep, categories }) => {
   });
 
   const handleSubmit = (values) => {
-    console.log(values);
     nextStep(values);
   };
+
   return (
     <>
-      <StepperComponent activeStep={0} />
+      <StepperComponent steps={STEPS} activeStep={0} />
 
       <Formik
         initialValues={{
@@ -56,8 +57,7 @@ const BasicDetails = ({ data, setData, nextStep, categories }) => {
           phNo: data.phNo
         }}
         onSubmit={handleSubmit}
-        // validationSchema={basicDetailSchema}
-      >
+        validationSchema={basicDetailSchema}>
         {({ handleSubmit, handleChange, handleBlur, handleReset, values, errors, touched }) => (
           <div className="flex justify-center flex-col gap-5 items-center mt-10 sm:px-[5rem]">
             <div className="flex justify-center items-center lg:gap-24">
