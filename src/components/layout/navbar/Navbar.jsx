@@ -67,7 +67,7 @@ const Navbar = () => {
               </NavLink>
             </>
           )}
-          <li className="text-xl md:text-3xl cursor-pointer px-2 md:invisible" onClick={toggleNavbar}>
+          <li className="text-xl md:text-3xl cursor-pointer px-2 md:invisible" onClick={() => setShow(!show)}>
             <BiAlignRight />
           </li>
         </ul>

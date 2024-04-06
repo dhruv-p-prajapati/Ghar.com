@@ -278,79 +278,23 @@
       "lookingFor": "Rent",
       "propertyType": "residential",
       "phNo": "9876543210",
-      "name": "Dhruv",
-      "description": "this ixndjbchb",
+      "subPropertyType": "apartment",
+      "name": "Dhruv skyline bungalows",
+      "description": "This is  a new bungalows by dhruv prajapti and they are very beautyful",
       "address": {
         "streetNo": "25",
-        "addressLine": "cdcbchd",
+        "addressLine": "shrinagar society",
         "city": "visnagar",
         "state": "gujarat"
       },
-      "sqFt": 800,
+      "sqFt": 750,
       "facing": "North",
-      "parking": 2,
+      "parking": 5,
       "nearByPlaces": {
-        "school": 2,
-        "hospital": 0.88,
-        "bus": 2,
-        "shopppingMarket": 2
-      },
-      "furnished": "Semi-Furnished",
-      "bhk": "3 BHK",
-      "amenitiesForResidential": {
-        "lift": false,
-        "cctv": false,
-        "gym": false,
-        "garden": true,
-        "swimmingPool": true,
-        "clubHouse": false
-      },
-      "amenitiesForCommercial": {
-        "Lift": "",
-        "Cctv": "",
-        "powerBackup": "",
-        "fireSafety": "",
-        "waterStorage": "",
-        "cafeteria": "",
-        "receptionArea": ""
-      },
-      "amenitiesForLand": {
-        "powerBackup": "",
-        "waterStorage": "",
-        "farmHouse": ""
-      },
-      "price": "",
-      "tokenAmount": "",
-      "negotiable": "",
-      "constructionStatus": "",
-      "verifyStatusAdmin": false,
-      "builderDetail": {
-        "id": "1",
-        "name": "Ravi Kumar",
-        "phNo": "9876543210"
-      }
-    },
-    {
-      "id": "2",
-      "lookingFor": "Sell",
-      "propertyType": "residential",
-      "phNo": "9876543210",
-      "name": "Bhimani Heights",
-      "description": "This is premium bunglows by Meet BHimani(bacany)",
-      "address": {
-        "streetNo": "012",
-        "addressLine": "jay ambe nagar",
-        "city": "ahmedabad",
-        "state": "gujarat"
-      },
-      "sqFt": 1000,
-      "facing": "South",
-      "parking": 3,
-      "nearByPlaces": {
-        "school": 0.5,
-        "hospital": 4,
-        "bus": 2,
-        "shopppingMarket": 9
+        "school": 4.5,
+        "hospital": 0.5,
+        "bus": 1,
+        "shopppingMarket": 0.8
       },
       "furnished": "Full-Furnished",
       "bhk": "3 BHK",
@@ -358,123 +302,9 @@
         "lift": true,
         "cctv": true,
         "gym": true,
-        "garden": false,
-        "swimmingPool": true,
-        "clubHouse": false
-      },
-      "amenitiesForCommercial": {
-        "Lift": "",
-        "Cctv": "",
-        "powerBackup": "",
-        "fireSafety": "",
-        "waterStorage": "",
-        "cafeteria": "",
-        "receptionArea": ""
-      },
-      "amenitiesForLand": {
-        "powerBackup": "",
-        "waterStorage": "",
-        "farmHouse": ""
-      },
-      "price": "",
-      "tokenAmount": "",
-      "negotiable": "",
-      "constructionStatus": "",
-      "verifyStatusAdmin": false,
-      "builderDetail": {
-        "id": "1",
-        "name": "Ravi Kumar",
-        "phNo": "9876543210"
-      }
-    },
-    {
-      "id": "3",
-      "lookingFor": "Sell",
-      "propertyType": "residential",
-      "phNo": "9876543210",
-      "name": "xjsxjnj",
-      "description": "xkskxnkxss",
-      "address": {
-        "streetNo": "25",
-        "addressLine": "xsjnjnj",
-        "city": "visnagar",
-        "state": "gujarat"
-      },
-      "sqFt": 850,
-      "facing": "East",
-      "parking": 2,
-      "nearByPlaces": {
-        "school": 1,
-        "hospital": 1,
-        "bus": 1,
-        "shopppingMarket": 5
-      },
-      "furnished": "Semi-Furnished",
-      "bhk": "1 BHK",
-      "amenitiesForResidential": {
-        "lift": true,
-        "cctv": true,
-        "gym": true,
         "garden": true,
-        "swimmingPool": true,
-        "clubHouse": true
-      },
-      "amenitiesForCommercial": {
-        "lift": "",
-        "cctv": "",
-        "powerBackup": "",
-        "fireSafety": "",
-        "waterStorage": "",
-        "cafeteria": "",
-        "receptionArea": ""
-      },
-      "amenitiesForLand": {
-        "powerBackup": "",
-        "waterStorage": "",
-        "farmHouse": ""
-      },
-      "price": "",
-      "tokenAmount": "",
-      "negotiable": "",
-      "constructionStatus": "",
-      "verifyStatusAdmin": false,
-      "builderDetail": {
-        "id": "1",
-        "name": "Ravi Kumar",
-        "phNo": "9876543210"
-      }
-    },
-    {
-      "id": "4",
-      "lookingFor": "Sell",
-      "propertyType": "residential",
-      "phNo": "9876543210",
-      "name": "cfhbbhyfc",
-      "description": "vfjnvjfjnvjvfj",
-      "address": {
-        "streetNo": "25",
-        "addressLine": "cdcbchd",
-        "city": "kxmskmxkm",
-        "state": "gujarat"
-      },
-      "sqFt": 850,
-      "facing": "North",
-      "parking": 2,
-      "nearByPlaces": {
-        "school": 458,
-        "hospital": 4,
-        "bus": 8,
-        "shopppingMarket": 44
-      },
-      "furnished": "Semi-Furnished",
-      "bhk": "1 BHK",
-      "amenitiesForResidential": {
-        "lift": false,
-        "cctv": false,
-        "gym": false,
-        "garden": false,
-        "swimmingPool": true,
-        "clubHouse": true
+        "swimmingPool": false,
+        "clubHouse": false
       },
       "amenitiesForCommercial": {
         "lift": false,
@@ -490,66 +320,10 @@
         "waterStorage": false,
         "farmHouse": false
       },
-      "price": "",
-      "tokenAmount": "",
-      "negotiable": true,
-      "constructionStatus": "",
-      "verifyStatusAdmin": false,
-      "builderDetail": {
-        "id": "1",
-        "name": "Ravi Kumar",
-        "phNo": "9876543210"
-      }
-    },
-    {
-      "id": "5",
-      "lookingFor": "Sell",
-      "propertyType": "commercial",
-      "phNo": "9876543210",
-      "subPropertyType": "retail shop",
-      "name": "Dipak Heights",
-      "description": "It’s a 2 bhk independent house situated in Visnagar Road, Mahesana. It has a salable area of 1350 sqft and is available at a price of Rs. 2,592 per sqft. It is a 5 year old ready-to-move-in property. The society is well connected by different modes of transportation. Kindly call us for details.It’s a 2 bhk independent house situated in Visnagar Road, Mahesana. It has a salable area of 1350 sqft and is available at a price of Rs. 2,592 per sqft. It is a 5 year old ready-to-move-in property. The society is well connected by different modes of transportation. Kindly call us for details.",
-      "address": {
-        "streetNo": "25",
-        "addressLine": "dipak society",
-        "city": "visnagar",
-        "state": "gujarat"
-      },
-      "sqFt": 405,
-      "facing": "East",
-      "parking": 5,
-      "nearByPlaces": {
-        "school": 5,
-        "hospital": 8,
-        "bus": 0.5,
-        "shopppingMarket": 0.1
-      },
-      "furnished": "",
-      "bhk": "",
-      "amenitiesForResidential": {
-        "lift": false,
-        "cctv": false,
-        "gym": false,
-        "garden": false,
-        "swimmingPool": false,
-        "clubHouse": false
-      },
-      "amenitiesForCommercial": {
-        "lift": true,
-        "cctv": false,
-        "fireSafety": false,
-        "cafeteria": false,
-        "receptionArea": true
-      },
-      "amenitiesForLand": {
-        "powerBackup": false,
-        "waterStorage": false,
-        "farmHouse": false
-      },
-      "price": "",
-      "tokenAmount": "",
-      "negotiable": true,
-      "constructionStatus": "",
+      "price": 4500000,
+      "tokenAmount": 50000,
+      "negotiable": "Yes",
+      "constructionStatus": "Under Construction",
       "verifyStatusAdmin": false,
       "builderDetail": {
         "id": "1",

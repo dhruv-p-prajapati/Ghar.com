@@ -82,22 +82,26 @@ const CreateProperty = () => {
     setData((prevValues) => {
       return { ...prevValues, ...values };
     });
-    setCurrStep(currStep + 1);
+    currStep < 3 && setCurrStep(currStep + 1);
   };
 
   const prevStep = (values) => {
     setData((prevValues) => {
       return { ...prevValues, ...values };
     });
-    setCurrStep(currStep - 1);
+    currStep > 0 && setCurrStep(currStep - 1);
   };
 
-  const handleRegisterProperty = async () => {
+  const handleRegisterProperty = async (values) => {
     try {
       dispatch(setLoader(true));
 
       const propertyObj = {
         ...data,
+        price: values.price,
+        tokenAmount: values.tokenAmount,
+        negotiable: values.negotiable,
+        constructionStatus: values.constructionStatus,
         id: properties.length !== 0 ? (parseInt(properties[properties.length - 1].id) + 1).toString() : "1",
         verifyStatusAdmin: false,
         builderDetail: {
@@ -113,7 +117,7 @@ const CreateProperty = () => {
         toast.success("Property registered successfully");
         navigate("/builder");
       } else {
-        console.log("Failed to register property ".error);
+        console.log("Failed to register property ", error);
         toast.error("Problem for registering property, Please try after some time!");
       }
     } catch (error) {
