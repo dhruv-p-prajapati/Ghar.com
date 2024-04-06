@@ -239,8 +239,8 @@ const AmenitiesDetails = ({ data, nextStep, prevStep }) => {
   };
 
   const handleSubmit = (values) => {
-    console.log("Clicking");
     const newObj = generateNewObj(values);
+    console.log(newObj);
     nextStep(newObj);
   };
 
@@ -415,7 +415,6 @@ const AmenitiesDetails = ({ data, nextStep, prevStep }) => {
                       variant="secondary"
                       onClick={() => {
                         const newObj = generateNewObj(values);
-                        console.log(newObj);
                         prevStep(newObj);
                       }}>
                       Back

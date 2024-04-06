@@ -49,7 +49,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleRegisterProperty }) =>
 
     nextStep(newObj);
 
-    handleRegisterProperty();
+    handleRegisterProperty(values);
   };
   return (
     <div>
@@ -124,20 +124,16 @@ const PricingDetails = ({ data, prevStep, nextStep, handleRegisterProperty }) =>
                   <div className="flex gap-2">
                     <Button
                       variant="secondary"
-                      onClick={() =>
-                        prevStep({
+                      onClick={() => {
+                        const newObj = {
                           ...data,
-                          name: values.name,
-                          description: values.description,
-                          address: {
-                            streetNo: values.streetNo,
-                            addressLine: values.addressLine,
-                            city: values.city,
-                            state: values.state
-                          },
-                          sqFt: values.sqFt
-                        })
-                      }>
+                          price: values.price,
+                          tokenAmount: values.tokenAmount,
+                          negotiable: values.negotiable,
+                          constructionStatus: values.constructionStatus
+                        };
+                        prevStep(newObj);
+                      }}>
                       Back
                     </Button>
 
