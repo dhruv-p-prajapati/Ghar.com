@@ -45,7 +45,7 @@ const Navbar = () => {
   return (
     <>
       <div className="flex justify-center items-center ">
-        <div className="bg-primary bg-fixed h-16 w-screen md:w-[90vw] flex justify-between items-center px-4 md:px-10 md:rounded-b-2xl">
+        <div className="bg-primary bg-fixed h-16 w-screen flex justify-between items-center px-4 md:px-10 md:rounded-b-2xl">
           <div className="flex justify-center items-center">
             <NavLink to="/">
               <img src="/images/logo.png" alt="Main Logo" className="w-10 md:w-16" />
@@ -75,7 +75,9 @@ const Navbar = () => {
         </div>
       </div>
       <div>
-        <div className={`fixed top-0 left-0 h-screen w-screen bg-black z-10 opacity-50 ${!show && "hidden"}`} onClick={toggleNavbar}></div>
+        <div
+          className={`fixed top-0 left-0 h-screen w-screen duration-100 bg-white z-10 opacity-50 ${!show && "invisible"}`}
+          onClick={toggleNavbar}></div>
         <div
           className={`bg-primary fixed z-30 right-0 top-0 h-screen ${
             show ? "w-[min(80vw,250px)]" : "mr-[-100%]"

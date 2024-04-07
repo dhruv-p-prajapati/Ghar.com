@@ -35,18 +35,15 @@ const PropertyCard = ({ property }) => {
       toast.warning("Please login to save properties");
       return;
     } else {
-      const propertyExistsInSavedProperty = user?.savedProperties?.filter((currSavedProperty) => currSavedProperty.id === property?.id);
+      const propertyExistsInSavedProperty = user?.savedProperties?.filter((currSavedProperty) => currSavedProperty === property?.id);
 
       if (propertyExistsInSavedProperty.length === 0) {
-        console.log("Inside");
         // Property not exists in Users
         try {
           const newUserObj = {
             ...user,
-            savedProperties: [...user.savedProperties, property]
+            savedProperties: [...user.savedProperties, property.id]
           };
-
-          console.log(newUserObj);
 
           const { success, error } = await updateUser(user.id, newUserObj);
 
@@ -62,7 +59,7 @@ const PropertyCard = ({ property }) => {
         }
       } else {
         // Property already Exists. remove it from saved properties
-        const updatedSavedProperties = user.savedProperties.filter((currSavedProperty) => currSavedProperty.id !== property.id);
+        const updatedSavedProperties = user.savedProperties.filter((currSavedProperty) => currSavedProperty !== property.id);
 
         try {
           const newUserObj = {
@@ -98,13 +95,15 @@ const PropertyCard = ({ property }) => {
             <div className="font-semibold text-2xl">{name}</div>
             <div className="flex items-center gap-5">
               <div className="text-sm">{lookingFor === "Rent" ? <p>Available for Rent</p> : <p>Available for Sell</p>}</div>
-              <div className="text-xl md:text-2xl cursor-pointer" onClick={handleSavedProperty}>
-                {user !== null && user.savedProperties?.some((currSavedProperty) => currSavedProperty.id === property?.id) ? (
-                  <FaBookmark />
-                ) : (
-                  <FaRegBookmark />
-                )}
-              </div>
+              {user && (
+                <div className="text-xl md:text-2xl cursor-pointer" onClick={handleSavedProperty}>
+                  {user !== null && user.savedProperties?.some((currSavedProperty) => currSavedProperty === property?.id) ? (
+                    <FaBookmark />
+                  ) : (
+                    <FaRegBookmark />
+                  )}
+                </div>
+              )}
             </div>
           </div>
 
