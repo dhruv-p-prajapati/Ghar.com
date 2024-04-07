@@ -20,7 +20,7 @@ export const publicLinks = [
     icon: <FaHome />
   },
   {
-    label: "All Products",
+    label: "All Properties",
     slug: "/all-properties",
     icon: <RiBuilding2Fill />
   },
@@ -97,7 +97,7 @@ export const builderLinks = [
   },
   {
     label: "Listed Properties",
-    slug: "/builder-property",
+    slug: "/listed-property",
     icon: <TbBuildingCommunity />
   },
   {

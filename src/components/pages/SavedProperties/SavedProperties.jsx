@@ -8,7 +8,7 @@ const SavedProperties = () => {
   const { user } = useSelector((state) => state.role);
   const navigate = useNavigate();
 
-  if (user.savedProperties.length === 0) {
+  if (user.savedProperties?.length === 0) {
     return (
       <div className="flex flex-col gap-1 justify-center items-center h-[70vh]">
         <h2 className="text-lg font-semibold">You haven't saved any properties yet.</h2>

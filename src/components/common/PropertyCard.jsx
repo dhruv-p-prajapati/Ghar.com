@@ -99,7 +99,7 @@ const PropertyCard = ({ property }) => {
             <div className="flex items-center gap-5">
               <div className="text-sm">{lookingFor === "Rent" ? <p>Available for Rent</p> : <p>Available for Sell</p>}</div>
               <div className="text-xl md:text-2xl cursor-pointer" onClick={handleSavedProperty}>
-                {user !== null && user.savedProperties.some((currSavedProperty) => currSavedProperty.id === property?.id) ? (
+                {user !== null && user.savedProperties?.some((currSavedProperty) => currSavedProperty.id === property?.id) ? (
                   <FaBookmark />
                 ) : (
                   <FaRegBookmark />
