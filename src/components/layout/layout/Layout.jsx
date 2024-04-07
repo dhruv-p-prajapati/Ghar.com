@@ -7,7 +7,7 @@ const Layout = () => {
     <div>
       <Navbar />
 
-      <div className="md:w-[90vw] mx-auto">
+      <div className="mx-auto">
         <Outlet />
       </div>
 

@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import PropertyCard from "../../common/PropertyCard";
 import { Button } from "../../common";
 import { useNavigate } from "react-router";
+import { getAllProperties } from "../../../utils/axiosGloableInstance";
 
 const SavedProperties = () => {
-  const { user } = useSelector((state) => state.role);
   const navigate = useNavigate();
+  const { user } = useSelector((state) => state.role);
 
-  if (user.savedProperties?.length === 0) {
+  const [properties, setProperties] = useState([]);
+
+  const savedProperties = properties?.filter((property) => user.savedProperties.includes(property.id));
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await getAllProperties();
+      setProperties(data);
+    })();
+  }, []);
+
+  if (savedProperties.length === 0) {
     return (
       <div className="flex flex-col gap-1 justify-center items-center h-[70vh]">
         <h2 className="text-lg font-semibold">You haven't saved any properties yet.</h2>
@@ -20,7 +32,7 @@ const SavedProperties = () => {
 
   return (
     <div className="flex flex-col gap-10 justify-center items-center my-10">
-      {user?.savedProperties?.map((property) => {
+      {savedProperties.map((property) => {
         return <PropertyCard property={property} key={property.id} />;
       })}
     </div>

@@ -16,65 +16,7 @@
       "password": "",
       "phNo": "9876543210",
       "amount": 20000,
-      "savedProperties": [
-        {
-          "id": "1",
-          "lookingFor": "Rent",
-          "propertyType": "residential",
-          "phNo": "9876543210",
-          "name": "Dhruv",
-          "description": "this ixndjbchb",
-          "address": {
-            "streetNo": "25",
-            "addressLine": "cdcbchd",
-            "city": "visnagar",
-            "state": "gujarat"
-          },
-          "sqFt": 800,
-          "facing": "North",
-          "parking": 2,
-          "nearByPlaces": {
-            "school": 2,
-            "hospital": 0.88,
-            "bus": 2,
-            "shopppingMarket": 2
-          },
-          "furnished": "Semi-Furnished",
-          "bhk": "3 BHK",
-          "amenitiesForResidential": {
-            "lift": false,
-            "cctv": false,
-            "gym": false,
-            "garden": true,
-            "swimmingPool": true,
-            "clubHouse": false
-          },
-          "amenitiesForCommercial": {
-            "Lift": "",
-            "Cctv": "",
-            "powerBackup": "",
-            "fireSafety": "",
-            "waterStorage": "",
-            "cafeteria": "",
-            "receptionArea": ""
-          },
-          "amenitiesForLand": {
-            "powerBackup": "",
-            "waterStorage": "",
-            "farmHouse": ""
-          },
-          "price": "",
-          "tokenAmount": "",
-          "negotiable": "",
-          "constructionStatus": "",
-          "verifyStatusAdmin": false,
-          "builderDetail": {
-            "id": "1",
-            "name": "Ravi Kumar",
-            "phNo": "9876543210"
-          }
-        }
-      ]
+      "savedProperties": []
     },
     {
       "id": "3",
@@ -113,7 +55,10 @@
       "cpassword": "password123",
       "phNo": "9876543210",
       "reraId": "RERAGJ12345",
-      "panNo": "ABCDE1234F"
+      "panNo": "ABCDE1234F",
+      "listedProperties": [
+        "1"
+      ]
     },
     {
       "id": "2",
@@ -123,7 +68,8 @@
       "cpassword": "password456",
       "phNo": "9123456789",
       "reraId": "RERAGJ67890",
-      "panNo": "FGHIJ5678K"
+      "panNo": "FGHIJ5678K",
+      "listedProperties": []
     },
     {
       "id": "3",
@@ -133,7 +79,8 @@
       "cpassword": "password789",
       "phNo": "8765432109",
       "reraId": "RERAGJ24680",
-      "panNo": "LMNOP9012L"
+      "panNo": "LMNOP9012L",
+      "listedProperties": []
     },
     {
       "id": "4",
@@ -143,7 +90,8 @@
       "cpassword": "passwordabc",
       "phNo": "9870123456",
       "reraId": "RERAGJ13579",
-      "panNo": "QRSTUV3456M"
+      "panNo": "QRSTUV3456M",
+      "listedProperties": []
     },
     {
       "id": "5",
@@ -153,7 +101,8 @@
       "cpassword": "passwordxyz",
       "phNo": "7890123456",
       "reraId": "RERAGJ80246",
-      "panNo": "WXYZAB7890N"
+      "panNo": "WXYZAB7890N",
+      "listedProperties": []
     },
     {
       "id": "6",
