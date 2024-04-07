@@ -44,42 +44,42 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-primary bg-fixed h-16 flex justify-between items-center px-4 md:px-10">
-        <div className="flex justify-center items-center">
-          <NavLink to="/">
-            <img src="/images/logo.png" alt="Main Logo" className="w-10 md:w-16" />
-          </NavLink>
-          <NavLink to="/">
-            <h3 className="text-xl md:text-3xl text-white font-bold">Ghar.com</h3>
-          </NavLink>
-        </div>
+      <div className="flex justify-center items-center ">
+        <div className="bg-primary bg-fixed h-16 w-screen md:w-[90vw] flex justify-between items-center px-4 md:px-10 md:rounded-b-2xl">
+          <div className="flex justify-center items-center">
+            <NavLink to="/">
+              <img src="/images/logo.png" alt="Main Logo" className="w-10 md:w-16" />
+            </NavLink>
+            <NavLink to="/">
+              <h3 className="text-xl md:text-3xl text-white font-bold">Ghar.com</h3>
+            </NavLink>
+          </div>
 
-        <ul className="flex justify-between items-center gap-10 font-bold text-white">
-          {!isAuth && (
-            <>
-              <NavLink to="/builder/register" className="hidden md:flex justify-center items-center gap-1">
-                <FaBuildingUser className="text-xl" />
-                Become a Builder
-              </NavLink>
-              <NavLink to="/login" className="hidden md:flex justify-center items-center gap-1">
-                <FaRegUserCircle className="text-xl" />
-                Login
-              </NavLink>
-            </>
-          )}
-          <li className="text-xl md:text-3xl cursor-pointer px-2 md:invisible" onClick={() => setShow(!show)}>
-            <BiAlignRight />
-          </li>
-        </ul>
+          <ul className="flex justify-between items-center gap-10 font-bold text-white">
+            {!isAuth && (
+              <>
+                <NavLink to="/builder/register" className="hidden md:flex justify-center items-center gap-1">
+                  <FaBuildingUser className="text-xl" />
+                  Become a Builder
+                </NavLink>
+                <NavLink to="/login" className="hidden md:flex justify-center items-center gap-1">
+                  <FaRegUserCircle className="text-xl" />
+                  Login
+                </NavLink>
+              </>
+            )}
+            <li className="text-xl md:text-3xl cursor-pointer px-2 " onClick={() => setShow(!show)}>
+              <BiAlignRight />
+            </li>
+          </ul>
+        </div>
       </div>
-      <div className="ml-20">
-        <div
-          className={`fixed top-0 left-0 h-screen w-screen bg-black z-10  ${show ? "opacity-30" : "opacity-0 hidden"}`}
-          onClick={toggleNavbar}></div>
+      <div>
+        <div className={`fixed top-0 left-0 h-screen w-screen bg-black z-10 opacity-50 ${!show && "hidden"}`} onClick={toggleNavbar}></div>
         <div
           className={`bg-primary fixed z-30 right-0 top-0 h-screen ${
-            show ? "w-[min(80vw,300px)]" : "invisible md:visible w-[70px]"
-          } transition-all duration-1000 py-5 px-5 flex flex-col justify-between text-white overflow-y-auto`}>
+            show ? "w-[min(80vw,250px)]" : "mr-[-100%]"
+          } transition-all duration-500 py-5 px-5 flex flex-col justify-between text-white overflow-y-auto`}>
           <div className="flex flex-col gap-4">
             <div className={`text-2xl cursor-pointer ${show ? "flex flex-row-reverse" : ""}`}>
               <div onClick={() => setShow(!show)}>{show ? <AiOutlineClose /> : <BiAlignRight />}</div>

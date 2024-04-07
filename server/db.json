@@ -7,64 +7,7 @@
       "password": "",
       "phNo": "9313914401",
       "amount": 10000,
-      "savedProperties": [
-        {
-          "id": "5",
-          "lookingFor": "Sell",
-          "propertyType": "commercial",
-          "phNo": "9876543210",
-          "subPropertyType": "retail shop",
-          "name": "Dipak Heights",
-          "description": "It’s a 2 bhk independent house situated in Visnagar Road, Mahesana. It has a salable area of 1350 sqft and is available at a price of Rs. 2,592 per sqft. It is a 5 year old ready-to-move-in property. The society is well connected by different modes of transportation. Kindly call us for details.It’s a 2 bhk independent house situated in Visnagar Road, Mahesana. It has a salable area of 1350 sqft and is available at a price of Rs. 2,592 per sqft. It is a 5 year old ready-to-move-in property. The society is well connected by different modes of transportation. Kindly call us for details.",
-          "address": {
-            "streetNo": "25",
-            "addressLine": "dipak society",
-            "city": "visnagar",
-            "state": "gujarat"
-          },
-          "sqFt": 405,
-          "facing": "East",
-          "parking": 5,
-          "nearByPlaces": {
-            "school": 5,
-            "hospital": 8,
-            "bus": 0.5,
-            "shopppingMarket": 0.1
-          },
-          "furnished": "",
-          "bhk": "",
-          "amenitiesForResidential": {
-            "lift": false,
-            "cctv": false,
-            "gym": false,
-            "garden": false,
-            "swimmingPool": false,
-            "clubHouse": false
-          },
-          "amenitiesForCommercial": {
-            "lift": true,
-            "cctv": false,
-            "fireSafety": false,
-            "cafeteria": false,
-            "receptionArea": true
-          },
-          "amenitiesForLand": {
-            "powerBackup": false,
-            "waterStorage": false,
-            "farmHouse": false
-          },
-          "price": "",
-          "tokenAmount": "",
-          "negotiable": true,
-          "constructionStatus": "",
-          "verifyStatusAdmin": false,
-          "builderDetail": {
-            "id": "1",
-            "name": "Ravi Kumar",
-            "phNo": "9876543210"
-          }
-        }
-      ]
+      "savedProperties": []
     },
     {
       "id": "2",
