@@ -6,16 +6,20 @@ import Button from "./Button";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { updateProperty, updateUser } from "../../utils/axiosGloableInstance";
+import { getAllRequests, updateProperty, updateUser } from "../../utils/axiosGloableInstance";
 import { setRole } from "../../redux/actions/roleAction";
 import ConfirmVerifyUnverifyModel from "./ConfirmVerifyUnverifyModel";
 import handleVerifyUnverify from "../../utils/commonFunctions/handleVerifyUnverify";
+import bookProperty from "../../utils/commonFunctions/bookProperty";
+import CommonBookConfirmation from "./CommonBookConfirmation";
 
 const PropertyCard = ({ property }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [showConfirmationModel, setShowConfirmationModel] = useState(false);
+  const [showBookConfirmation, setShowBookConfirmation] = useState(false);
+  const [requests, setRequests] = useState([]);
 
   const { user, admin } = useSelector((state) => state.role);
   const {
@@ -87,8 +91,15 @@ const PropertyCard = ({ property }) => {
     }
   };
 
+  useEffect(() => {
+    (async () => {
+      const { data } = await getAllRequests();
+      setRequests(data);
+    })();
+  }, []);
+
   return (
-    <div className="flex flex-col px-4 w-[min(85vw,850px)] relative text-secondary text-xs overflow-hidden font-medium shadow duration-300 hover:shadow hover:shadow-gray-600 rounded-md border border-gray-200">
+    <div className="flex flex-col px-4 w-[min(85vw,850px)] relative text-secondary text-xs overflow-hidden font-medium shadow duration-300 rounded-md border border-gray-200">
       {verifyStatusAdmin && (
         <div className="absolute top-5 -rotate-45 -left-8 text-base bg-success z-10 rounded-md py-1 px-7 text-white flex justify-between items-center gap-1">
           <div>
@@ -102,10 +113,20 @@ const PropertyCard = ({ property }) => {
           <img src="/images/main.jpg" alt="" className="duration-300 hover:scale-105 w-[85vw] md:w-[400px] rounded-md h-full " />
         </div>
         <div className="flex flex-col gap-2 md:gap-3 w-full">
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <div className="font-semibold text-2xl">{name}</div>
-            <div className="flex items-center gap-5">
-              <div className="text-sm">{lookingFor === "Rent" ? <p>Available for Rent</p> : <p>Available for Sell</p>}</div>
+            <div className="flex items-center justify-center gap-2">
+              {property?.bookedBy?.booked === true ? (
+                <div
+                  className={`text-sm border px-2 py-1 text-white rounded-md ${
+                    property?.bookedBy?.id === user?.id ? "bg-success border-success" : "bg-danger border-danger"
+                  } `}>
+                  {property?.bookedBy?.id === user?.id ? "Already Booked" : "SOLD"}
+                </div>
+              ) : (
+                <div className="text-sm">{lookingFor === "Rent" ? <p>Available for Rent</p> : <p>Available for Sell</p>}</div>
+              )}
+
               {user && (
                 <div className="text-xl md:text-2xl cursor-pointer" onClick={handleSavedProperty}>
                   {user !== null && user.savedProperties?.some((currSavedProperty) => currSavedProperty === property?.id) ? (
@@ -181,7 +202,20 @@ const PropertyCard = ({ property }) => {
           <Button className=" text-primary" variant="primaryOutline" onClick={() => navigate(`/property/${id}`)}>
             View Details
           </Button>
-          {user !== null && <Button>Book Now</Button>}
+          {showBookConfirmation && (
+            <CommonBookConfirmation
+              showBookConfirmation={showBookConfirmation}
+              setShowBookConfirmation={setShowBookConfirmation}
+              bookProperty={bookProperty}
+              user={user}
+              builder={builderDetail}
+              property={property}
+              requests={requests}
+            />
+          )}
+          {user !== null && !(property?.bookedBy?.booked === true) && (
+            <Button onClick={() => setShowBookConfirmation(!showBookConfirmation)}>Book Now</Button>
+          )}
 
           {showConfirmationModel && (
             <ConfirmVerifyUnverifyModel
