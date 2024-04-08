@@ -1,19 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
-import { MdCurrencyRupee } from "react-icons/md";
+import { MdCurrencyRupee, MdVerified } from "react-icons/md";
 import Button from "./Button";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { updateUser } from "../../utils/axiosGloableInstance";
+import { updateProperty, updateUser } from "../../utils/axiosGloableInstance";
 import { setRole } from "../../redux/actions/roleAction";
+import ConfirmVerifyUnverifyModel from "./ConfirmVerifyUnverifyModel";
+import handleVerifyUnverify from "../../utils/commonFunctions/handleVerifyUnverify";
 
 const PropertyCard = ({ property }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.role);
+  const [showConfirmationModel, setShowConfirmationModel] = useState(false);
+
+  const { user, admin } = useSelector((state) => state.role);
   const {
     id,
     name,
@@ -84,8 +88,15 @@ const PropertyCard = ({ property }) => {
   };
 
   return (
-    <div className="flex flex-col px-4 w-[min(85vw,850px)] relative text-secondary text-xs font-medium shadow duration-300 hover:shadow hover:shadow-gray-600 rounded-md border border-gray-200">
-      {verifyStatusAdmin && <div className="absolute top-2 left-2 text-base bg-success rounded-md py-1 px-2 text-white">Verified</div>}
+    <div className="flex flex-col px-4 w-[min(85vw,850px)] relative text-secondary text-xs overflow-hidden font-medium shadow duration-300 hover:shadow hover:shadow-gray-600 rounded-md border border-gray-200">
+      {verifyStatusAdmin && (
+        <div className="absolute top-5 -rotate-45 -left-8 text-base bg-success z-10 rounded-md py-1 px-7 text-white flex justify-between items-center gap-1">
+          <div>
+            <MdVerified />
+          </div>
+          <p>Verified </p>
+        </div>
+      )}
       <div className="flex flex-col md:flex-row w-full gap-4 md:gap-8 py-2 md:py-4">
         <div className="flex justify-center items-center overflow-hidden rounded-md border border-gray-100">
           <img src="/images/main.jpg" alt="" className="duration-300 hover:scale-105 w-[85vw] md:w-[400px] rounded-md h-full " />
@@ -116,7 +127,7 @@ const PropertyCard = ({ property }) => {
               <div className="text-sm">{lookingFor === "Rent" ? "Monthly Rent" : "Expected Price"} - </div>
 
               <div className="flex items-center justify-center">
-                <div className="text-base md:text-lg font-bold">{price || 5602}</div>
+                <div className="text-base md:text-lg font-bold">{price}</div>
                 <div className="text-base md:text-lg">
                   <MdCurrencyRupee />
                 </div>
@@ -126,7 +137,7 @@ const PropertyCard = ({ property }) => {
             <div className="flex gap-2 items-center justify-center">
               <div className="text-sm">Token amount - </div>
               <div className="flex items-center justify-center">
-                <div className="text-base md:text-lg font-bold">{tokenAmount || 5602}</div>
+                <div className="text-base md:text-lg font-bold">{tokenAmount}</div>
                 <div className="text-base md:text-lg">
                   <MdCurrencyRupee />
                 </div>
@@ -171,6 +182,27 @@ const PropertyCard = ({ property }) => {
             View Details
           </Button>
           {user !== null && <Button>Book Now</Button>}
+
+          {showConfirmationModel && (
+            <ConfirmVerifyUnverifyModel
+              showConfirmationModel={showConfirmationModel}
+              setShowConfirmationModel={setShowConfirmationModel}
+              handleVerifyUnverify={handleVerifyUnverify}
+              status={verifyStatusAdmin === false ? true : false}
+              property={property}
+            />
+          )}
+          {admin !== null && (
+            <div>
+              {verifyStatusAdmin === false ? (
+                <Button onClick={() => setShowConfirmationModel(!showConfirmationModel)}>Verify Property</Button>
+              ) : (
+                <Button variant="danger" onClick={() => setShowConfirmationModel(!showConfirmationModel)}>
+                  Unverify Property
+                </Button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

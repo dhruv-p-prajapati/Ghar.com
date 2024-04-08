@@ -4,10 +4,11 @@ import BasicDetails from "./BasicDetails";
 import PropertyDetails from "./PropertyDetails";
 import AmenitiesDetails from "./AmenitiesDetails";
 import PricingDetails from "./PricingDetails";
-import { getAllCategories, getAllProperties, registerProperty } from "../../../utils/axiosGloableInstance";
+import { getAllCategories, getAllProperties, registerProperty, updateBuilder } from "../../../utils/axiosGloableInstance";
 import { setLoader } from "../../../redux/actions/appAction";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import { setRole } from "../../../redux/actions/roleAction";
 
 const CreateProperty = () => {
   const { builder } = useSelector((state) => state.role);
@@ -114,6 +115,12 @@ const CreateProperty = () => {
       const { success, error } = await registerProperty(propertyObj);
 
       if (success) {
+        const builderObj = {
+          ...builder,
+          listedProperties: [...builder.listedProperties, propertyObj.id]
+        };
+        dispatch(setRole("builder", builderObj));
+        await updateBuilder(builder.id, builderObj);
         toast.success("Property registered successfully");
         navigate("/builder");
       } else {

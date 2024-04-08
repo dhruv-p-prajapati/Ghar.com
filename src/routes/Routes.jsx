@@ -20,6 +20,7 @@ const AllProperties = React.lazy(() => import("../components/pages/AllProperties
 const PropertyDetail = React.lazy(() => import("../components/pages/PropertyDetail/PropertyDetail"));
 const SavedProperties = React.lazy(() => import("../components/pages/SavedProperties/SavedProperties"));
 const ListedProperties = React.lazy(() => import("../components/pages/ListedProperties/ListedProperties"));
+const ReviewRequest = React.lazy(() => import("../components/pages/ReviewRequest/ReviewRequest"));
 
 const Routes = () => {
   const { user, builder, admin } = useSelector((state) => state.role);
@@ -89,6 +90,10 @@ const Routes = () => {
             {
               path: "admin",
               element: <HomeAdmin />
+            },
+            {
+              path: "review-request",
+              element: <ReviewRequest />
             }
           ]
         },
