@@ -9,19 +9,18 @@ import { toast } from "react-toastify";
 import { getAllRequests, updateProperty, updateUser } from "../../utils/axiosGloableInstance";
 import { setRole } from "../../redux/actions/roleAction";
 import ConfirmVerifyUnverifyModel from "./ConfirmVerifyUnverifyModel";
-import handleVerifyUnverify from "../../utils/commonFunctions/handleVerifyUnverify";
+// import handleVerifyUnverify from "../../utils/commonFunctions/handleVerifyUnverify";
 import bookProperty from "../../utils/commonFunctions/bookProperty";
 import CommonBookConfirmation from "./CommonBookConfirmation";
 
-const PropertyCard = ({ property }) => {
+const PropertyCard = ({ property, requests }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [showConfirmationModel, setShowConfirmationModel] = useState(false);
   const [showBookConfirmation, setShowBookConfirmation] = useState(false);
-  const [requests, setRequests] = useState([]);
 
-  const { user, admin } = useSelector((state) => state.role);
+  const { user, admin, builder } = useSelector((state) => state.role);
   const {
     id,
     name,
@@ -91,13 +90,6 @@ const PropertyCard = ({ property }) => {
     }
   };
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await getAllRequests();
-      setRequests(data);
-    })();
-  }, []);
-
   return (
     <div className="flex flex-col px-4 w-[min(85vw,850px)] relative text-secondary text-xs overflow-hidden font-medium shadow duration-300 rounded-md border border-gray-200">
       {verifyStatusAdmin && (
@@ -117,12 +109,16 @@ const PropertyCard = ({ property }) => {
             <div className="font-semibold text-2xl">{name}</div>
             <div className="flex items-center justify-center gap-2">
               {property?.bookedBy?.booked === true ? (
-                <div
-                  className={`text-sm border px-2 py-1 text-white rounded-md ${
-                    property?.bookedBy?.id === user?.id ? "bg-success border-success" : "bg-danger border-danger"
-                  } `}>
-                  {property?.bookedBy?.id === user?.id ? "Already Booked" : "SOLD"}
-                </div>
+                builder !== null ? (
+                  <div className="text-base bg-primary text-white py-1 px-2 rounded-md">Booked by - {property?.bookedBy.name}</div>
+                ) : (
+                  <div
+                    className={`text-sm border px-2 py-1 text-white rounded-md ${
+                      property?.bookedBy?.id === user?.id ? "bg-success border-success" : "bg-danger border-danger"
+                    } `}>
+                    {property?.bookedBy?.id === user?.id ? "Already Booked" : "SOLD"}
+                  </div>
+                )
               ) : (
                 <div className="text-sm">{lookingFor === "Rent" ? <p>Available for Rent</p> : <p>Available for Sell</p>}</div>
               )}
@@ -206,7 +202,6 @@ const PropertyCard = ({ property }) => {
             <CommonBookConfirmation
               showBookConfirmation={showBookConfirmation}
               setShowBookConfirmation={setShowBookConfirmation}
-              bookProperty={bookProperty}
               user={user}
               builder={builderDetail}
               property={property}
@@ -217,11 +212,14 @@ const PropertyCard = ({ property }) => {
             <Button onClick={() => setShowBookConfirmation(!showBookConfirmation)}>Book Now</Button>
           )}
 
+          {builder !== null && builder.id === property?.builderDetail?.id && !(property?.bookedBy?.booked === true) && (
+            <Button onClick={() => navigate(`/update-property/${property?.id}`)}>Edit</Button>
+          )}
+
           {showConfirmationModel && (
             <ConfirmVerifyUnverifyModel
               showConfirmationModel={showConfirmationModel}
               setShowConfirmationModel={setShowConfirmationModel}
-              handleVerifyUnverify={handleVerifyUnverify}
               status={verifyStatusAdmin === false ? true : false}
               property={property}
             />

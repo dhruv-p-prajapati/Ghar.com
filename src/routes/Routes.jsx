@@ -7,6 +7,7 @@ import AuthCheckBuilder from "../utils/authCheckProtectedRoutes/AuthCheckBuilder
 import AuthCheckAdmin from "../utils/authCheckProtectedRoutes/AuthCheckAdmin";
 import HomeAdmin from "../components/pages/home/HomeAdmin";
 import HomeBuilder from "../components/pages/home/HomeBuilder";
+import UpdateProperty from "../components/pages/UpdateProperty/UpdateProperty";
 const Layout = React.lazy(() => import("../components/layout/layout/Layout"));
 const RegisterBuilder = React.lazy(() => import("../components/pages/register/RegisterBuilder"));
 const RegisterUser = React.lazy(() => import("../components/pages/register/RegisterUser"));
@@ -21,6 +22,7 @@ const PropertyDetail = React.lazy(() => import("../components/pages/PropertyDeta
 const SavedProperties = React.lazy(() => import("../components/pages/SavedProperties/SavedProperties"));
 const ListedProperties = React.lazy(() => import("../components/pages/ListedProperties/ListedProperties"));
 const ReviewRequest = React.lazy(() => import("../components/pages/ReviewRequest/ReviewRequest"));
+// const UpdateProperty = React.lazy(() => import("../components/pages/UpdateProperty/UpdateProperty"));
 
 const Routes = () => {
   const { user, builder, admin } = useSelector((state) => state.role);
@@ -77,6 +79,10 @@ const Routes = () => {
             {
               path: "create-property",
               element: <CreateProperty />
+            },
+            {
+              path: "update-property/:propertyId",
+              element: <UpdateProperty />
             },
             {
               path: "listed-property",

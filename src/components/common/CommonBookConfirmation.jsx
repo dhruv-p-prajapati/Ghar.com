@@ -6,9 +6,12 @@ import * as yup from "yup";
 import { Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { setRole } from "../../redux/actions/roleAction";
+import bookProperty from "../../utils/commonFunctions/bookProperty";
+import { useNavigate } from "react-router-dom";
 
-const CommonBookConfirmation = ({ showBookConfirmation, setShowBookConfirmation, bookProperty, user, builder, property }) => {
+const CommonBookConfirmation = ({ showBookConfirmation, setShowBookConfirmation, user, builder, property }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const bookPropertySchema = yup.object({
     amountPaid: yup
@@ -25,6 +28,7 @@ const CommonBookConfirmation = ({ showBookConfirmation, setShowBookConfirmation,
     if (userObj) {
       dispatch(setRole("user", userObj));
     }
+    navigate("/");
   };
   return (
     <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 grid place-items-center w-screen h-screen z-50 bg-[rgba(0,0,0,0.2)]">

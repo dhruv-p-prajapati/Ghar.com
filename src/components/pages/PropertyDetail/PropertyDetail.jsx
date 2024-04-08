@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { getPropertyById } from "../../../utils/axiosGloableInstance";
-import { FaMapLocationDot } from "react-icons/fa6";
-import { MdCurrencyRupee, MdOutlineCurrencyRupee, MdVerified } from "react-icons/md";
-import { Button, Checkbox } from "../../common";
+import { getAllRequests, getPropertyById } from "../../../utils/axiosGloableInstance";
+import { MdOutlineCurrencyRupee, MdVerified } from "react-icons/md";
+import { Button } from "../../common";
 import { useSelector } from "react-redux";
 import handleVerifyUnverify from "../../../utils/commonFunctions/handleVerifyUnverify";
 import ConfirmVerifyUnverifyModel from "../../common/ConfirmVerifyUnverifyModel";
@@ -45,10 +44,11 @@ const PropertyDetail = () => {
   const { propertyId } = useParams();
   const navigate = useNavigate();
 
-  const { user, admin } = useSelector((state) => state.role);
+  const { user, admin, builder } = useSelector((state) => state.role);
 
   const [showConfirmationModel, setShowConfirmationModel] = useState(false);
   const [showBookConfirmation, setShowBookConfirmation] = useState(false);
+
   const [requests, setRequests] = useState([]);
   const [property, setProperty] = useState();
 
@@ -199,13 +199,6 @@ const PropertyDetail = () => {
       text: "Farm House"
     }
   ];
-
-  useEffect(() => {
-    (async () => {
-      const { data } = await getAllRequests();
-      setRequests(data);
-    })();
-  }, []);
 
   useEffect(() => {
     (async () => {
@@ -360,7 +353,7 @@ const PropertyDetail = () => {
             </p>
           </div>
           <div className="flex gap-3">
-            <Button variant="primaryOutline" onClick={() => navigate("/")}>
+            <Button variant="secondaryOutline" onClick={() => navigate("/")}>
               Back
             </Button>
 
@@ -368,7 +361,6 @@ const PropertyDetail = () => {
               <CommonBookConfirmation
                 showBookConfirmation={showBookConfirmation}
                 setShowBookConfirmation={setShowBookConfirmation}
-                bookProperty={bookProperty}
                 user={user}
                 builder={property?.builderDetail}
                 property={property}
@@ -376,16 +368,18 @@ const PropertyDetail = () => {
               />
             )}
 
-            {/* {user !== null && <Button>Book Now</Button>} */}
             {user !== null && !(property?.bookedBy?.booked === true) && (
               <Button onClick={() => setShowBookConfirmation(!showBookConfirmation)}>Book Now</Button>
+            )}
+
+            {builder !== null && builder.id === property?.builderDetail?.id && !(property?.bookedBy?.booked === true) && (
+              <Button onClick={() => navigate(`/update-property/${property?.id}`)}>Edit</Button>
             )}
 
             {showConfirmationModel && (
               <ConfirmVerifyUnverifyModel
                 showConfirmationModel={showConfirmationModel}
                 setShowConfirmationModel={setShowConfirmationModel}
-                handleVerifyUnverify={handleVerifyUnverify}
                 status={property?.verifyStatusAdmin === false ? true : false}
                 property={property}
               />

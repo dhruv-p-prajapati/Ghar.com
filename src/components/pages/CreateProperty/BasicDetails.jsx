@@ -29,7 +29,7 @@ const basicDetailSchema = yup.object({
   phNo: yup.string().required("*required").matches(phNoRules, "*Phone No. is not valid")
 });
 
-const BasicDetails = ({ data, setData, nextStep, categories }) => {
+const BasicDetails = ({ data, setData, nextStep, categories, property }) => {
   categories?.map((category) => {
     const categoryExists = categoriesLinks?.findIndex((currCategory) => currCategory?.id === category?.propertyType);
     if (categoryExists === -1) {
@@ -49,12 +49,11 @@ const BasicDetails = ({ data, setData, nextStep, categories }) => {
   return (
     <>
       <StepperComponent steps={STEPS} activeStep={0} />
-
       <Formik
         initialValues={{
-          lookingFor: data.lookingFor,
-          propertyType: data.propertyType,
-          phNo: data.phNo
+          lookingFor: data?.lookingFor,
+          propertyType: data?.propertyType,
+          phNo: data?.phNo
         }}
         onSubmit={handleSubmit}
         validationSchema={basicDetailSchema}>

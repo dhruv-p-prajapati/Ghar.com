@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { getAllProperties } from "../../../utils/axiosGloableInstance";
+import { getAllProperties, getAllRequests } from "../../../utils/axiosGloableInstance";
 import PropertyCard from "../../common/PropertyCard";
+import { useSelector } from "react-redux";
 
 const AllProperties = () => {
   const [properties, setProperties] = useState([]);
+  const [requests, setRequests] = useState([]);
+
+  const { admin } = useSelector((state) => state.role);
 
   useEffect(() => {
     (async () => {
       const { data } = await getAllProperties();
       setProperties(data);
+      const { data: reqData } = await getAllRequests();
+      setRequests(reqData);
     })();
   }, []);
 
@@ -23,10 +29,10 @@ const AllProperties = () => {
   return (
     <div className="flex flex-col gap-10 justify-center items-center my-10">
       {properties.map((property) => {
-        if (property?.bookedBy?.booked === true) {
+        if (admin === null && property?.bookedBy?.booked === true) {
           return null;
         }
-        return <PropertyCard property={property} key={property.id} />;
+        return <PropertyCard property={property} key={property.id} requests={requests} />;
       })}
     </div>
   );

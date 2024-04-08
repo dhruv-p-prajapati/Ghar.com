@@ -56,7 +56,7 @@ const Input = ({
             {...props}></textarea>
         )}
 
-        <span className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 text-base text-secondary transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm bg-white peer-focus:text-primary ">
+        <span className="pointer-events-none text-sm absolute start-2.5 top-0 -translate-y-1/2 text-secondary transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm bg-white peer-focus:text-primary ">
           {labelText}
         </span>
       </label>
