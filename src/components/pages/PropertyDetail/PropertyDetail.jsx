@@ -2,27 +2,36 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { getPropertyById } from "../../../utils/axiosGloableInstance";
 import { FaMapLocationDot } from "react-icons/fa6";
-import { MdCurrencyRupee, MdOutlineCurrencyRupee } from "react-icons/md";
+import { MdCurrencyRupee, MdOutlineCurrencyRupee, MdVerified } from "react-icons/md";
 import { Button, Checkbox } from "../../common";
+import { useSelector } from "react-redux";
+import handleVerifyUnverify from "../../../utils/commonFunctions/handleVerifyUnverify";
+import ConfirmVerifyUnverifyModel from "../../common/ConfirmVerifyUnverifyModel";
 
-const CustomCheckbox = ({ checkBoxData = [] }) => {
+const CustomCheckbox = ({ checkBoxData = [], type = "" }) => {
   return (
     <div className="flex justify-start gap-6 flex-wrap">
       {checkBoxData &&
         checkBoxData?.map((checkbox) => {
-          console.log(checkbox);
           return (
-            <div key={checkbox.id}>
-              <label
-                htmlFor={checkbox.id}
-                className={`block w-fit cursor-pointer rounded-lg border border-gray-300 bg-white py-2 px-4 text-sm font-medium shadow text-gray-600 hover:border-gray-20 has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:ring-1 has-[:checked]:shadow-primary has-[:checked]:ring-primary has-[:checked]:shadow-md`}>
-                <div className="">
-                  <p className="text-center">{checkbox.text}</p>
-                </div>
-                <div className="sr-only">
-                  <input type="checkbox" id={checkbox.id} checked={checkbox.checked === "true"} className="hidden" readOnly />
-                </div>
-              </label>
+            <div className="flex flex-col">
+              <div key={checkbox.id}>
+                <label
+                  htmlFor={checkbox.id}
+                  className={`block w-fit cursor-pointer rounded-lg border border-gray-300 bg-white py-2 px-4 text-sm font-medium shadow text-gray-600 hover:border-gray-20 has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:ring-1 has-[:checked]:shadow-primary has-[:checked]:ring-primary has-[:checked]:shadow-md ${
+                    checkbox.checked !== "true" && type === "amenities" && "opacity-70"
+                  }`}>
+                  <div className="">
+                    <p className="text-center">{checkbox.text}</p>
+                  </div>
+                  <div className="sr-only">
+                    <input type="checkbox" id={checkbox.id} checked={checkbox.checked === "true"} className="hidden" readOnly />
+                  </div>
+                </label>
+              </div>
+              {checkbox.checked !== "true" && type === "amenities" && (
+                <div className="text-[10px] text-start text-danger opacity-70">Not available</div>
+              )}
             </div>
           );
         })}
@@ -34,6 +43,9 @@ const PropertyDetail = () => {
   const { propertyId } = useParams();
   const navigate = useNavigate();
 
+  const { user, admin } = useSelector((state) => state.role);
+
+  const [showConfirmationModel, setShowConfirmationModel] = useState(false);
   const [property, setProperty] = useState();
 
   const facingLinks = [
@@ -189,16 +201,24 @@ const PropertyDetail = () => {
       const { data } = await getPropertyById(propertyId);
       setProperty(data);
     })();
-  }, []);
+  }, [property]);
   return (
     <div className="flex justify-center">
       <div className="w-[min(85vw,900px)] md:px-10 py-20 flex flex-col text text-sm md:text-md font-semibold justify-center items-center">
-        <div className="w-full flex flex-col gap-5">
+        <div className="w-full flex flex-col gap-5 relative overflow-hidden">
+          {property?.verifyStatusAdmin && (
+            <div className="absolute top-5 -rotate-45 -left-8 text-base bg-success z-10 rounded-md py-1 px-7 text-white flex justify-between items-center gap-1">
+              <div>
+                <MdVerified />
+              </div>
+              <p>Verified </p>
+            </div>
+          )}
           <div className="bg-primary w-full ">
             <img src="/images/main.jpg" alt="Main Image" className="w-full h-[400px]" />
           </div>
           <div className="w-full flex flex-col gap-2 md:gap-5">
-            <div className="text-3xl md:text-5xl font-semibold">{property?.name}</div>
+            <div className="text-3xl md:text-5xl font-semibold flex items-center">{property?.name}</div>
 
             <div>
               {property?.propertyType} ({property?.subPropertyType}) with{" "}
@@ -238,13 +258,7 @@ const PropertyDetail = () => {
         <div className="w-full mt-5 flex flex-col gap-8">
           <div>
             <h2 className="text-xl md:text-3xl">Description</h2>
-            <p className="text-sm md:text-base mt-1 font-normal">
-              IIt’s a 2 bhk independent house situated in Visnagar Road, Mahesana. It has a salable area of 1350 sqft and is available at a price of
-              Rs. 2,592 per sqft. It is a 5 year old ready-to-move-in property. The society is well connected by different modes of transportation.
-              Kindly call us for details.It’s a 2 bhk independent house situated in Visnagar Road, Mahesana. It has a salable area of 1350 sqft and is
-              available at a price of Rs. 2,592 per sqft. It is a 5 year old ready-to-move-in property. The society is well connected by different
-              modes of transportation. Kindly call us for details.
-            </p>
+            <p className="text-sm md:text-base mt-1 font-normal">{property?.description}</p>
           </div>
 
           <hr />
@@ -280,7 +294,7 @@ const PropertyDetail = () => {
             <div>
               <h3>Amenities For Residential</h3>
               <div className="mt-4">
-                <CustomCheckbox checkBoxData={amenitiesForResidentialLinks} />
+                <CustomCheckbox checkBoxData={amenitiesForResidentialLinks} type="amenities" />
               </div>
             </div>
           )}
@@ -289,7 +303,7 @@ const PropertyDetail = () => {
             <div>
               <h3>Amenities For Commercial</h3>
               <div className="mt-4">
-                <CustomCheckbox checkBoxData={amenitiesForCommercialLinks} />
+                <CustomCheckbox checkBoxData={amenitiesForCommercialLinks} type="amenities" />
               </div>
             </div>
           )}
@@ -298,7 +312,7 @@ const PropertyDetail = () => {
             <div>
               <h3>Amenities For Land</h3>
               <div className="mt-4">
-                <CustomCheckbox checkBoxData={amenitiesForLandLinks} />
+                <CustomCheckbox checkBoxData={amenitiesForLandLinks} type="amenities" />
               </div>
             </div>
           )}
@@ -331,10 +345,34 @@ const PropertyDetail = () => {
               Phone No - <span>{property?.builderDetail.phNo}</span>
             </p>
           </div>
-          <div className="">
+          <div className="flex gap-3">
             <Button variant="primaryOutline" onClick={() => navigate("/")}>
               Back
             </Button>
+
+            {user !== null && <Button>Book Now</Button>}
+
+            {showConfirmationModel && (
+              <ConfirmVerifyUnverifyModel
+                showConfirmationModel={showConfirmationModel}
+                setShowConfirmationModel={setShowConfirmationModel}
+                handleVerifyUnverify={handleVerifyUnverify}
+                status={property?.verifyStatusAdmin === false ? true : false}
+                property={property}
+              />
+            )}
+
+            {admin !== null && (
+              <div>
+                {property?.verifyStatusAdmin === false ? (
+                  <Button onClick={() => setShowConfirmationModel(!showConfirmationModel)}>Verify Property</Button>
+                ) : (
+                  <Button variant="danger" onClick={() => setShowConfirmationModel(!showConfirmationModel)}>
+                    Unverify Property
+                  </Button>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const AllProperties = () => {
       const { data } = await getAllProperties();
       setProperties(data);
     })();
-  }, []);
+  }, [properties]);
 
   if (properties.length === 0) {
     return (

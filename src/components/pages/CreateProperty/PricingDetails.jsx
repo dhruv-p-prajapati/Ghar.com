@@ -73,8 +73,8 @@ const PricingDetails = ({ data, prevStep, nextStep, handleRegisterProperty }) =>
                   name="price"
                   type="number"
                   value={values.price}
-                  labelText={`${data.lookingFor === "rent" ? "Monthly Rent" : "Expected Price"}`}
-                  placeholder={`${data.lookingFor === "rent" ? "12500" : "4000000"}`}
+                  labelText={`${data.lookingFor === "Rent" ? "Monthly Rent" : "Expected Price"}`}
+                  placeholder={`${data.lookingFor === "Rent" ? "12500" : "4000000"}`}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   touched={touched?.price}

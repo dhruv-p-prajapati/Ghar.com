@@ -33,11 +33,13 @@ export const updateUser = (userId, userObj) => API.put(`users/${userId}`, userOb
 export const getBuilders = () => API.get("builders");
 export const registerBuilder = (builderObj) => API.post("builders", builderObj);
 export const findBuilder = (email) => API.get(`builders?email=${email}`);
+export const updateBuilder = (builderId, builderObj) => API.patch(`builders/${builderId}`, builderObj);
 
 export const getAllCategories = () => API.get("categories");
 
 export const getAllProperties = () => API.get("properties");
 export const registerProperty = (propertyObj) => API.post("properties", propertyObj);
 export const getPropertyById = (propertyId) => API.get(`properties/${propertyId}`);
+export const updateProperty = (propertyId, propertyObj) => API.patch(`properties/${propertyId}`, propertyObj);
 
 export default API;

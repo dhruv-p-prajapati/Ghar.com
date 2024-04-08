@@ -114,9 +114,9 @@ export const adminLinks = [
     icon: <FaHome />
   },
   {
-    label: "users",
-    slug: "/admin-users",
-    icon: <HiUsers />
+    label: "All Properties",
+    slug: "/all-properties",
+    icon: <TbBuildingCommunity />
   },
   {
     label: "Properties",
@@ -125,7 +125,12 @@ export const adminLinks = [
   },
   {
     label: "Review Property Request",
-    slug: "/admin-review-request",
+    slug: "/review-request",
     icon: <SiCodereview />
+  },
+  {
+    label: "users",
+    slug: "/admin-users",
+    icon: <HiUsers />
   }
 ];
