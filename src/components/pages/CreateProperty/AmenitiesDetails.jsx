@@ -240,7 +240,6 @@ const AmenitiesDetails = ({ data, nextStep, prevStep }) => {
 
   const handleSubmit = (values) => {
     const newObj = generateNewObj(values);
-    console.log(newObj);
     nextStep(newObj);
   };
 

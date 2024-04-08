@@ -22,13 +22,13 @@ const CreateProperty = () => {
   const [data, setData] = useState({
     lookingFor: "",
     propertyType: "",
-    phNo: builder.phNo || "",
+    phNo: "",
 
     subPropertyType: "",
     name: "",
     description: "",
     address: {
-      streetNo: "25",
+      streetNo: "",
       addressLine: "",
       city: "",
       state: ""
@@ -129,7 +129,7 @@ const CreateProperty = () => {
         toast.error("Problem for registering property, Please try after some time!");
       }
     } catch (error) {
-      console.log("Failed to register property ".error);
+      console.log("Failed to register property ", error);
     } finally {
       dispatch(setLoader(false));
     }
@@ -146,7 +146,7 @@ const CreateProperty = () => {
 
   switch (currStep) {
     case 0: {
-      return <BasicDetails data={data} setData={setData} nextStep={nextStep} prevStep={prevStep} categories={categories} />;
+      return <BasicDetails property={property} data={data} setData={setData} nextStep={nextStep} prevStep={prevStep} categories={categories} />;
     }
 
     case 1: {

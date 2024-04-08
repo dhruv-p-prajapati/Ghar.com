@@ -8,8 +8,7 @@
       "phNo": "9313914401",
       "amount": 13000,
       "savedProperties": [
-        "3",
-        "4"
+        "3"
       ]
     },
     {
@@ -283,14 +282,14 @@
         "farmHouse": false
       },
       "price": 250000,
-      "tokenAmount": 100000,
+      "tokenAmount": 1000,
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
-      "verifyStatusAdmin": true,
+      "verifyStatusAdmin": false,
       "builderDetail": {
         "id": "2",
+        "amount": 17000,
         "name": "Priya Sharma",
-        "amount": 0,
         "phNo": "9123456789"
       }
     },
@@ -408,7 +407,7 @@
       "tokenAmount": 2000,
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
-      "verifyStatusAdmin": true,
+      "verifyStatusAdmin": false,
       "builderDetail": {
         "id": "2",
         "amount": 0,

@@ -37,7 +37,7 @@ const pricingDetailsSchema = yup.object({
   constructionStatus: yup.string().required("*required")
 });
 
-const PricingDetails = ({ data, prevStep, nextStep, handleRegisterProperty }) => {
+const PricingDetails = ({ data, prevStep, nextStep, handleUpdateProperty, isUpdate = false }) => {
   const handleSubmit = (values) => {
     const newObj = {
       ...data,
@@ -49,7 +49,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleRegisterProperty }) =>
 
     nextStep(newObj);
 
-    handleRegisterProperty(values);
+    handleUpdateProperty(values);
   };
   return (
     <div>
@@ -138,7 +138,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleRegisterProperty }) =>
                     </Button>
 
                     <Button variant="primary" type="submit">
-                      Register Property
+                      {isUpdate ? "Update Property" : "Register Property"}
                     </Button>
                   </div>
                 </div>
