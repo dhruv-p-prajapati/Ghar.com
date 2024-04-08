@@ -107,6 +107,7 @@ const CreateProperty = () => {
         verifyStatusAdmin: false,
         builderDetail: {
           id: builder.id,
+          amount: builder.amount,
           name: builder.name,
           phNo: builder.phNo
         }

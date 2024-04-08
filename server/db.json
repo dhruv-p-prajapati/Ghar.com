@@ -6,8 +6,11 @@
       "email": "dhruv@example.com",
       "password": "",
       "phNo": "9313914401",
-      "amount": 10000,
-      "savedProperties": []
+      "amount": 13000,
+      "savedProperties": [
+        "3",
+        "4"
+      ]
     },
     {
       "id": "2",
@@ -15,7 +18,7 @@
       "email": "rahul@example.com",
       "password": "",
       "phNo": "9876543210",
-      "amount": 20000,
+      "amount": 15000,
       "savedProperties": []
     },
     {
@@ -56,6 +59,7 @@
       "phNo": "9876543210",
       "reraId": "RERAGJ12345",
       "panNo": "ABCDE1234F",
+      "amount": 0,
       "listedProperties": [
         "1"
       ]
@@ -69,6 +73,7 @@
       "phNo": "9123456789",
       "reraId": "RERAGJ67890",
       "panNo": "FGHIJ5678K",
+      "amount": 17000,
       "listedProperties": [
         "2",
         "3",
@@ -84,6 +89,7 @@
       "phNo": "8765432109",
       "reraId": "RERAGJ24680",
       "panNo": "LMNOP9012L",
+      "amount": 0,
       "listedProperties": []
     },
     {
@@ -95,6 +101,7 @@
       "phNo": "9870123456",
       "reraId": "RERAGJ13579",
       "panNo": "QRSTUV3456M",
+      "amount": 0,
       "listedProperties": []
     },
     {
@@ -106,6 +113,7 @@
       "phNo": "7890123456",
       "reraId": "RERAGJ80246",
       "panNo": "WXYZAB7890N",
+      "amount": 0,
       "listedProperties": []
     },
     {
@@ -223,6 +231,7 @@
       "verifyStatusAdmin": false,
       "builderDetail": {
         "id": "1",
+        "amount": 0,
         "name": "Ravi Kumar",
         "phNo": "9876543210"
       }
@@ -281,6 +290,7 @@
       "builderDetail": {
         "id": "2",
         "name": "Priya Sharma",
+        "amount": 0,
         "phNo": "9123456789"
       }
     },
@@ -337,8 +347,14 @@
       "verifyStatusAdmin": true,
       "builderDetail": {
         "id": "2",
+        "amount": 0,
         "name": "Priya Sharma",
         "phNo": "9123456789"
+      },
+      "bookedBy": {
+        "booked": true,
+        "id": "1",
+        "name": "Dhruv P"
       }
     },
     {
@@ -395,8 +411,149 @@
       "verifyStatusAdmin": true,
       "builderDetail": {
         "id": "2",
+        "amount": 0,
         "name": "Priya Sharma",
         "phNo": "9123456789"
+      },
+      "bookedBy": {
+        "booked": true,
+        "id": "2",
+        "name": "Rahul Sharma"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "id": "1",
+      "userId": "2",
+      "builderId": "2",
+      "amountPaid": 5000,
+      "requestedAt": "4/8/2024, 2:42:47 PM",
+      "requestStatus": "pending",
+      "property": {
+        "id": "4",
+        "lookingFor": "Rent",
+        "propertyType": "residential",
+        "phNo": "9123456789",
+        "subPropertyType": "apartment",
+        "name": "Amazing skylines",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        "address": {
+          "streetNo": "25",
+          "addressLine": "jay ambe nagar",
+          "city": "ahmedabad",
+          "state": "gujarat"
+        },
+        "sqFt": 300,
+        "facing": "East",
+        "parking": 4,
+        "nearByPlaces": {
+          "school": 5,
+          "hospital": 1,
+          "bus": 4,
+          "shopppingMarket": 0.8
+        },
+        "furnished": "Full-Furnished",
+        "bhk": "3 BHK",
+        "amenitiesForResidential": {
+          "lift": false,
+          "cctv": false,
+          "gym": false,
+          "garden": false,
+          "swimmingPool": true,
+          "clubHouse": false
+        },
+        "amenitiesForCommercial": {
+          "lift": false,
+          "cctv": false,
+          "powerBackup": false,
+          "fireSafety": false,
+          "waterStorage": false,
+          "cafeteria": false,
+          "receptionArea": false
+        },
+        "amenitiesForLand": {
+          "powerBackup": false,
+          "waterStorage": false,
+          "farmHouse": false
+        },
+        "price": 40000,
+        "tokenAmount": 2000,
+        "negotiable": "Yes",
+        "constructionStatus": "Ready To Move",
+        "verifyStatusAdmin": true,
+        "builderDetail": {
+          "id": "2",
+          "amount": 0,
+          "name": "Priya Sharma",
+          "phNo": "9123456789"
+        }
+      }
+    },
+    {
+      "id": "1",
+      "userId": "1",
+      "builderId": "2",
+      "amountPaid": 12000,
+      "requestedAt": "4/8/2024, 2:57:54 PM",
+      "requestStatus": "pending",
+      "property": {
+        "id": "3",
+        "lookingFor": "Sell",
+        "propertyType": "land",
+        "phNo": "9123456789",
+        "subPropertyType": "plot",
+        "name": "Shrinagar plots",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        "address": {
+          "streetNo": "25",
+          "addressLine": "shrinagar",
+          "city": "mehsana",
+          "state": "gujarat"
+        },
+        "sqFt": 448,
+        "facing": "East",
+        "parking": 2,
+        "nearByPlaces": {
+          "school": 0.8,
+          "hospital": 4,
+          "bus": 8,
+          "shopppingMarket": 1
+        },
+        "furnished": "",
+        "bhk": "",
+        "amenitiesForResidential": {
+          "lift": false,
+          "cctv": false,
+          "gym": false,
+          "garden": false,
+          "swimmingPool": false,
+          "clubHouse": false
+        },
+        "amenitiesForCommercial": {
+          "lift": false,
+          "cctv": false,
+          "powerBackup": false,
+          "fireSafety": false,
+          "waterStorage": false,
+          "cafeteria": false,
+          "receptionArea": false
+        },
+        "amenitiesForLand": {
+          "powerBackup": true,
+          "farmHouse": true
+        },
+        "price": 500000,
+        "tokenAmount": 10000,
+        "negotiable": "Yes",
+        "constructionStatus": "Ready To Move",
+        "verifyStatusAdmin": true,
+        "builderDetail": {
+          "id": "2",
+          "amount": 0,
+          "name": "Priya Sharma",
+          "phNo": "9123456789"
+        }
       }
     }
   ]

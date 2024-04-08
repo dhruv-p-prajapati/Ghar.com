@@ -7,6 +7,8 @@ import { Button, Checkbox } from "../../common";
 import { useSelector } from "react-redux";
 import handleVerifyUnverify from "../../../utils/commonFunctions/handleVerifyUnverify";
 import ConfirmVerifyUnverifyModel from "../../common/ConfirmVerifyUnverifyModel";
+import CommonBookConfirmation from "../../common/CommonBookConfirmation";
+import bookProperty from "../../../utils/commonFunctions/bookProperty";
 
 const CustomCheckbox = ({ checkBoxData = [], type = "" }) => {
   return (
@@ -18,7 +20,7 @@ const CustomCheckbox = ({ checkBoxData = [], type = "" }) => {
               <div key={checkbox.id}>
                 <label
                   htmlFor={checkbox.id}
-                  className={`block w-fit cursor-pointer rounded-lg border border-gray-300 bg-white py-2 px-4 text-sm font-medium shadow text-gray-600 hover:border-gray-20 has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:ring-1 has-[:checked]:shadow-primary has-[:checked]:ring-primary has-[:checked]:shadow-md ${
+                  className={`block w-fit cursor-pointer rounded-lg border border-gray-300 bg-white py-2 px-4 text-sm font-medium shadow text-gray-600 hover:border-gray-20 has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:ring-1 has-[:checked]:shadow-primary has-[:checked]:ring-primary has-[:checked]:shadow ${
                     checkbox.checked !== "true" && type === "amenities" && "opacity-70"
                   }`}>
                   <div className="">
@@ -46,6 +48,8 @@ const PropertyDetail = () => {
   const { user, admin } = useSelector((state) => state.role);
 
   const [showConfirmationModel, setShowConfirmationModel] = useState(false);
+  const [showBookConfirmation, setShowBookConfirmation] = useState(false);
+  const [requests, setRequests] = useState([]);
   const [property, setProperty] = useState();
 
   const facingLinks = [
@@ -198,10 +202,20 @@ const PropertyDetail = () => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await getPropertyById(propertyId);
-      setProperty(data);
+      const { data } = await getAllRequests();
+      setRequests(data);
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const { data: propertyData } = await getPropertyById(propertyId);
+      const { data: requestData } = await getAllRequests();
+      setProperty(propertyData);
+      setRequests(requestData);
     })();
   }, [property]);
+
   return (
     <div className="flex justify-center">
       <div className="w-[min(85vw,900px)] md:px-10 py-20 flex flex-col text text-sm md:text-md font-semibold justify-center items-center">
@@ -319,7 +333,7 @@ const PropertyDetail = () => {
 
           <div>
             <h3>Available parking</h3>
-            <span className="mt-1 border-2 bg-primary text-white border-primary w-fit py-1 px-3 flex justify-center items-center rounded-[50%]">
+            <span className="mt-1 bg-primary text-white w-fit flex justify-center items-center py-2 px-4 rounded-md text-base cursor-pointer">
               {property?.parking}
             </span>
           </div>
@@ -327,8 +341,8 @@ const PropertyDetail = () => {
           <div>
             <h3>Construction Status</h3>
             <div className="mt-3">
-              <span className="bg-primary text-white shadow-md shadow-primary py-2 px-4 rounded-md text-base">
-                {property?.constructionStatus || "Ready To move"}
+              <span className="bg-primary text-white shadow shadow-primary py-2 px-4 rounded-md text-base cursor-pointer">
+                {property?.constructionStatus}
               </span>
             </div>
           </div>
@@ -350,7 +364,22 @@ const PropertyDetail = () => {
               Back
             </Button>
 
-            {user !== null && <Button>Book Now</Button>}
+            {showBookConfirmation && (
+              <CommonBookConfirmation
+                showBookConfirmation={showBookConfirmation}
+                setShowBookConfirmation={setShowBookConfirmation}
+                bookProperty={bookProperty}
+                user={user}
+                builder={property?.builderDetail}
+                property={property}
+                requests={requests}
+              />
+            )}
+
+            {/* {user !== null && <Button>Book Now</Button>} */}
+            {user !== null && !(property?.bookedBy?.booked === true) && (
+              <Button onClick={() => setShowBookConfirmation(!showBookConfirmation)}>Book Now</Button>
+            )}
 
             {showConfirmationModel && (
               <ConfirmVerifyUnverifyModel

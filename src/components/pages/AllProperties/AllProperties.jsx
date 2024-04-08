@@ -10,7 +10,7 @@ const AllProperties = () => {
       const { data } = await getAllProperties();
       setProperties(data);
     })();
-  }, [properties]);
+  }, []);
 
   if (properties.length === 0) {
     return (
@@ -23,6 +23,9 @@ const AllProperties = () => {
   return (
     <div className="flex flex-col gap-10 justify-center items-center my-10">
       {properties.map((property) => {
+        if (property?.bookedBy?.booked === true) {
+          return null;
+        }
         return <PropertyCard property={property} key={property.id} />;
       })}
     </div>
