@@ -27,6 +27,7 @@ const ConfirmVerifyUnverifyModel = ({ showConfirmationModel, setShowConfirmation
               handleVerifyUnverify(status, property);
               setShowConfirmationModel(!showConfirmationModel);
               if (setRerender) {
+                console.log("runningg");
                 setRerender(!rerender);
               }
             }}>

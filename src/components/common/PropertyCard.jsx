@@ -90,15 +90,8 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
     }
   };
 
-  // useEffect(() => {
-  //   console.log("Running again");
-  //   if (setRerender) {
-  //     setRerender(!rerender);
-  //   }
-  // }, [showBookConfirmation, showConfirmationModel, showDeleteConfirmation]);
-
   return (
-    <div className="flex flex-col px-4 w-[min(85vw,850px)] relative text-secondary text-xs overflow-hidden font-medium shadow duration-300 rounded-md border border-gray-200">
+    <div className="flex mb-3 mx-auto flex-col px-4 w-[min(85vw,850px)] relative text-secondary text-xs overflow-hidden font-medium shadow duration-300 rounded-md border border-gray-200">
       {verifyStatusAdmin && (
         <div className="absolute top-5 -rotate-45 -left-8 text-base bg-success z-10 rounded-md py-1 px-7 text-white flex justify-between items-center gap-1">
           <div>
@@ -176,7 +169,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
             </p>
           </div>
 
-          <div className="line-clamp-2 md:w-2/3">
+          <div className="line-clamp-3 md:w-2/3">
             <span className="text-sm">Description - </span> {description}
           </div>
 
@@ -237,10 +230,10 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
           {admin !== null && (
             <div>
               {verifyStatusAdmin === false ? (
-                <Button onClick={() => setShowConfirmationModel(!showConfirmationModel)}>Verify Property</Button>
+                <Button onClick={() => setShowConfirmationModel(!showConfirmationModel)}>Verify</Button>
               ) : (
                 <Button variant="danger" onClick={() => setShowConfirmationModel(!showConfirmationModel)}>
-                  Unverify Property
+                  Unverify
                 </Button>
               )}
             </div>
