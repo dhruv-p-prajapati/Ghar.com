@@ -1,9 +1,9 @@
 import React from "react";
-import { Button, Input, RadioButton, StepperComponent } from "../../common";
 import { MdSell } from "react-icons/md";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
-import { STEPS } from "../../../utils/constants";
+import { Button, Input, RadioButton, StepperComponent } from "../../../common";
+import { STEPS } from "../../../../utils/constants";
 
 const lookingFor = [
   {

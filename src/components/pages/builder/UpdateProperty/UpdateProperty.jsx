@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getAllCategories, getAllProperties, getBuilders, getPropertyById, getUsers, updateProperty } from "../../../utils/axiosGloableInstance";
-import CreateProperty from "../CreateProperty/CreateProperty";
+import { getAllCategories, getAllProperties, getBuilders, getPropertyById, getUsers, updateProperty } from "../../../../utils/axiosGloableInstance";
 import { useDispatch, useSelector } from "react-redux";
 import BasicDetails from "../CreateProperty/BasicDetails";
 import PropertyDetails from "../CreateProperty/PropertyDetails";
 import AmenitiesDetails from "../CreateProperty/AmenitiesDetails";
 import PricingDetails from "../CreateProperty/PricingDetails";
-import { setLoader } from "../../../redux/actions/appAction";
+import { setLoader } from "../../../../redux/actions/appAction";
 import { toast } from "react-toastify";
 
 const UpdateProperty = () => {

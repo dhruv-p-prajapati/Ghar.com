@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { getAllProperties } from "../../../utils/axiosGloableInstance";
-import PropertyCard from "../../common/PropertyCard";
-import ConfirmVerifyUnverifyModel from "../../common/ConfirmVerifyUnverifyModel";
+import { getAllProperties } from "../../../../utils/axiosGloableInstance";
+import { PropertyCard } from "../../../common";
 
 const ReviewRequest = () => {
   const [properties, setProperties] = useState([]);

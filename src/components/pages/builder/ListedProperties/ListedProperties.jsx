@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { getAllProperties } from "./../../../utils/axiosGloableInstance/index";
-import PropertyCard from "../../common/PropertyCard";
-import { Button } from "../../common";
 import { useNavigate } from "react-router";
+import { getAllProperties } from "../../../../utils/axiosGloableInstance";
+import { Button, PropertyCard } from "../../../common";
 
 const ListedProperties = () => {
   const navigate = useNavigate();

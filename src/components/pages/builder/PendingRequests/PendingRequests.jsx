@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { getAllRequests } from "../../../utils/axiosGloableInstance";
-import { PropertyRequestCard } from "../../common";
+import { getAllRequests } from "../../../../utils/axiosGloableInstance";
+import { PropertyRequestCard } from "../../../common";
 
 const PendingRequests = () => {
   const { builder } = useSelector((state) => state.role);

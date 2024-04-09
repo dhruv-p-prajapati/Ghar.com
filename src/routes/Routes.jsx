@@ -14,16 +14,16 @@ const RegisterUser = React.lazy(() => import("../components/pages/register/Regis
 const Home = React.lazy(() => import("../components/pages/home/Home"));
 const Login = React.lazy(() => import("../components/pages/login/Login"));
 const ErrorPage = React.lazy(() => import("./../components/pages/ErrorPage/ErrorPage"));
-const CreateProperty = React.lazy(() => import("./../components/pages/CreateProperty/CreateProperty"));
+const CreateProperty = React.lazy(() => import("./../components/pages/builder/CreateProperty/CreateProperty"));
 const AllProperties = React.lazy(() => import("../components/pages/AllProperties/AllProperties"));
 const PropertyDetail = React.lazy(() => import("../components/pages/PropertyDetail/PropertyDetail"));
-const SavedProperties = React.lazy(() => import("../components/pages/SavedProperties/SavedProperties"));
-const ListedProperties = React.lazy(() => import("../components/pages/ListedProperties/ListedProperties"));
-const ReviewRequest = React.lazy(() => import("../components/pages/ReviewRequest/ReviewRequest"));
-const UpdateProperty = React.lazy(() => import("../components/pages/UpdateProperty/UpdateProperty"));
-const PendingRequests = React.lazy(() => import("../components/pages/PendingRequests/PendingRequests"));
-const AcceptedRequests = React.lazy(() => import("../components/pages/AcceptedRequests/AcceptedRequests"));
-const OwnProperties = React.lazy(() => import("../components/pages/OwnProperties/OwnProperties"));
+const SavedProperties = React.lazy(() => import("../components/pages/user/SavedProperties/SavedProperties"));
+const ListedProperties = React.lazy(() => import("../components/pages/builder/ListedProperties/ListedProperties"));
+const ReviewRequest = React.lazy(() => import("../components/pages/admin/ReviewRequest/ReviewRequest"));
+const UpdateProperty = React.lazy(() => import("../components/pages/builder/UpdateProperty/UpdateProperty"));
+const PendingRequests = React.lazy(() => import("../components/pages/builder/PendingRequests/PendingRequests"));
+const AcceptedRequests = React.lazy(() => import("../components/pages/builder/AcceptedRequests/AcceptedRequests"));
+const OwnProperties = React.lazy(() => import("../components/pages/user/OwnProperties/OwnProperties"));
 
 const Routes = () => {
   const { user, builder, admin } = useSelector((state) => state.role);
