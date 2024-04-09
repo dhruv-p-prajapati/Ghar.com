@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, Checkbox, Input, RadioButton, StepperComponent } from "../../common";
 import { Field, Form, Formik } from "formik";
 import * as yup from "yup";
-import { STEPS } from "../../../utils/constants";
+import { Button, Checkbox, Input, RadioButton, StepperComponent } from "../../../common";
+import { STEPS } from "../../../../utils/constants";
 
 const facingLink = [
   {

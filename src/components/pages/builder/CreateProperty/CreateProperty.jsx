@@ -4,11 +4,11 @@ import BasicDetails from "./BasicDetails";
 import PropertyDetails from "./PropertyDetails";
 import AmenitiesDetails from "./AmenitiesDetails";
 import PricingDetails from "./PricingDetails";
-import { getAllCategories, getAllProperties, registerProperty, updateBuilder } from "../../../utils/axiosGloableInstance";
-import { setLoader } from "../../../redux/actions/appAction";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
-import { setRole } from "../../../redux/actions/roleAction";
+import { getAllCategories, getAllProperties, registerProperty, updateBuilder } from "../../../../utils/axiosGloableInstance";
+import { setLoader } from "../../../../redux/actions/appAction";
+import { setRole } from "../../../../redux/actions/roleAction";
 
 const CreateProperty = () => {
   const { builder } = useSelector((state) => state.role);
@@ -146,7 +146,7 @@ const CreateProperty = () => {
 
   switch (currStep) {
     case 0: {
-      return <BasicDetails property={property} data={data} setData={setData} nextStep={nextStep} prevStep={prevStep} categories={categories} />;
+      return <BasicDetails data={data} setData={setData} nextStep={nextStep} prevStep={prevStep} categories={categories} />;
     }
 
     case 1: {
@@ -158,7 +158,7 @@ const CreateProperty = () => {
     }
 
     case 3: {
-      return <PricingDetails data={data} setData={setData} nextStep={nextStep} prevStep={prevStep} handleRegisterProperty={handleRegisterProperty} />;
+      return <PricingDetails data={data} setData={setData} nextStep={nextStep} prevStep={prevStep} handleSubmitProperty={handleRegisterProperty} />;
     }
 
     default:

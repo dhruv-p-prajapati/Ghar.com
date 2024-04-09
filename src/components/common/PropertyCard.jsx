@@ -2,21 +2,23 @@ import React, { useEffect, useState } from "react";
 import { FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { MdCurrencyRupee, MdVerified } from "react-icons/md";
-import Button from "./Button";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { getAllRequests, updateProperty, updateUser } from "../../utils/axiosGloableInstance";
+import { updateUser } from "../../utils/axiosGloableInstance";
 import { setRole } from "../../redux/actions/roleAction";
 import ConfirmVerifyUnverifyModel from "./ConfirmVerifyUnverifyModel";
 import CommonBookConfirmation from "./CommonBookConfirmation";
+import Button from "./Button";
+import DeleteConfirmationModel from "./DeleteConfirmationModel";
 
-const PropertyCard = ({ property, requests }) => {
+const PropertyCard = ({ property, setRerender, rerender }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [showConfirmationModel, setShowConfirmationModel] = useState(false);
   const [showBookConfirmation, setShowBookConfirmation] = useState(false);
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
   const { user, admin, builder } = useSelector((state) => state.role);
   const {
@@ -87,6 +89,13 @@ const PropertyCard = ({ property, requests }) => {
       }
     }
   };
+
+  // useEffect(() => {
+  //   console.log("Running again");
+  //   if (setRerender) {
+  //     setRerender(!rerender);
+  //   }
+  // }, [showBookConfirmation, showConfirmationModel, showDeleteConfirmation]);
 
   return (
     <div className="flex flex-col px-4 w-[min(85vw,850px)] relative text-secondary text-xs overflow-hidden font-medium shadow duration-300 rounded-md border border-gray-200">
@@ -192,7 +201,7 @@ const PropertyCard = ({ property, requests }) => {
             <span className="text-sm">Phone No - </span> {builderDetail.phNo}
           </p>
         </div>
-        <div className="flex justify-between gap-8">
+        <div className="flex justify-between gap-5">
           <Button className=" text-primary" variant="primaryOutline" onClick={() => navigate(`/property/${id}`)}>
             View Details
           </Button>
@@ -203,7 +212,8 @@ const PropertyCard = ({ property, requests }) => {
               user={user}
               builder={builderDetail}
               property={property}
-              requests={requests}
+              rerender={rerender}
+              setRerender={setRerender}
             />
           )}
           {user !== null && !(property?.bookedBy?.booked === true) && (
@@ -220,6 +230,8 @@ const PropertyCard = ({ property, requests }) => {
               setShowConfirmationModel={setShowConfirmationModel}
               status={verifyStatusAdmin === false ? true : false}
               property={property}
+              rerender={rerender}
+              setRerender={setRerender}
             />
           )}
           {admin !== null && (
@@ -232,6 +244,27 @@ const PropertyCard = ({ property, requests }) => {
                 </Button>
               )}
             </div>
+          )}
+
+          {showDeleteConfirmation && (
+            <DeleteConfirmationModel
+              showDeleteConfirmation={showDeleteConfirmation}
+              setShowDeleteConfirmation={setShowDeleteConfirmation}
+              property={property}
+              builder={builder}
+              rerender={rerender}
+              setRerender={setRerender}
+            />
+          )}
+          {builder !== null && builderDetail.id === builder.id && (
+            <Button variant="danger" onClick={() => setShowDeleteConfirmation(!showDeleteConfirmation)}>
+              Delete
+            </Button>
+          )}
+          {admin !== null && (
+            <Button variant="danger" onClick={() => setShowDeleteConfirmation(!showDeleteConfirmation)}>
+              Delete
+            </Button>
           )}
         </div>
       </div>

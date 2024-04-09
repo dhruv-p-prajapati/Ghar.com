@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getAllRequests } from "../../../utils/axiosGloableInstance";
-import { Button, PropertyRequestCard } from "../../common";
+import { getAllRequests } from "../../../../utils/axiosGloableInstance";
+import { Button, PropertyRequestCard } from "../../../common";
 
 const OwnProperties = () => {
   const navigate = useNavigate();

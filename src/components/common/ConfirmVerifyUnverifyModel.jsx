@@ -4,7 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import handleVerifyUnverify from "../../utils/commonFunctions/handleVerifyUnverify";
 import { useNavigate } from "react-router-dom";
 
-const ConfirmVerifyUnverifyModel = ({ showConfirmationModel, setShowConfirmationModel, status, property }) => {
+const ConfirmVerifyUnverifyModel = ({ showConfirmationModel, setShowConfirmationModel, status, property, rerender, setRerender }) => {
   const navigate = useNavigate();
   return (
     <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 grid place-items-center w-screen h-screen z-50 bg-[rgba(0,0,0,0.2)]">
@@ -25,8 +25,10 @@ const ConfirmVerifyUnverifyModel = ({ showConfirmationModel, setShowConfirmation
             variant={status === true ? "primary" : "danger"}
             onClick={() => {
               handleVerifyUnverify(status, property);
-              navigate("/");
               setShowConfirmationModel(!showConfirmationModel);
+              if (setRerender) {
+                setRerender(!rerender);
+              }
             }}>
             {status === true ? "Verify" : "Unverify"}
           </Button>

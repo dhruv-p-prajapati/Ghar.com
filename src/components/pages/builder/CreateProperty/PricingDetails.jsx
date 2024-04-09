@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, Input, RadioButton, StepperComponent } from "../../common";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
-import { STEPS } from "../../../utils/constants";
+import { Button, Input, RadioButton, StepperComponent } from "../../../common";
+import { STEPS } from "../../../../utils/constants";
 
 const negotiableLinks = [
   {
@@ -37,7 +37,7 @@ const pricingDetailsSchema = yup.object({
   constructionStatus: yup.string().required("*required")
 });
 
-const PricingDetails = ({ data, prevStep, nextStep, handleUpdateProperty, isUpdate = false }) => {
+const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpdate = false }) => {
   const handleSubmit = (values) => {
     const newObj = {
       ...data,
@@ -49,7 +49,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleUpdateProperty, isUpda
 
     nextStep(newObj);
 
-    handleUpdateProperty(values);
+    handleSubmitProperty(values);
   };
   return (
     <div>
