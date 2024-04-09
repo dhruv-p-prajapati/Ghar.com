@@ -1,9 +1,10 @@
 import React from "react";
-import { bookPropertyRequest, getBuilderById, updateBuilder, updateProperty, updateUser } from "../axiosGloableInstance";
+import { bookPropertyRequest, getAllRequests, getBuilderById, updateBuilder, updateProperty, updateUser } from "../axiosGloableInstance";
 import { toast } from "react-toastify";
 
-const bookProperty = async (user, builder, property, amountPaid, requests = []) => {
+const bookProperty = async (user, builder, property, amountPaid) => {
   const { data } = await getBuilderById(builder.id);
+  const { data: requests } = await getAllRequests();
 
   const updatedUserAmount = parseFloat(user.amount) - parseFloat(amountPaid);
   const updatedBuilderAmount = parseFloat(data.amount) + parseFloat(amountPaid);
@@ -33,7 +34,7 @@ const bookProperty = async (user, builder, property, amountPaid, requests = []) 
       amountPaid,
       requestedAt: `${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()}`,
       requestStatus: "pending",
-      property
+      propertyId: property.id
     };
 
     const { success, error } = await bookPropertyRequest(requestObj);

@@ -4,10 +4,8 @@ import { getAllRequests, getPropertyById } from "../../../utils/axiosGloableInst
 import { MdOutlineCurrencyRupee, MdVerified } from "react-icons/md";
 import { Button } from "../../common";
 import { useSelector } from "react-redux";
-import handleVerifyUnverify from "../../../utils/commonFunctions/handleVerifyUnverify";
 import ConfirmVerifyUnverifyModel from "../../common/ConfirmVerifyUnverifyModel";
 import CommonBookConfirmation from "../../common/CommonBookConfirmation";
-import bookProperty from "../../../utils/commonFunctions/bookProperty";
 
 const CustomCheckbox = ({ checkBoxData = [], type = "" }) => {
   return (

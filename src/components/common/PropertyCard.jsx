@@ -9,8 +9,6 @@ import { toast } from "react-toastify";
 import { getAllRequests, updateProperty, updateUser } from "../../utils/axiosGloableInstance";
 import { setRole } from "../../redux/actions/roleAction";
 import ConfirmVerifyUnverifyModel from "./ConfirmVerifyUnverifyModel";
-// import handleVerifyUnverify from "../../utils/commonFunctions/handleVerifyUnverify";
-import bookProperty from "../../utils/commonFunctions/bookProperty";
 import CommonBookConfirmation from "./CommonBookConfirmation";
 
 const PropertyCard = ({ property, requests }) => {
