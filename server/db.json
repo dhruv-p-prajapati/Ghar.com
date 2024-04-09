@@ -6,8 +6,10 @@
       "email": "dhruv@example.com",
       "password": "",
       "phNo": "9313914401",
-      "amount": 37000,
-      "savedProperties": []
+      "amount": 32000,
+      "savedProperties": [
+        "1"
+      ]
     },
     {
       "id": "2",
@@ -57,7 +59,10 @@
       "reraId": "RERAGJ12345",
       "panNo": "ABCDE1234F",
       "amount": 0,
-      "listedProperties": []
+      "listedProperties": [
+        "3",
+        "4"
+      ]
     },
     {
       "id": "2",
@@ -68,9 +73,10 @@
       "phNo": "9123456789",
       "reraId": "RERAGJ67890",
       "panNo": "FGHIJ5678K",
-      "amount": -12000,
+      "amount": -7000,
       "listedProperties": [
-        "1"
+        "1",
+        "2"
       ]
     },
     {
@@ -221,14 +227,205 @@
       "tokenAmount": 2000,
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
-      "verifyStatusAdmin": false,
+      "verifyStatusAdmin": true,
       "builderDetail": {
         "id": "2",
         "amount": -12000,
         "name": "Priya Sharma",
         "phNo": "9123456789"
       }
+    },
+    {
+      "id": "2",
+      "lookingFor": "Sell",
+      "propertyType": "residential",
+      "phNo": 9313914000,
+      "subPropertyType": "villa",
+      "name": "New skyline",
+      "description": "this is new propeety",
+      "address": {
+        "streetNo": "25",
+        "addressLine": "shrinagar",
+        "city": "visnahar",
+        "state": "gujarat"
+      },
+      "sqFt": 449,
+      "facing": "North",
+      "parking": 5,
+      "nearByPlaces": {
+        "school": 0.5,
+        "hospital": 5,
+        "bus": 5,
+        "shopppingMarket": 3
+      },
+      "furnished": "Full-Furnished",
+      "bhk": "3 BHK",
+      "amenitiesForResidential": {
+        "lift": false,
+        "cctv": false,
+        "gym": false,
+        "garden": true,
+        "swimmingPool": true,
+        "clubHouse": true
+      },
+      "amenitiesForCommercial": {
+        "lift": false,
+        "cctv": false,
+        "powerBackup": false,
+        "fireSafety": false,
+        "waterStorage": false,
+        "cafeteria": false,
+        "receptionArea": false
+      },
+      "amenitiesForLand": {
+        "powerBackup": false,
+        "waterStorage": false,
+        "farmHouse": false
+      },
+      "price": 450000,
+      "tokenAmount": 2500,
+      "negotiable": "Yes",
+      "constructionStatus": "Ready To Move",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "2",
+        "amount": -12000,
+        "name": "Priya Sharma",
+        "phNo": "9123456789"
+      },
+      "bookedBy": {
+        "booked": true,
+        "id": "1",
+        "name": "Dhruv P"
+      }
+    },
+    {
+      "id": "3",
+      "lookingFor": "Sell",
+      "propertyType": "residential",
+      "phNo": 9313914401,
+      "subPropertyType": "villa",
+      "name": "Meet skyheights",
+      "description": "This is new property by meet bhimani",
+      "address": {
+        "streetNo": "11",
+        "addressLine": "jay ambe nagar",
+        "city": "ahmedabad",
+        "state": "gujarat"
+      },
+      "sqFt": 500,
+      "facing": "East",
+      "parking": 5,
+      "nearByPlaces": {
+        "school": 1,
+        "hospital": 0.2,
+        "bus": 2,
+        "shopppingMarket": 7
+      },
+      "furnished": "Full-Furnished",
+      "bhk": "3 BHK",
+      "amenitiesForResidential": {
+        "lift": false,
+        "cctv": true,
+        "gym": false,
+        "garden": false,
+        "swimmingPool": true,
+        "clubHouse": false
+      },
+      "amenitiesForCommercial": {
+        "lift": false,
+        "cctv": false,
+        "powerBackup": false,
+        "fireSafety": false,
+        "waterStorage": false,
+        "cafeteria": false,
+        "receptionArea": false
+      },
+      "amenitiesForLand": {
+        "powerBackup": false,
+        "waterStorage": false,
+        "farmHouse": false
+      },
+      "price": 500000,
+      "tokenAmount": 10000,
+      "negotiable": "No",
+      "constructionStatus": "Ready To Move",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "1",
+        "amount": 0,
+        "name": "Ravi Kumar",
+        "phNo": "9876543210"
+      }
+    },
+    {
+      "id": "4",
+      "lookingFor": "Rent",
+      "propertyType": "land",
+      "phNo": 9313914401,
+      "subPropertyType": "agricultural land",
+      "name": "Property new",
+      "description": "This is new Property",
+      "address": {
+        "streetNo": "25",
+        "addressLine": "shrinagar society",
+        "city": "mehsana",
+        "state": "gujarat"
+      },
+      "sqFt": 450,
+      "facing": "East",
+      "parking": 1,
+      "nearByPlaces": {
+        "school": 4,
+        "hospital": 8,
+        "bus": 5,
+        "shopppingMarket": 0.5
+      },
+      "furnished": "",
+      "bhk": "",
+      "amenitiesForResidential": {
+        "lift": false,
+        "cctv": false,
+        "gym": false,
+        "garden": false,
+        "swimmingPool": false,
+        "clubHouse": false
+      },
+      "amenitiesForCommercial": {
+        "lift": false,
+        "cctv": false,
+        "powerBackup": false,
+        "fireSafety": false,
+        "waterStorage": false,
+        "cafeteria": false,
+        "receptionArea": false
+      },
+      "amenitiesForLand": {
+        "waterStorage": true,
+        "farmHouse": true
+      },
+      "price": 15000,
+      "tokenAmount": 2000,
+      "negotiable": "No",
+      "constructionStatus": "Ready To Move",
+      "verifyStatusAdmin": true,
+      "builderDetail": {
+        "id": "1",
+        "amount": 0,
+        "name": "Ravi Kumar",
+        "phNo": "9876543210"
+      }
     }
   ],
-  "requests": []
+  "requests": [
+    {
+      "id": "1",
+      "userId": "1",
+      "builderId": "2",
+      "amountPaid": 5000,
+      "requestedAt": "4/9/2024, 4:28:10 PM",
+      "requestStatus": "accepted",
+      "propertyId": "2"
+    }
+  ]
 }
