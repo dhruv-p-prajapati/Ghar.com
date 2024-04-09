@@ -48,7 +48,7 @@ const Home = () => {
       </div>
 
       <div className="py-12 px-5 flex justify-center ">
-        <div className="flex flex-col md:flex-row items-center justify-center  md:px-10 ">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center  md:px-10 gap-5">
           <div className="md:w-1/2 md:mr-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">For Renters</h2>
             <p className="text-gray-700 mb-4">
@@ -78,7 +78,7 @@ const Home = () => {
       </div>
 
       <div className="py-12 px-5 flex justify-center">
-        <div className="flex flex-col md:flex-row-reverse items-center justify-center md:px-10">
+        <div className="flex flex-col-reverse md:flex-row-reverse items-center justify-center md:px-10 gap-5">
           <div className="md:w-1/2 md:ml-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">For Builders</h2>
             <p className="text-gray-700 mb-4">
@@ -91,7 +91,7 @@ const Home = () => {
             </p>
           </div>
           <div className="md:w-1/3">
-            <img src="/images/sell.gif" alt="Seller" className="w-[350px] rounded-lg shadow-md" />
+            <img src="/images/sell.gif" alt="Seller" className="w-[350px] rounded-lg shadow-md gap-5" />
           </div>
         </div>
       </div>
@@ -108,21 +108,21 @@ const Home = () => {
         </CarouselComponent>
       </div>
 
-      <div class="py-12 px-5 flex justify-center">
-        <div class="flex flex-col md:flex-row items-center justify-center md:px-10">
-          <div class="md:w-1/2 md:mr-8">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">For Admins</h2>
-            <p class="text-gray-700 mb-4">
+      <div className="py-12 px-5 flex justify-center">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center md:px-10 gap-5">
+          <div className="md:w-1/2 md:mr-8">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">For Admins</h2>
+            <p className="text-gray-700 mb-4">
               Explore a diverse range of rental properties, from charming apartments to spacious houses, meticulously curated to cater to every
               lifestyle and budget. With advanced search filters and detailed property listings, managing listings for your users has never been
               easier.
             </p>
-            <p class="text-gray-700 mb-4">
+            <p className="text-gray-700 mb-4">
               Review a variety of neighborhoods, amenities, and rental rates to ensure listings meet quality standards and user expectations.
             </p>
           </div>
-          <div class="md:w-1/3">
-            <img src="/images/PropertyDetail.gif" alt="Renter" class="w-[350px] rounded-lg shadow-md" />
+          <div className="md:w-1/3">
+            <img src="/images/PropertyDetail.gif" alt="Renter" className="w-[350px] rounded-lg shadow-md" />
           </div>
         </div>
       </div>

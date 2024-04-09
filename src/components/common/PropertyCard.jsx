@@ -185,7 +185,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
         </div>
       </div>
       <hr />
-      <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 py-3">
+      <div className="flex flex-col md:flex-row justify-between md:items-center gap-2 md:gap-4 py-3">
         <div className="flex gap-8">
           <p>
             <span className="text-sm">Property from - </span> {property?.builderDetail?.name}
@@ -194,7 +194,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
             <span className="text-sm">Phone No - </span> {property?.builderDetail?.phNo}
           </p>
         </div>
-        <div className="flex justify-between gap-5">
+        <div className="flex justify-between gap-2 md:gap-5">
           <Button className=" text-primary" variant="primaryOutline" onClick={() => navigate(`/property/${property?.id}`)}>
             View Details
           </Button>

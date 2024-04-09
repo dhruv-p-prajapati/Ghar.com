@@ -36,23 +36,23 @@ const HomeUser = () => {
     <div>
       <LandingComponent title={title} description={description} />
 
-      <div class="py-12 px-5 flex justify-center">
-        <div class="flex flex-col md:flex-row items-center justify-center md:px-10">
-          <div class="md:w-1/2 md:mr-8">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">For Users Buying Properties</h2>
-            <p class="text-gray-700 mb-4">
+      <div className="py-12 px-5 flex justify-center">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center md:px-10 gap-5">
+          <div className="md:w-1/2 md:mr-8">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">For Users Buying Properties</h2>
+            <p className="text-gray-700 mb-4">
               Embark on an exciting journey to find your dream property among our diverse range of listings, meticulously curated to cater to every
               preference and budget. With advanced search filters and detailed property descriptions, locating your ideal home has never been more
               accessible.
             </p>
-            <p class="text-gray-700 mb-4">
+            <p className="text-gray-700 mb-4">
               Explore various neighborhoods, amenities, and property features to discover the perfect match for your lifestyle. Whether you're seeking
               a cozy starter home or a luxurious estate, each listing is thoroughly vetted to ensure quality and satisfaction, empowering you to make
               a confident investment decision.
             </p>
           </div>
-          <div class="md:w-1/3">
-            <img src="/images/sell.gif" alt="Buyer" class="w-[350px] rounded-lg shadow-md" />
+          <div className="md:w-1/3">
+            <img src="/images/sell.gif" alt="Buyer" className="w-[350px] rounded-lg shadow-md" />
           </div>
         </div>
       </div>
@@ -69,23 +69,23 @@ const HomeUser = () => {
         </CarouselComponent>
       </div>
 
-      <div class="py-12 px-5 flex justify-center">
-        <div class="flex flex-col md:flex-row items-center justify-center md:px-10">
-          <div class="md:w-1/2 md:mr-8">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">For Users Renting Properties</h2>
-            <p class="text-gray-700 mb-4">
+      <div className="py-12 px-5 flex justify-center">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center md:px-10 gap-5">
+          <div className="md:w-1/2 md:mr-8">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">For Users Renting Properties</h2>
+            <p className="text-gray-700 mb-4">
               Embark on a journey to find your ideal living space among our diverse range of rental properties, meticulously curated to cater to every
               lifestyle and budget. With advanced search filters and detailed property listings, locating your dream rental home has never been
               easier.
             </p>
-            <p class="text-gray-700 mb-4">
+            <p className="text-gray-700 mb-4">
               Browse through a variety of neighborhoods, amenities, and rental rates to discover the perfect match for your preferences. From charming
               apartments to spacious houses, each property is vetted to meet our quality standards, ensuring that you find a home that aligns with
               your expectations.
             </p>
           </div>
-          <div class="md:w-1/3">
-            <img src="/images/rent.gif" alt="Renter" class="w-[350px] rounded-lg shadow-md" />
+          <div className="md:w-1/3">
+            <img src="/images/rent.gif" alt="Renter" className="w-[350px] rounded-lg shadow-md" />
           </div>
         </div>
       </div>
