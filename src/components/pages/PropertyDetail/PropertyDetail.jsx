@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { getAllRequests, getPropertyById } from "../../../utils/axiosGloableInstance";
 import { MdOutlineCurrencyRupee, MdVerified } from "react-icons/md";
-import { Button } from "../../common";
+import { BookConfirmationModel, Button, DeleteConfirmationPropertyModel, VerifyUnverifyConfirmationModel } from "../../common";
 import { useSelector } from "react-redux";
-import ConfirmVerifyUnverifyModel from "../../common/ConfirmVerifyUnverifyModel";
-import CommonBookConfirmation from "../../common/CommonBookConfirmation";
-import DeleteConfirmationModel from "../../common/DeleteConfirmationModel";
 
 const CustomCheckbox = ({ checkBoxData = [], type = "" }) => {
   return (
@@ -358,7 +355,7 @@ const PropertyDetail = () => {
             </Button>
 
             {showBookConfirmation && (
-              <CommonBookConfirmation
+              <BookConfirmationModel
                 showBookConfirmation={showBookConfirmation}
                 setShowBookConfirmation={setShowBookConfirmation}
                 user={user}
@@ -377,7 +374,7 @@ const PropertyDetail = () => {
             )}
 
             {showConfirmationModel && (
-              <ConfirmVerifyUnverifyModel
+              <VerifyUnverifyConfirmationModel
                 showConfirmationModel={showConfirmationModel}
                 setShowConfirmationModel={setShowConfirmationModel}
                 status={property?.verifyStatusAdmin === false ? true : false}
@@ -398,7 +395,7 @@ const PropertyDetail = () => {
             )}
 
             {showDeleteConfirmation && (
-              <DeleteConfirmationModel
+              <DeleteConfirmationPropertyModel
                 showDeleteConfirmation={showDeleteConfirmation}
                 setShowDeleteConfirmation={setShowDeleteConfirmation}
                 property={property}

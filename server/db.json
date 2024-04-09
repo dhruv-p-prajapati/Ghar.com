@@ -1,26 +1,6 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "Dhruv P",
-      "email": "dhruv@example.com",
-      "password": "",
-      "phNo": "9313914401",
-      "amount": 32000,
-      "savedProperties": [
-        "1"
-      ]
-    },
-    {
-      "id": "2",
-      "name": "Rahul Sharma",
-      "email": "rahul@example.com",
-      "password": "",
-      "phNo": "9876543210",
-      "amount": 20000,
-      "savedProperties": []
-    },
-    {
       "id": "3",
       "name": "Neha Gupta",
       "email": "neha@example.com",
@@ -43,6 +23,33 @@
       "name": "Amit Kumar",
       "email": "amit@example.com",
       "password": "passwordxyz",
+      "phNo": "8765432109",
+      "amount": 30000,
+      "savedProperties": []
+    },
+    {
+      "id": "6",
+      "name": "Meet bhimani",
+      "email": "meet@example.com",
+      "password": "password123",
+      "phNo": "8765432109",
+      "amount": 30000,
+      "savedProperties": []
+    },
+    {
+      "id": "7",
+      "name": "smit",
+      "email": "smit@example.com",
+      "password": "password123",
+      "phNo": "8765432109",
+      "amount": 20000,
+      "savedProperties": []
+    },
+    {
+      "id": "8",
+      "name": "Vismay patel",
+      "email": "vismay@example.com",
+      "password": "password123",
       "phNo": "8765432109",
       "amount": 30000,
       "savedProperties": []
@@ -183,7 +190,7 @@
       "phNo": 9313914401,
       "subPropertyType": "villa",
       "name": "Dhruv heights",
-      "description": "{setShowConfirmationModel(!showConfirmationModel); setRerender(!rerender)}{setShowConfirmationModel(!showConfirmationModel); setRerender(!rerender)}\n\n{setShowConfirmationModel(!showConfirmationModel); setRerender(!rerender)}{setShowConfirmationModel(!showConfirmationModel); setRerender(!rerender)}{setShowConfirmationModel(!showConfirmationModel); setRerender(!rerender)}{setShowConfirmationModel(!showConfirmationModel); setRerender(!rerender)}",
+      "description": "This is new property",
       "address": {
         "streetNo": "25/A",
         "addressLine": "shrinagar society",
@@ -230,7 +237,7 @@
       "verifyStatusAdmin": true,
       "builderDetail": {
         "id": "2",
-        "amount": -12000,
+        "amount": -7000,
         "name": "Priya Sharma",
         "phNo": "9123456789"
       }
@@ -286,18 +293,14 @@
       "tokenAmount": 2500,
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
-      "verifyStatusAdmin": false,
+      "verifyStatusAdmin": true,
       "builderDetail": {
         "id": "2",
         "amount": -12000,
         "name": "Priya Sharma",
         "phNo": "9123456789"
       },
-      "bookedBy": {
-        "booked": true,
-        "id": "1",
-        "name": "Dhruv P"
-      }
+      "bookedBy": {}
     },
     {
       "id": "3",
@@ -417,15 +420,5 @@
       }
     }
   ],
-  "requests": [
-    {
-      "id": "1",
-      "userId": "1",
-      "builderId": "2",
-      "amountPaid": 5000,
-      "requestedAt": "4/9/2024, 4:28:10 PM",
-      "requestStatus": "accepted",
-      "propertyId": "2"
-    }
-  ]
+  "requests": []
 }

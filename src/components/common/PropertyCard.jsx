@@ -7,10 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { updateUser } from "../../utils/axiosGloableInstance";
 import { setRole } from "../../redux/actions/roleAction";
-import ConfirmVerifyUnverifyModel from "./ConfirmVerifyUnverifyModel";
-import CommonBookConfirmation from "./CommonBookConfirmation";
 import Button from "./Button";
-import DeleteConfirmationModel from "./DeleteConfirmationModel";
+import DeleteConfirmationPropertyModel from "./DeleteConfirmationPropertyModel";
+import BookConfirmationModel from "./BookConfirmationModel";
+import VerifyUnverifyConfirmationModel from "./VerifyUnverifyConfirmationModel";
 
 const PropertyCard = ({ property, setRerender, rerender }) => {
   const navigate = useNavigate();
@@ -199,7 +199,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
             View Details
           </Button>
           {showBookConfirmation && (
-            <CommonBookConfirmation
+            <BookConfirmationModel
               showBookConfirmation={showBookConfirmation}
               setShowBookConfirmation={setShowBookConfirmation}
               user={user}
@@ -218,7 +218,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
           )}
 
           {showConfirmationModel && (
-            <ConfirmVerifyUnverifyModel
+            <VerifyUnverifyConfirmationModel
               showConfirmationModel={showConfirmationModel}
               setShowConfirmationModel={setShowConfirmationModel}
               status={property?.verifyStatusAdmin === false ? true : false}
@@ -240,7 +240,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
           )}
 
           {showDeleteConfirmation && (
-            <DeleteConfirmationModel
+            <DeleteConfirmationPropertyModel
               showDeleteConfirmation={showDeleteConfirmation}
               setShowDeleteConfirmation={setShowDeleteConfirmation}
               property={property}

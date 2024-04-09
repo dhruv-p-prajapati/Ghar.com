@@ -9,7 +9,7 @@ import { setRole } from "../../redux/actions/roleAction";
 import bookProperty from "../../utils/commonFunctions/bookProperty";
 import { useNavigate } from "react-router-dom";
 
-const CommonBookConfirmation = ({ showBookConfirmation, setShowBookConfirmation, user, builder, property, rerender, setRerender }) => {
+const BookConfirmationModel = ({ showBookConfirmation, setShowBookConfirmation, user, builder, property, rerender, setRerender }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -101,4 +101,4 @@ const CommonBookConfirmation = ({ showBookConfirmation, setShowBookConfirmation,
   );
 };
 
-export default CommonBookConfirmation;
+export default BookConfirmationModel;

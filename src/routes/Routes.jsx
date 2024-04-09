@@ -24,6 +24,7 @@ const UpdateProperty = React.lazy(() => import("../components/pages/builder/Upda
 const PendingRequests = React.lazy(() => import("../components/pages/builder/PendingRequests/PendingRequests"));
 const AcceptedRequests = React.lazy(() => import("../components/pages/builder/AcceptedRequests/AcceptedRequests"));
 const OwnProperties = React.lazy(() => import("../components/pages/user/OwnProperties/OwnProperties"));
+const Users = React.lazy(() => import("../components/pages/admin/Users/Users"));
 
 const Routes = () => {
   const { user, builder, admin } = useSelector((state) => state.role);
@@ -113,6 +114,10 @@ const Routes = () => {
             {
               path: "review-request",
               element: <ReviewRequest />
+            },
+            {
+              path: "users",
+              element: <Users />
             }
           ]
         }

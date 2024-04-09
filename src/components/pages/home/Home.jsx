@@ -3,11 +3,8 @@ import { useSelector } from "react-redux";
 import LandingComponent from "../../common/LandingComponent";
 import { useNavigate } from "react-router-dom";
 import { getAllProperties } from "../../../utils/axiosGloableInstance";
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import PropertyCardHome from "../../common/PropertyCardHome";
-import { TbHomeSearch } from "react-icons/tb";
-import { Button, PropertyCard } from "../../common";
+import { PropertyCard } from "../../common";
 import CarouselComponent from "../../common/CarouselComponent";
 
 const Home = () => {

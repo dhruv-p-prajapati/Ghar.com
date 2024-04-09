@@ -30,6 +30,7 @@ export const getUserById = (userId) => API.get(`users/${userId}`);
 export const registerUser = (userObj) => API.post("users", userObj);
 export const findUser = (email) => API.get(`users?email=${email}`);
 export const updateUser = (userId, userObj) => API.patch(`users/${userId}`, userObj);
+export const deleteUser = (userId) => API.delete(`users/${userId}`);
 
 export const getBuilders = () => API.get("builders");
 export const getBuilderById = (builderId) => API.get(`builders/${builderId}`);

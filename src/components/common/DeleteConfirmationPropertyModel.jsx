@@ -5,7 +5,7 @@ import handleDeleteProperty from "../../utils/commonFunctions/handleDeleteProper
 import { useDispatch } from "react-redux";
 import { setRole } from "../../redux/actions/roleAction";
 
-const DeleteConfirmationModel = ({ showDeleteConfirmation, setShowDeleteConfirmation, property, builder, rerender, setRerender }) => {
+const DeleteConfirmationPropertyModel = ({ showDeleteConfirmation, setShowDeleteConfirmation, property, builder, rerender, setRerender }) => {
   const dispatch = useDispatch();
 
   const handleClick = async () => {
@@ -46,4 +46,4 @@ const DeleteConfirmationModel = ({ showDeleteConfirmation, setShowDeleteConfirma
   );
 };
 
-export default DeleteConfirmationModel;
+export default DeleteConfirmationPropertyModel;
