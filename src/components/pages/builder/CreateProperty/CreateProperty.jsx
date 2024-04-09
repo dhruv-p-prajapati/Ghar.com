@@ -158,7 +158,7 @@ const CreateProperty = () => {
     }
 
     case 3: {
-      return <PricingDetails data={data} setData={setData} nextStep={nextStep} prevStep={prevStep} handleRegisterProperty={handleRegisterProperty} />;
+      return <PricingDetails data={data} setData={setData} nextStep={nextStep} prevStep={prevStep} handleSubmitProperty={handleRegisterProperty} />;
     }
 
     default:

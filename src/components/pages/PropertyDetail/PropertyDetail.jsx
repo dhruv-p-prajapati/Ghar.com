@@ -6,6 +6,7 @@ import { Button } from "../../common";
 import { useSelector } from "react-redux";
 import ConfirmVerifyUnverifyModel from "../../common/ConfirmVerifyUnverifyModel";
 import CommonBookConfirmation from "../../common/CommonBookConfirmation";
+import DeleteConfirmationModel from "../../common/DeleteConfirmationModel";
 
 const CustomCheckbox = ({ checkBoxData = [], type = "" }) => {
   return (
@@ -13,8 +14,8 @@ const CustomCheckbox = ({ checkBoxData = [], type = "" }) => {
       {checkBoxData &&
         checkBoxData?.map((checkbox) => {
           return (
-            <div className="flex flex-col">
-              <div key={checkbox.id}>
+            <div className="flex flex-col" key={checkbox.id}>
+              <div>
                 <label
                   htmlFor={checkbox.id}
                   className={`block w-fit cursor-pointer rounded-lg border border-gray-300 bg-white py-2 px-4 text-sm font-medium shadow text-gray-600 hover:border-gray-20 has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:ring-1 has-[:checked]:shadow-primary has-[:checked]:ring-primary has-[:checked]:shadow ${
@@ -46,6 +47,7 @@ const PropertyDetail = () => {
 
   const [showConfirmationModel, setShowConfirmationModel] = useState(false);
   const [showBookConfirmation, setShowBookConfirmation] = useState(false);
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
   const [requests, setRequests] = useState([]);
   const [property, setProperty] = useState();
@@ -393,6 +395,25 @@ const PropertyDetail = () => {
                   </Button>
                 )}
               </div>
+            )}
+
+            {showDeleteConfirmation && (
+              <DeleteConfirmationModel
+                showDeleteConfirmation={showDeleteConfirmation}
+                setShowDeleteConfirmation={setShowDeleteConfirmation}
+                property={property}
+                builder={builder}
+              />
+            )}
+            {builder !== null && property?.builderDetail?.id === builder.id && (
+              <Button variant="danger" onClick={() => setShowDeleteConfirmation(!showDeleteConfirmation)}>
+                Delete
+              </Button>
+            )}
+            {admin !== null && (
+              <Button variant="danger" onClick={() => setShowDeleteConfirmation(!showDeleteConfirmation)}>
+                Delete
+              </Button>
             )}
           </div>
         </div>

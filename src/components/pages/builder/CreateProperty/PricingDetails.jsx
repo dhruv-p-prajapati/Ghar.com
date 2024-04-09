@@ -37,7 +37,7 @@ const pricingDetailsSchema = yup.object({
   constructionStatus: yup.string().required("*required")
 });
 
-const PricingDetails = ({ data, prevStep, nextStep, handleUpdateProperty, isUpdate = false }) => {
+const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpdate = false }) => {
   const handleSubmit = (values) => {
     const newObj = {
       ...data,
@@ -49,7 +49,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleUpdateProperty, isUpda
 
     nextStep(newObj);
 
-    handleUpdateProperty(values);
+    handleSubmitProperty(values);
   };
   return (
     <div>

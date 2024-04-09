@@ -43,9 +43,11 @@ export const getAllProperties = () => API.get("properties");
 export const registerProperty = (propertyObj) => API.post("properties", propertyObj);
 export const getPropertyById = (propertyId) => API.get(`properties/${propertyId}`);
 export const updateProperty = (propertyId, propertyObj) => API.patch(`properties/${propertyId}`, propertyObj);
+export const deleteProperty = (propertyId) => API.delete(`properties/${propertyId}`);
 
 export const getAllRequests = () => API.get("requests");
 export const bookPropertyRequest = (requestObj) => API.post("requests", requestObj);
 export const updatePropertyRequest = (requestId, requestObj) => API.patch(`requests/${requestId}`, requestObj);
+export const deletePropertyRequest = (requestId) => API.delete(`requests/${requestId}`);
 
 export default API;

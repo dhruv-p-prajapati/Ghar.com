@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const AllProperties = () => {
   const [properties, setProperties] = useState([]);
-  const [requests, setRequests] = useState([]);
+  const [rerender, setRerender] = useState(false);
 
   const { admin } = useSelector((state) => state.role);
 
@@ -13,10 +13,8 @@ const AllProperties = () => {
     (async () => {
       const { data } = await getAllProperties();
       setProperties(data);
-      const { data: reqData } = await getAllRequests();
-      setRequests(reqData);
     })();
-  }, []);
+  }, [rerender]);
 
   if (properties.length === 0) {
     return (
@@ -32,7 +30,7 @@ const AllProperties = () => {
         if (admin === null && property?.bookedBy?.booked === true) {
           return null;
         }
-        return <PropertyCard property={property} key={property.id} requests={requests} />;
+        return <PropertyCard property={property} key={property.id} rerender={rerender} setRerender={setRerender} />;
       })}
     </div>
   );

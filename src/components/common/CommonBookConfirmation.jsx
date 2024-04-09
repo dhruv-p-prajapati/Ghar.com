@@ -9,7 +9,7 @@ import { setRole } from "../../redux/actions/roleAction";
 import bookProperty from "../../utils/commonFunctions/bookProperty";
 import { useNavigate } from "react-router-dom";
 
-const CommonBookConfirmation = ({ showBookConfirmation, setShowBookConfirmation, user, builder, property }) => {
+const CommonBookConfirmation = ({ showBookConfirmation, setShowBookConfirmation, user, builder, property, rerender, setRerender }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -28,7 +28,10 @@ const CommonBookConfirmation = ({ showBookConfirmation, setShowBookConfirmation,
     if (userObj) {
       dispatch(setRole("user", userObj));
     }
-    navigate("/");
+
+    if (setRerender) {
+      setRerender(!rerender);
+    }
   };
   return (
     <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 grid place-items-center w-screen h-screen z-50 bg-[rgba(0,0,0,0.2)]">

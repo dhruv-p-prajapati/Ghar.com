@@ -112,7 +112,7 @@ const UpdateProperty = () => {
           setData={setData}
           nextStep={nextStep}
           prevStep={prevStep}
-          handleUpdateProperty={handleUpdateProperty}
+          handleSubmitProperty={handleUpdateProperty}
           isUpdate={true}
         />
       );
