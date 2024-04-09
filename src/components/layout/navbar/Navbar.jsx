@@ -45,7 +45,7 @@ const Navbar = () => {
   return (
     <>
       <div className="flex justify-center items-center ">
-        <div className="bg-primary bg-fixed h-16 w-screen flex justify-between items-center px-4 md:px-10 md:rounded-b-2xl">
+        <div className="bg-primary bg-fixed h-16 w-screen flex justify-between items-center px-4 md:px-10">
           <div className="flex justify-center items-center">
             <NavLink to="/">
               <img src="/images/logo.png" alt="Main Logo" className="w-10 md:w-16" />

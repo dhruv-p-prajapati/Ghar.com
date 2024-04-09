@@ -92,7 +92,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
 
   return (
     <div className="flex mb-3 mx-auto flex-col px-4 w-[min(85vw,850px)] relative text-secondary text-xs overflow-hidden font-medium shadow duration-300 rounded-md border border-gray-200">
-      {verifyStatusAdmin && (
+      {property?.verifyStatusAdmin && (
         <div className="absolute top-5 -rotate-45 -left-8 text-base bg-success z-10 rounded-md py-1 px-7 text-white flex justify-between items-center gap-1">
           <div>
             <MdVerified />
@@ -106,7 +106,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
         </div>
         <div className="flex flex-col gap-2 md:gap-3 w-full">
           <div className="flex justify-between items-center">
-            <div className="font-semibold text-2xl">{name}</div>
+            <div className="font-semibold text-2xl">{property?.name}</div>
             <div className="flex items-center justify-center gap-2">
               {property?.bookedBy?.booked === true ? (
                 builder !== null ? (
@@ -136,15 +136,15 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
           </div>
 
           <div>
-            {address.streetNo}, {address.addressLine}, {address.city}
+            {property?.address?.streetNo}, {property?.address?.addressLine}, {property?.address?.city}
           </div>
 
           <div className="flex gap-1 md:gap-5 flex-col items-start md:flex-row">
             <div className="flex gap-2 items-center justify-center">
-              <div className="text-sm">{lookingFor === "Rent" ? "Monthly Rent" : "Expected Price"} - </div>
+              <div className="text-sm">{property?.lookingFor === "Rent" ? "Monthly Rent" : "Expected Price"} - </div>
 
               <div className="flex items-center justify-center">
-                <div className="text-base md:text-lg font-bold">{price}</div>
+                <div className="text-base md:text-lg font-bold">{property?.price}</div>
                 <div className="text-base md:text-lg">
                   <MdCurrencyRupee />
                 </div>
@@ -154,7 +154,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
             <div className="flex gap-2 items-center justify-center">
               <div className="text-sm">Token amount - </div>
               <div className="flex items-center justify-center">
-                <div className="text-base md:text-lg font-bold">{tokenAmount}</div>
+                <div className="text-base md:text-lg font-bold">{property?.tokenAmount}</div>
                 <div className="text-base md:text-lg">
                   <MdCurrencyRupee />
                 </div>
@@ -164,22 +164,22 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
 
           <div>
             <p>
-              <span className="text-sm">Property Type - </span> {propertyType} / {subPropertyType || "Villa"}{" "}
-              <span className="text-base">({sqFt} sq. ft)</span>
+              <span className="text-sm">Property Type - </span> {property?.propertyType} / {property?.subPropertyType || "Villa"}{" "}
+              <span className="text-base">({property?.sqFt} sq. ft)</span>
             </p>
           </div>
 
           <div className="line-clamp-3 md:w-2/3">
-            <span className="text-sm">Description - </span> {description}
+            <span className="text-sm">Description - </span> {property?.description}
           </div>
 
           <div>
             <span className="text-sm">Near by places - </span>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 mt-1">
-              <p>Bus: {nearByPlaces.bus} k.m</p>
-              <p>Hospital: {nearByPlaces.hospital} k.m</p>
-              <p>Shopping Market: {nearByPlaces.shopppingMarket} k.m</p>
-              <p>School: {nearByPlaces.school} k.m</p>
+              <p>Bus: {property?.nearByPlaces?.bus} k.m</p>
+              <p>Hospital: {property?.nearByPlaces?.hospital} k.m</p>
+              <p>Shopping Market: {property?.nearByPlaces?.shopppingMarket} k.m</p>
+              <p>School: {property?.nearByPlaces?.school} k.m</p>
             </div>
           </div>
         </div>
@@ -188,14 +188,14 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
       <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 py-3">
         <div className="flex gap-8">
           <p>
-            <span className="text-sm">Property from - </span> {builderDetail.name}
+            <span className="text-sm">Property from - </span> {property?.builderDetail?.name}
           </p>
           <p>
-            <span className="text-sm">Phone No - </span> {builderDetail.phNo}
+            <span className="text-sm">Phone No - </span> {property?.builderDetail?.phNo}
           </p>
         </div>
         <div className="flex justify-between gap-5">
-          <Button className=" text-primary" variant="primaryOutline" onClick={() => navigate(`/property/${id}`)}>
+          <Button className=" text-primary" variant="primaryOutline" onClick={() => navigate(`/property/${property?.id}`)}>
             View Details
           </Button>
           {showBookConfirmation && (
@@ -221,7 +221,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
             <ConfirmVerifyUnverifyModel
               showConfirmationModel={showConfirmationModel}
               setShowConfirmationModel={setShowConfirmationModel}
-              status={verifyStatusAdmin === false ? true : false}
+              status={property?.verifyStatusAdmin === false ? true : false}
               property={property}
               rerender={rerender}
               setRerender={setRerender}
@@ -229,7 +229,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
           )}
           {admin !== null && (
             <div>
-              {verifyStatusAdmin === false ? (
+              {property?.verifyStatusAdmin === false ? (
                 <Button onClick={() => setShowConfirmationModel(!showConfirmationModel)}>Verify</Button>
               ) : (
                 <Button variant="danger" onClick={() => setShowConfirmationModel(!showConfirmationModel)}>
@@ -249,7 +249,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
               setRerender={setRerender}
             />
           )}
-          {builder !== null && builderDetail.id === builder.id && (
+          {builder !== null && property?.builderDetail.id === builder.id && (
             <Button variant="danger" onClick={() => setShowDeleteConfirmation(!showDeleteConfirmation)}>
               Delete
             </Button>

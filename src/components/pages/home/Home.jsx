@@ -107,6 +107,25 @@ const Home = () => {
           })}
         </CarouselComponent>
       </div>
+
+      <div class="py-12 px-5 flex justify-center">
+        <div class="flex flex-col md:flex-row items-center justify-center md:px-10">
+          <div class="md:w-1/2 md:mr-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">For Admins</h2>
+            <p class="text-gray-700 mb-4">
+              Explore a diverse range of rental properties, from charming apartments to spacious houses, meticulously curated to cater to every
+              lifestyle and budget. With advanced search filters and detailed property listings, managing listings for your users has never been
+              easier.
+            </p>
+            <p class="text-gray-700 mb-4">
+              Review a variety of neighborhoods, amenities, and rental rates to ensure listings meet quality standards and user expectations.
+            </p>
+          </div>
+          <div class="md:w-1/3">
+            <img src="/images/PropertyDetail.gif" alt="Renter" class="w-[350px] rounded-lg shadow-md" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
