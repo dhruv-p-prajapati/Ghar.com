@@ -26,6 +26,7 @@ API.interceptors.response.use(
 );
 
 export const getUsers = () => API.get("users");
+export const getUserById = (userId) => API.get(`users/${userId}`);
 export const registerUser = (userObj) => API.post("users", userObj);
 export const findUser = (email) => API.get(`users?email=${email}`);
 export const updateUser = (userId, userObj) => API.patch(`users/${userId}`, userObj);
@@ -45,5 +46,6 @@ export const updateProperty = (propertyId, propertyObj) => API.patch(`properties
 
 export const getAllRequests = () => API.get("requests");
 export const bookPropertyRequest = (requestObj) => API.post("requests", requestObj);
+export const updatePropertyRequest = (requestId, requestObj) => API.patch(`requests/${requestId}`, requestObj);
 
 export default API;

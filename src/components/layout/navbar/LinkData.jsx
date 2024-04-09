@@ -82,12 +82,12 @@ export const builderLinks = [
   },
   {
     label: "Pending Requests",
-    slug: "/builder-pending-request",
+    slug: "/pending-request",
     icon: <MdPendingActions />
   },
   {
     label: "Accepted Request",
-    slug: "/builder-accepted-request",
+    slug: "/accepted-request",
     icon: <TiTick />
   },
   {
