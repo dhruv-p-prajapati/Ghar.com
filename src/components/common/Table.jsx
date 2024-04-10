@@ -14,6 +14,7 @@ const Table = ({ columns, rows, pageSizeOptions }) => {
         }}
         pageSizeOptions={pageSizeOptions}
         rowSelection={false}
+        autoHeight={true}
       />
     </div>
   );

@@ -13,7 +13,7 @@ const RadioButton = ({ radioButtonData = [], value, handleChange }) => {
                 className="block cursor-pointer rounded-lg border border-gray-300 bg-white py-2 px-4 text-sm font-medium shadow text-gray-600 hover:border-gray-200 has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:ring-1 has-[:checked]:shadow-primary has-[:checked]:ring-primary has-[:checked]:shadow-md">
                 <div className="flex justify-between items-center gap-1">
                   {link?.icon}
-                  <p className="text-center">{link?.text}</p>
+                  <p className="text-center">{link?.text.slice(0, 1).toUpperCase() + link?.text.slice(1)}</p>
                 </div>
 
                 <input

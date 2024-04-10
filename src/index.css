@@ -15,3 +15,13 @@
 ::-webkit-scrollbar-thumb {
     background: #2b7cff;
 }
+
+.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
+    /* right: 0 !important; */
+    background-color: black !important;
+}
+
+.react-multiple-carousel__arrow.react-multiple-carousel__arrow--left {
+    /* left: 0 !important; */
+    background-color: black !important;
+}
