@@ -420,5 +420,28 @@
       }
     }
   ],
-  "requests": []
+  "requests": [],
+  "queries": [
+    {
+      "id": "f653",
+      "name": "Dhruv P",
+      "email": "dhruv@example.com",
+      "phNo": "9313914401",
+      "description": "Hey, admin! i am not able to login into Ghar.com\nPlease provide some help"
+    },
+    {
+      "id": "b653",
+      "name": "Meet",
+      "email": "meet@example.com",
+      "phNo": "9313914401",
+      "description": "Hey, admin! i am not able to login into Ghar.com\nPlease provide some help"
+    },
+    {
+      "id": "x653",
+      "name": "Smit x",
+      "email": "smit@example.com",
+      "phNo": "9313914401",
+      "description": "Hey, admin! i am not able to login into Ghar.com\nPlease provide some help lLorem ipsum dolor sit amet consectetur, adipisicing elit. At voluptas possimus natus asperiores dicta, minima mollitia quaerat nemo eum, ad minus provident vero ea ipsam qui nulla saepe laudantium quod facilis suscipit totam iste quas. Ad, officiis impedit qui itaque amet non voluptas ducimus consectetur explicabo, architecto, magni aliquid iure."
+    }
+  ]
 }
