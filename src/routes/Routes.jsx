@@ -5,28 +5,29 @@ import AuthCheckUser from "../utils/authCheckProtectedRoutes/AuthCheckUser";
 import AuthCheckBuilder from "../utils/authCheckProtectedRoutes/AuthCheckBuilder";
 import AuthCheckAdmin from "../utils/authCheckProtectedRoutes/AuthCheckAdmin";
 
+const Home = React.lazy(() => import("../components/pages/home/Home"));
 const HomeUser = React.lazy(() => import("../components/pages/home/HomeUser"));
 const HomeAdmin = React.lazy(() => import("../components/pages/home/HomeAdmin"));
 const HomeBuilder = React.lazy(() => import("../components/pages/home/HomeBuilder"));
 const Layout = React.lazy(() => import("../components/layout/layout/Layout"));
+const Login = React.lazy(() => import("../components/pages/login/Login"));
 const RegisterBuilder = React.lazy(() => import("../components/pages/register/RegisterBuilder"));
 const RegisterUser = React.lazy(() => import("../components/pages/register/RegisterUser"));
-const Home = React.lazy(() => import("../components/pages/home/Home"));
-const Login = React.lazy(() => import("../components/pages/login/Login"));
-const ErrorPage = React.lazy(() => import("./../components/pages/ErrorPage/ErrorPage"));
-const CreateProperty = React.lazy(() => import("./../components/pages/builder/CreateProperty/CreateProperty"));
 const AllProperties = React.lazy(() => import("../components/pages/AllProperties/AllProperties"));
 const PropertyDetail = React.lazy(() => import("../components/pages/PropertyDetail/PropertyDetail"));
-const SavedProperties = React.lazy(() => import("../components/pages/user/SavedProperties/SavedProperties"));
 const ListedProperties = React.lazy(() => import("../components/pages/builder/ListedProperties/ListedProperties"));
-const ReviewRequest = React.lazy(() => import("../components/pages/admin/ReviewRequest/ReviewRequest"));
+const SavedProperties = React.lazy(() => import("../components/pages/user/SavedProperties/SavedProperties"));
+const CreateProperty = React.lazy(() => import("./../components/pages/builder/CreateProperty/CreateProperty"));
 const UpdateProperty = React.lazy(() => import("../components/pages/builder/UpdateProperty/UpdateProperty"));
+const ReviewRequest = React.lazy(() => import("../components/pages/admin/ReviewRequest/ReviewRequest"));
 const PendingRequests = React.lazy(() => import("../components/pages/builder/PendingRequests/PendingRequests"));
 const AcceptedRequests = React.lazy(() => import("../components/pages/builder/AcceptedRequests/AcceptedRequests"));
 const OwnProperties = React.lazy(() => import("../components/pages/user/OwnProperties/OwnProperties"));
+const Profile = React.lazy(() => import("./../components/pages/profile/Profile"));
 const Users = React.lazy(() => import("../components/pages/admin/Users/Users"));
-const ContactUs = React.lazy(() => import("../components/pages/ContactUs/ContactUs"));
 const Queries = React.lazy(() => import("./../components/pages/admin/Queries/Queries"));
+const ContactUs = React.lazy(() => import("../components/pages/ContactUs/ContactUs"));
+const ErrorPage = React.lazy(() => import("./../components/pages/ErrorPage/ErrorPage"));
 
 const Routes = () => {
   const { user, builder, admin } = useSelector((state) => state.role);
@@ -78,6 +79,10 @@ const Routes = () => {
             {
               path: "owned-properties",
               element: <OwnProperties />
+            },
+            {
+              path: "profile",
+              element: <Profile />
             }
           ]
         },
@@ -107,6 +112,10 @@ const Routes = () => {
             {
               path: "listed-property",
               element: <ListedProperties />
+            },
+            {
+              path: "builder-profile",
+              element: <Profile />
             }
           ]
         },

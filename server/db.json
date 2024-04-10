@@ -33,7 +33,7 @@
       "email": "meet@example.com",
       "password": "password123",
       "phNo": "8765432109",
-      "amount": 30000,
+      "amount": 20000,
       "savedProperties": []
     },
     {
@@ -80,7 +80,7 @@
       "phNo": "9123456789",
       "reraId": "RERAGJ67890",
       "panNo": "FGHIJ5678K",
-      "amount": -7000,
+      "amount": 25000,
       "listedProperties": [
         "1",
         "2"
@@ -234,7 +234,7 @@
       "tokenAmount": 2000,
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
-      "verifyStatusAdmin": false,
+      "verifyStatusAdmin": true,
       "builderDetail": {
         "id": "2",
         "amount": -7000,
@@ -353,7 +353,7 @@
       "tokenAmount": 10000,
       "negotiable": "No",
       "constructionStatus": "Ready To Move",
-      "verifyStatusAdmin": true,
+      "verifyStatusAdmin": false,
       "builderDetail": {
         "id": "1",
         "amount": 0,
@@ -411,7 +411,7 @@
       "tokenAmount": 2000,
       "negotiable": "No",
       "constructionStatus": "Ready To Move",
-      "verifyStatusAdmin": false,
+      "verifyStatusAdmin": true,
       "builderDetail": {
         "id": "1",
         "amount": 0,
