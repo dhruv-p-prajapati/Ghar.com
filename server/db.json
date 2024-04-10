@@ -234,7 +234,7 @@
       "tokenAmount": 2000,
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
-      "verifyStatusAdmin": true,
+      "verifyStatusAdmin": false,
       "builderDetail": {
         "id": "2",
         "amount": -7000,
@@ -353,7 +353,7 @@
       "tokenAmount": 10000,
       "negotiable": "No",
       "constructionStatus": "Ready To Move",
-      "verifyStatusAdmin": false,
+      "verifyStatusAdmin": true,
       "builderDetail": {
         "id": "1",
         "amount": 0,
@@ -411,7 +411,7 @@
       "tokenAmount": 2000,
       "negotiable": "No",
       "constructionStatus": "Ready To Move",
-      "verifyStatusAdmin": true,
+      "verifyStatusAdmin": false,
       "builderDetail": {
         "id": "1",
         "amount": 0,

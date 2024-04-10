@@ -13,6 +13,8 @@ import Table from "./Table";
 import CarouselComponent from "./CarouselComponent";
 import DeleteConfirmationPropertyModel from "./DeleteConfirmationPropertyModel";
 import DeleteConfirmationUserModel from "./DeleteConfirmationUserModel";
+import SearchComponent from "./SearchComponent";
+import FilterComponent from "./FilterComponent";
 
 export {
   Button,
@@ -29,5 +31,7 @@ export {
   Table,
   CarouselComponent,
   DeleteConfirmationPropertyModel,
-  DeleteConfirmationUserModel
+  DeleteConfirmationUserModel,
+  SearchComponent,
+  FilterComponent
 };

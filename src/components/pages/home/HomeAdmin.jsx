@@ -55,7 +55,7 @@ const HomeAdmin = () => {
         </div>
       </div>
 
-      <div className="md:px-10 my-5 md:my-12">
+      <div className="md:px-10 my-5 md:my-12 bg-[#f5f5f5] py-5">
         <div className="text-2xl text-center mb-5 flex justify-center flex-col">
           <span className="font-bold">Recently Added</span>
           <span className="text-base">Discover Our Recently Added Properties</span>
