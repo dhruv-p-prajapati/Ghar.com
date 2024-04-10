@@ -6,7 +6,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-primary text-white pt-4 pb-2">
+    <div className="bg-primary text-white pt-4 pb-2 mt-auto">
       <div className="flex justify-around items-center w-screen">
         <div className="flex flex-col">
           <h3 className="text-lg md:text-xl font-semibold mb-2 hover:text-gray-200 duration-300 cursor-pointer">Contact Us</h3>

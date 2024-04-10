@@ -44,9 +44,9 @@ export const userLinks = [
     icon: <FaHome />
   },
   {
-    label: "Profile",
-    slug: "/user-profile",
-    icon: <FaUserAlt />
+    label: "All Properties",
+    slug: "/all-properties",
+    icon: <TbBuildingCommunity />
   },
   {
     label: "Saved Properties",
@@ -54,24 +54,14 @@ export const userLinks = [
     icon: <CiBookmarkCheck />
   },
   {
-    label: "All Properties",
-    slug: "/all-properties",
-    icon: <TbBuildingCommunity />
-  },
-  {
-    label: "Properties for rent",
-    slug: "/for-rent",
-    icon: <MdOutlineSell />
-  },
-  {
-    label: "Properties for Sell",
-    slug: "/for-sell",
-    icon: <MdOutlineSell />
-  },
-  {
     label: "Owned Properties",
     slug: "/owned-properties",
     icon: <TbHomeDown />
+  },
+  {
+    label: "Profile",
+    slug: "/profile",
+    icon: <FaUserAlt />
   }
 ];
 
@@ -115,19 +105,19 @@ export const adminLinks = [
     icon: <FaHome />
   },
   {
+    label: "All Properties",
+    slug: "/all-properties",
+    icon: <TbBuildingCommunity />
+  },
+  {
     label: "Review Property Request",
     slug: "/review-request",
     icon: <SiCodereview />
   },
   {
-    label: "users",
+    label: "Users",
     slug: "/users",
     icon: <HiUsers />
-  },
-  {
-    label: "All Properties",
-    slug: "/all-properties",
-    icon: <TbBuildingCommunity />
   },
   {
     label: "Queries",
