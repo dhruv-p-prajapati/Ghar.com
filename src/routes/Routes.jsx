@@ -25,6 +25,8 @@ const PendingRequests = React.lazy(() => import("../components/pages/builder/Pen
 const AcceptedRequests = React.lazy(() => import("../components/pages/builder/AcceptedRequests/AcceptedRequests"));
 const OwnProperties = React.lazy(() => import("../components/pages/user/OwnProperties/OwnProperties"));
 const Users = React.lazy(() => import("../components/pages/admin/Users/Users"));
+const ContactUs = React.lazy(() => import("../components/pages/ContactUs/ContactUs"));
+const Queries = React.lazy(() => import("./../components/pages/admin/Queries/Queries"));
 
 const Routes = () => {
   const { user, builder, admin } = useSelector((state) => state.role);
@@ -57,6 +59,10 @@ const Routes = () => {
         {
           path: "property/:propertyId",
           element: <PropertyDetail />
+        },
+        {
+          path: "contact",
+          element: <ContactUs />
         },
         {
           element: <AuthCheckUser isAuth={user !== null ? true : false} />,
@@ -118,6 +124,10 @@ const Routes = () => {
             {
               path: "users",
               element: <Users />
+            },
+            {
+              path: "queries",
+              element: <Queries />
             }
           ]
         }

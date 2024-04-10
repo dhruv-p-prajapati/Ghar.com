@@ -24,7 +24,7 @@ const responsive = {
 
 const CarouselComponent = ({ children }) => {
   return (
-    <div className="">
+    <div>
       <Carousel
         swipeable={true}
         draggable={false}
@@ -32,7 +32,6 @@ const CarouselComponent = ({ children }) => {
         responsive={responsive}
         infinite={true}
         autoPlay={true}
-        // autoPlaySpeed={2500}
         keyBoardControl={true}
         transitionDuration={1000}>
         {children}

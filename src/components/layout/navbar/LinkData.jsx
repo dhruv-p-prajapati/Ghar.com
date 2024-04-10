@@ -12,6 +12,7 @@ import { TiTick } from "react-icons/ti";
 import { HiUsers } from "react-icons/hi";
 import { SiCodereview } from "react-icons/si";
 import { FaHome } from "react-icons/fa";
+import { FaPersonCircleQuestion } from "react-icons/fa6";
 
 export const publicLinks = [
   {
@@ -127,5 +128,10 @@ export const adminLinks = [
     label: "All Properties",
     slug: "/all-properties",
     icon: <TbBuildingCommunity />
+  },
+  {
+    label: "Queries",
+    slug: "/queries",
+    icon: <FaPersonCircleQuestion />
   }
 ];

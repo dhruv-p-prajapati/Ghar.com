@@ -51,4 +51,7 @@ export const bookPropertyRequest = (requestObj) => API.post("requests", requestO
 export const updatePropertyRequest = (requestId, requestObj) => API.patch(`requests/${requestId}`, requestObj);
 export const deletePropertyRequest = (requestId) => API.delete(`requests/${requestId}`);
 
+export const getAllQueries = () => API.get("queries");
+export const registerQuery = (queryObj) => API.post("queries", queryObj);
+
 export default API;
