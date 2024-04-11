@@ -14,7 +14,7 @@ const AllProperties = () => {
   const [categories, setCategories] = useState([]);
   const [showFilter, setShowFilter] = useState(false);
   const [currPage, setCurrPage] = useState(1);
-  const limit = 1;
+  const limit = 3;
 
   const [query, setQuery, searchedProperties] = useSearch(properties.reverse(), "name", "address.city");
   const [

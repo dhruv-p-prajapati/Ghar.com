@@ -9,6 +9,7 @@ const Home = React.lazy(() => import("../components/pages/home/Home"));
 const HomeUser = React.lazy(() => import("../components/pages/home/HomeUser"));
 const HomeAdmin = React.lazy(() => import("../components/pages/home/HomeAdmin"));
 const HomeBuilder = React.lazy(() => import("../components/pages/home/HomeBuilder"));
+const About = React.lazy(() => import("../components/pages/About/About"));
 const Layout = React.lazy(() => import("../components/layout/layout/Layout"));
 const Login = React.lazy(() => import("../components/pages/login/Login"));
 const RegisterBuilder = React.lazy(() => import("../components/pages/register/RegisterBuilder"));
@@ -64,6 +65,10 @@ const Routes = () => {
         {
           path: "contact",
           element: <ContactUs />
+        },
+        {
+          path: "about",
+          element: <About />
         },
         {
           element: <AuthCheckUser isAuth={user !== null ? true : false} />,
