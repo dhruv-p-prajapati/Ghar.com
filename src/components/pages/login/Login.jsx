@@ -1,18 +1,12 @@
 import { Form, Formik } from "formik";
 import React, { useEffect } from "react";
 import { Button, HelmetHeader, Input } from "../../common";
-import * as yup from "yup";
 import { setRole } from "../../../redux/actions/roleAction";
 import { toast } from "react-toastify";
 import { findBuilder, findUser } from "../../../utils/axiosGloableInstance";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-
-const loginSchema = yup.object({
-  role: yup.string().required("*required").oneOf(["user", "admin", "builder"], "*Please select a valid role"),
-  email: yup.string().required("*required").trim(),
-  password: yup.string().required("*required").trim()
-});
+import { loginSchema } from "../../../utils/ValidationSchemas";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -74,8 +68,7 @@ const Login = () => {
           password: ""
         }}
         onSubmit={handleSubmit}
-        // validationSchema={loginSchema}
-      >
+        validationSchema={loginSchema}>
         {({ handleSubmit, handleChange, handleBlur, values, errors, touched }) => (
           <div className="flex justify-center flex-col gap-5 items-center mt-10 sm:px-[5rem]">
             <span className="text-black font-bold text-3xl">Login</span>

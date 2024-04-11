@@ -8,7 +8,7 @@ const HomeBuilder = () => {
 
   const title = (
     <p>
-      Welcome, <span className="text-4xl font-bold italic">{builder?.name}</span> to Ghar.com Builder Platform!
+      Welcome, <span className="text-2xl md:text-4xl font-bold italic">{builder?.name}</span> to Ghar.com Builder Platform!
     </p>
   );
   const description = (

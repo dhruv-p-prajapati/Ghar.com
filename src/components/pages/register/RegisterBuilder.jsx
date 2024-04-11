@@ -1,43 +1,13 @@
 import { Form, Formik, useFormik } from "formik";
 import React, { useEffect, useState } from "react";
 import { Button, HelmetHeader, Input } from "../../common";
-import * as yup from "yup";
 import { getBuilders, getUsers, registerBuilder } from "../../../utils/axiosGloableInstance";
 import { toast } from "react-toastify";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setRole } from "../../../redux/actions/roleAction";
 import { setLoader } from "../../../redux/actions/appAction";
-
-const passwordRules = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/;
-const phNoRules = /^[6-9]\d{9}$/;
-const reraIdRules = /^[A-Za-z]{6}[0-9]{5}$/;
-const panNoRules = /^[A-Za-z]{5}\d{4}[A-Za-z]{1}$/;
-
-const builderSchema = yup.object({
-  name: yup
-    .string()
-    .required("*required")
-    .min(2, "*Name must contain atleast 2 characters")
-    .max(15, "*Name must not contain more than 15 characters")
-    .trim(),
-  email: yup.string().required("*required").email("*Email is not valid").trim(),
-  phNo: yup.string().required("*required").matches(phNoRules, "*Phone No. is not valid"),
-  reraId: yup.string().required("*required").matches(reraIdRules, "*RERA Id is not valid"),
-  panNo: yup.string().required("*required").matches(panNoRules, "*PAN No. is not valid"),
-  streetNo: yup.string().required("*required"),
-  addressLine: yup.string().required("*required"),
-  city: yup.string().required("*required"),
-  state: yup.string().required("*required"),
-  password: yup
-    .string()
-    .required("*required")
-    .matches(passwordRules, "*Password must contain 1 UpperCase, 1 Lowercase, 1 special characters and 1 number"),
-  cpassword: yup
-    .string()
-    .required("*required")
-    .oneOf([yup.ref("password")], "*Passwords must match")
-});
+import { builderSchema } from "../../../utils/ValidationSchemas";
 
 const RegisterBuilder = () => {
   const navigate = useNavigate();

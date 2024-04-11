@@ -5,18 +5,7 @@ import { Button, HelmetHeader, Input } from "../../common";
 import { updateBuilder, updateUser } from "../../../utils/axiosGloableInstance";
 import { setRole } from "../../../redux/actions/roleAction";
 import { toast } from "react-toastify";
-import * as yup from "yup";
-
-const profileSchema = yup.object({
-  name: yup
-    .string()
-    .required("*required")
-    .min(2, "*Name must contain atleast 2 characters")
-    .max(15, "*Name must not contain more than 15 characters")
-    .trim(),
-  email: yup.string().required("*required").email("*Email is not valid").trim(),
-  amount: yup.number().min(0, "*Enter valid amount").max(50000, "*Enter amount less than 50,000")
-});
+import { profileSchema } from "../../../utils/ValidationSchemas";
 
 const Profile = () => {
   const dispatch = useDispatch();

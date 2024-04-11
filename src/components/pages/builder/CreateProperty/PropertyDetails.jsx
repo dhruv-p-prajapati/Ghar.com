@@ -1,22 +1,7 @@
 import React from "react";
 import { Form, Formik } from "formik";
-import * as yup from "yup";
 import { Button, HelmetHeader, Input, RadioButton, StepperComponent } from "../../../common";
-
-const propertyDetailSchema = yup.object({
-  subPropertyType: yup.string().required("*required"),
-  name: yup
-    .string()
-    .required("*required")
-    .min(5, "*Property name must contain atleast 5 characters")
-    .max(25, "*Property name must not contain more than 25 characters"),
-  description: yup.string().required("*required").min(8, "*Description must contain atleast 8 characters"),
-  streetNo: yup.string().required("*required"),
-  addressLine: yup.string().required("*required"),
-  city: yup.string().required("*required"),
-  state: yup.string().required("*required"),
-  sqFt: yup.number().required("*required").min(50, "*Sq. ft must be of atleast 50 sq. ft")
-});
+import { propertyDetailSchema } from "../../../../utils/ValidationSchemas";
 
 const PropertyDetails = ({ data, nextStep, prevStep, categories }) => {
   const subCategoriesLinks = [];

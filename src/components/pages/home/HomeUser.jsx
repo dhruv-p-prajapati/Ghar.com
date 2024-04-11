@@ -14,7 +14,7 @@ const HomeUser = () => {
 
   const title = (
     <p>
-      Welcome back, <span className="text-4xl font-bold italic">{user?.name}</span>
+      Welcome back, <span className="text-2xl md:text-4xl font-bold italic">{user?.name}</span>
     </p>
   );
   const description = (

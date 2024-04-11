@@ -4,33 +4,10 @@ import { Button, HelmetHeader, Input } from "../../common";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getBuilders, getUsers, registerUser } from "../../../utils/axiosGloableInstance";
-import * as yup from "yup";
 import { setLoader } from "../../../redux/actions/appAction";
 import { setRole } from "../../../redux/actions/roleAction";
 import { toast } from "react-toastify";
-
-const passwordRules = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/;
-const phNoRules = /^[6-9]\d{9}$/;
-
-const userSchema = yup.object({
-  name: yup
-    .string()
-    .required("*required")
-    .min(2, "*Name must contain atleast 2 characters")
-    .max(15, "*Name must not contain more than 15 characters")
-    .trim(),
-  email: yup.string().required("*required").email("*Email is not valid").trim(),
-  phNo: yup.string().required("*required").matches(phNoRules, "*Phone No. is not valid"),
-  amount: yup.number().min(0, "*Enter valid amount").max(50000, "*Enter amount less than 50,000"),
-  password: yup
-    .string()
-    .required("*required")
-    .matches(passwordRules, "*Password must contain 1 UpperCase, 1 Lowercase, 1 special characters and 1 number"),
-  cpassword: yup
-    .string()
-    .required("*required")
-    .oneOf([yup.ref("password")], "*Passwords must match")
-});
+import { userSchema } from "../../../utils/ValidationSchemas";
 
 const RegisterUser = () => {
   const navigate = useNavigate();

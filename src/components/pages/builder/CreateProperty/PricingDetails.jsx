@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Formik } from "formik";
-import * as yup from "yup";
 import { Button, HelmetHeader, Input, RadioButton, StepperComponent } from "../../../common";
+import { pricingDetailsSchema } from "../../../../utils/ValidationSchemas";
 
 const negotiableLinks = [
   {
@@ -28,14 +28,6 @@ const constructionStatusLinks = [
     text: "Under Construction"
   }
 ];
-
-const pricingDetailsSchema = yup.object({
-  price: yup.number().required("*required").positive("*Enter valid Price"),
-  tokenAmount: yup.number().required("*required").positive("*Enter valid token amount"),
-  image: yup.string().required("*required"),
-  negotiable: yup.string().required("*required"),
-  constructionStatus: yup.string().required("*required")
-});
 
 const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpdate = false }) => {
   const handleSubmit = (values) => {

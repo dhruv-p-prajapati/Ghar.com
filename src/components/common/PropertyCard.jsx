@@ -181,13 +181,13 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
         </div>
       </div>
       <hr />
-      <div className="flex flex-col md:flex-row justify-between md:items-center gap-2 md:gap-4 py-3">
-        <div className="flex gap-8">
+      <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 md:gap-1 py-3">
+        <div className="flex gap-2 lg:gap-8">
           <p>
-            <span className="text-sm">Property from - </span> {property?.builderDetail?.name}
+            <span className="text-xs lg:text-sm">Property from - </span> {property?.builderDetail?.name}
           </p>
           <p>
-            <span className="text-sm">Phone No - </span> {property?.builderDetail?.phNo}
+            <span className="text-xs lg:text-sm">Phone No - </span> {property?.builderDetail?.phNo}
           </p>
         </div>
         <div className="flex justify-between gap-2 md:gap-5">
