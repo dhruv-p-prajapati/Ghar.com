@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAllCategories, getAllProperties, getAllRequests } from "../../../utils/axiosGloableInstance";
 import PropertyCard from "../../common/PropertyCard";
 import { useSelector } from "react-redux";
-import { Button, FilterComponent, HelmetHeader, Input, Loader, RadioButton, SearchComponent, SortComponent } from "../../common";
+import { Button, FilterComponent, HelmetHeader, Pagination, SearchComponent, SortComponent } from "../../common";
 import useSearch from "../../../utils/customHooks/useSearch";
 import useFilter from "../../../utils/customHooks/useFilter";
 import useSort from "../../../utils/customHooks/useSort";
@@ -13,6 +13,8 @@ const AllProperties = () => {
   const [rerender, setRerender] = useState(false);
   const [categories, setCategories] = useState([]);
   const [showFilter, setShowFilter] = useState(false);
+  const [currPage, setCurrPage] = useState(1);
+  const limit = 1;
 
   const [query, setQuery, searchedProperties] = useSearch(properties, "name", "address.city");
   const [
@@ -28,6 +30,12 @@ const AllProperties = () => {
   ] = useFilter(searchedProperties);
 
   const [sortBy, setSortBy, descending, setDescending, sortedProperties] = useSort(filteredProperty);
+
+  const totalPages = Math.ceil(sortedProperties?.length / limit);
+
+  const propertiesToShow = () => {
+    return sortedProperties?.slice((currPage - 1) * limit, currPage * limit).reverse();
+  };
 
   const fetchData = async () => {
     const { data: propertiesData } = await getAllProperties();
@@ -59,7 +67,7 @@ const AllProperties = () => {
             "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 grid place-items-center w-screen h-screen z-50 bg-[rgba(0,0,0,0.2)]"
           }>
           <div className={`${showFilter ? "flex rounded-md" : "hidden"} xl:flex flex-col xl:max-w-80 bg-white py-10 px-5 w-[min(90vw,520px)] xl:p-0`}>
-            <SearchComponent query={query} setQuery={setQuery} />
+            <SearchComponent query={query} setQuery={setQuery} setCurrPage={setCurrPage} />
 
             <FilterComponent
               propertyType={propertyType}
@@ -71,9 +79,10 @@ const AllProperties = () => {
               verifiedByAdmin={verifiedByAdmin}
               setVerifiedByAdmin={setVerifiedByAdmin}
               categories={categories}
+              setCurrPage={setCurrPage}
             />
 
-            <SortComponent sortBy={sortBy} setSortBy={setSortBy} descending={descending} setDescending={setDescending} />
+            <SortComponent sortBy={sortBy} setSortBy={setSortBy} descending={descending} setDescending={setDescending} setCurrPage={setCurrPage} />
 
             {showFilter && (
               <Button className="mt-3" onClick={() => setShowFilter(!showFilter)}>
@@ -88,21 +97,26 @@ const AllProperties = () => {
         </div>
 
         <div className="flex flex-col gap-10 justify-center items-center">
-          {sortedProperties?.length === 0 ? (
-            <div className="flex flex-col items-center w-[min(85vw,850px)]">
-              <div>
-                <img src="/images/Notfound.gif" alt="Not found" />
+          <div className="lg:min-h-[70vh]">
+            {propertiesToShow()?.length === 0 ? (
+              <div className="flex flex-col items-center w-[min(85vw,850px)]">
+                <div>
+                  <img src="/images/Notfound.gif" alt="Not found" />
+                </div>
+                <h2 className="text-lg font-semibold mb-2">No matching properties found !</h2>
               </div>
-              <h2 className="text-lg font-semibold mb-2">No matching properties found !</h2>
-            </div>
-          ) : (
-            sortedProperties?.reverse().map((property) => {
-              if (!admin && property?.bookedBy?.booked === true) {
-                return null;
-              }
-              return <PropertyCard property={property} key={property.id} rerender={rerender} setRerender={setRerender} />;
-            })
-          )}
+            ) : (
+              propertiesToShow()?.map((property) => {
+                if (!admin && property?.bookedBy?.booked === true) {
+                  return null;
+                }
+                return <PropertyCard property={property} key={property.id} rerender={rerender} setRerender={setRerender} />;
+              })
+            )}
+          </div>
+          <div>
+            <Pagination currPage={currPage} setCurrPage={setCurrPage} totalPages={totalPages} />
+          </div>
         </div>
       </div>
     </>

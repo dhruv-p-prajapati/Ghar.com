@@ -10,7 +10,8 @@ const FilterComponent = ({
   setLookingFor,
   verifiedByAdmin,
   setVerifiedByAdmin,
-  categories
+  categories,
+  setCurrPage
 }) => {
   const propertyTypeDataRadioButton = [
     { id: "all", name: "propertyType", text: "all" },
@@ -47,6 +48,9 @@ const FilterComponent = ({
           handleChange={(e) => {
             setPropertyType(e.target.value);
             setSubPropertyType("all");
+            if (setCurrPage) {
+              setCurrPage(1);
+            }
           }}
         />
       </div>
@@ -60,6 +64,9 @@ const FilterComponent = ({
               value={subPropertyType}
               handleChange={(e) => {
                 setSubPropertyType(e.target.value);
+                if (setCurrPage) {
+                  setCurrPage(1);
+                }
               }}
             />
           </div>
@@ -74,8 +81,10 @@ const FilterComponent = ({
           radioButtonData={lookingForDataRadioButton}
           value={lookingFor}
           handleChange={(e) => {
-            console.log(e.target.value);
             setLookingFor(e.target.value);
+            if (setCurrPage) {
+              setCurrPage(1);
+            }
           }}
         />
       </div>
@@ -99,7 +108,8 @@ FilterComponent.propTypes = {
   setLookingFor: PropTypes.func,
   verifiedByAdmin: PropTypes.bool,
   setVerifiedByAdmin: PropTypes.func,
-  categories: PropTypes.arrayOf(PropTypes.object)
+  categories: PropTypes.arrayOf(PropTypes.object),
+  setCurrPage: PropTypes.func
 };
 
 export default FilterComponent;

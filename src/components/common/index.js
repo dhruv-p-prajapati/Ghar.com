@@ -17,6 +17,7 @@ import SearchComponent from "./SearchComponent";
 import FilterComponent from "./FilterComponent";
 import SortComponent from "./SortComponent";
 import HelmetHeader from "./HelmetHeader";
+import Pagination from "./Pagination";
 
 export {
   Button,
@@ -37,5 +38,6 @@ export {
   SearchComponent,
   FilterComponent,
   SortComponent,
-  HelmetHeader
+  HelmetHeader,
+  Pagination
 };
