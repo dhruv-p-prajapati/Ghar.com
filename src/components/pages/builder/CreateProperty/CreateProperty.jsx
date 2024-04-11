@@ -22,7 +22,7 @@ const CreateProperty = () => {
   const [data, setData] = useState({
     lookingFor: "",
     propertyType: "",
-    phNo: "",
+    phNo: builder?.phNo || "",
 
     subPropertyType: "",
     name: "",
@@ -76,7 +76,8 @@ const CreateProperty = () => {
     price: "",
     tokenAmount: "",
     negotiable: true,
-    constructionStatus: ""
+    constructionStatus: "",
+    image: ""
   });
 
   const nextStep = (values) => {
@@ -101,6 +102,7 @@ const CreateProperty = () => {
         ...data,
         price: values.price,
         tokenAmount: values.tokenAmount,
+        image: values.image,
         negotiable: values.negotiable,
         constructionStatus: values.constructionStatus,
         id: properties.length !== 0 ? (parseInt(properties[properties.length - 1].id) + 1).toString() : "1",

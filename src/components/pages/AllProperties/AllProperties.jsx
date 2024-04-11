@@ -16,7 +16,7 @@ const AllProperties = () => {
   const [currPage, setCurrPage] = useState(1);
   const limit = 1;
 
-  const [query, setQuery, searchedProperties] = useSearch(properties, "name", "address.city");
+  const [query, setQuery, searchedProperties] = useSearch(properties.reverse(), "name", "address.city");
   const [
     propertyType,
     setPropertyType,
@@ -27,14 +27,14 @@ const AllProperties = () => {
     verifiedByAdmin,
     setVerifiedByAdmin,
     filteredProperty
-  ] = useFilter(searchedProperties);
+  ] = useFilter(searchedProperties.reverse());
 
   const [sortBy, setSortBy, descending, setDescending, sortedProperties] = useSort(filteredProperty);
 
   const totalPages = Math.ceil(sortedProperties?.length / limit);
 
   const propertiesToShow = () => {
-    return sortedProperties?.slice((currPage - 1) * limit, currPage * limit).reverse();
+    return sortedProperties?.slice((currPage - 1) * limit, currPage * limit);
   };
 
   const fetchData = async () => {
@@ -107,7 +107,7 @@ const AllProperties = () => {
               </div>
             ) : (
               propertiesToShow()?.map((property) => {
-                if (!admin && property?.bookedBy?.booked === true) {
+                if ((admin && property?.bookedBy?.booked) === true ? true : false) {
                   return null;
                 }
                 return <PropertyCard property={property} key={property.id} rerender={rerender} setRerender={setRerender} />;

@@ -78,7 +78,8 @@
       "amount": 0,
       "listedProperties": [
         "3",
-        "4"
+        "4",
+        "11"
       ]
     },
     {
@@ -266,6 +267,7 @@
       },
       "price": 4000000,
       "tokenAmount": 2000,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": true,
@@ -325,6 +327,7 @@
       },
       "price": 450000,
       "tokenAmount": 2500,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": false,
@@ -389,6 +392,7 @@
       },
       "price": 500000,
       "tokenAmount": 10000,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "No",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": true,
@@ -447,6 +451,7 @@
       },
       "price": 15000,
       "tokenAmount": 2000,
+      "image": "knjdcnj",
       "negotiable": "No",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": true,
@@ -504,6 +509,7 @@
       },
       "price": 40000,
       "tokenAmount": 5000,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": true,
@@ -562,6 +568,7 @@
       },
       "price": 1500000,
       "tokenAmount": 25000,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": false,
@@ -618,6 +625,7 @@
       },
       "price": 450,
       "tokenAmount": 455,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "No",
       "constructionStatus": "Under Construction",
       "verifyStatusAdmin": false,
@@ -678,6 +686,7 @@
       },
       "price": 4000000,
       "tokenAmount": 25000,
+      "image": "knjdcnj",
       "negotiable": "No",
       "constructionStatus": "Under Construction",
       "verifyStatusAdmin": false,
@@ -735,6 +744,7 @@
       },
       "price": 250000,
       "tokenAmount": 12500,
+      "image": "knjdcnj",
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": false,
@@ -792,6 +802,7 @@
       },
       "price": 450000,
       "tokenAmount": 1510,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": false,
@@ -800,6 +811,65 @@
         "amount": 25000,
         "name": "Priya Sharma",
         "phNo": "9123456789"
+      }
+    },
+    {
+      "id": "11",
+      "lookingFor": "Rent",
+      "propertyType": "land",
+      "phNo": "9876543210",
+      "subPropertyType": "agricultural land",
+      "name": "Ag Farms",
+      "description": "This farm is under rent",
+      "address": {
+        "streetNo": "1",
+        "addressLine": "jay ambe nagar",
+        "city": "visnagar",
+        "state": "gujarat"
+      },
+      "sqFt": 400,
+      "facing": "East",
+      "parking": 0,
+      "nearByPlaces": {
+        "school": 1,
+        "hospital": 0.8,
+        "bus": 0.5,
+        "shopppingMarket": 2
+      },
+      "furnished": "",
+      "bhk": "",
+      "amenitiesForResidential": {
+        "lift": false,
+        "cctv": false,
+        "gym": false,
+        "garden": false,
+        "swimmingPool": false,
+        "clubHouse": false
+      },
+      "amenitiesForCommercial": {
+        "lift": false,
+        "cctv": false,
+        "powerBackup": false,
+        "fireSafety": false,
+        "waterStorage": false,
+        "cafeteria": false,
+        "receptionArea": false
+      },
+      "amenitiesForLand": {
+        "powerBackup": true,
+        "farmHouse": false
+      },
+      "price": 25000,
+      "tokenAmount": 2000,
+      "negotiable": "Yes",
+      "constructionStatus": "Ready To Move",
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "1",
+        "amount": 0,
+        "name": "Ravi Kumar",
+        "phNo": "9876543210"
       }
     }
   ],

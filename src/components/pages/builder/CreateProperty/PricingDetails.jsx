@@ -32,6 +32,7 @@ const constructionStatusLinks = [
 const pricingDetailsSchema = yup.object({
   price: yup.number().required("*required").positive("*Enter valid Price"),
   tokenAmount: yup.number().required("*required").positive("*Enter valid token amount"),
+  image: yup.string().required("*required"),
   negotiable: yup.string().required("*required"),
   constructionStatus: yup.string().required("*required")
 });
@@ -42,6 +43,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpda
       ...data,
       price: values.price,
       tokenAmount: values.tokenAmount,
+      image: values.image,
       negotiable: values.negotiable,
       constructionStatus: values.constructionStatus
     };
@@ -59,6 +61,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpda
         initialValues={{
           price: data.price,
           tokenAmount: data.tokenAmount,
+          image: data.image,
           negotiable: data.negotiable,
           constructionStatus: data.constructionStatus
         }}
@@ -91,6 +94,18 @@ const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpda
                   onBlur={handleBlur}
                   touched={touched?.tokenAmount}
                   error={errors?.tokenAmount}
+                />
+
+                <Input
+                  id="image"
+                  name="image"
+                  value={values.image}
+                  labelText="Image URL"
+                  placeholder="Enter image url"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  touched={touched?.image}
+                  error={errors?.image}
                 />
 
                 <div className="flex flex-col justify-start gap-2">
@@ -129,6 +144,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpda
                           ...data,
                           price: values.price,
                           tokenAmount: values.tokenAmount,
+                          image: values.image,
                           negotiable: values.negotiable,
                           constructionStatus: values.constructionStatus
                         };

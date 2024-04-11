@@ -208,6 +208,11 @@ const PropertyDetail = () => {
     fetchData();
   }, [property]);
 
+  const imageOnError = (event) => {
+    event.currentTarget.src = "/images/main.jpg";
+    event.currentTarget.className = "w-full h-[400px]";
+  };
+
   return (
     <>
       <HelmetHeader title={property?.name || "Property Detail"} />
@@ -222,8 +227,9 @@ const PropertyDetail = () => {
                 <p>Verified </p>
               </div>
             )}
-            <div className="bg-primary w-full ">
-              <img src="/images/main.jpg" alt="Main Image" className="w-full h-[400px]" />
+            <div className="bg-primary w-full">
+              <img src={property?.image} onError={imageOnError} width="400px" className="w-full h-[400px]" />
+              {/* <img src="/images/main.jpg" alt="Main Image" className="w-full h-[400px]" /> */}
             </div>
             <div className="w-full flex flex-col gap-2 md:gap-5">
               <div className="text-3xl md:text-5xl font-semibold flex items-center">{property?.name}</div>
@@ -354,7 +360,7 @@ const PropertyDetail = () => {
               </p>
             </div>
             <div className="flex gap-3">
-              <Button variant="secondaryOutline" onClick={() => navigate("/")}>
+              <Button variant="secondaryOutline" onClick={() => navigate(-1)}>
                 Back
               </Button>
 

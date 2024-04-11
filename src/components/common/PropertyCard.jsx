@@ -76,6 +76,11 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
     }
   };
 
+  const imageOnError = (event) => {
+    event.currentTarget.src = "/images/main.jpg";
+    event.currentTarget.className = "duration-300 hover:scale-105 w-[85vw] md:w-[400px] rounded-md h-[250px] ";
+  };
+
   return (
     <div className="flex mb-3 mx-auto flex-col px-4 w-[min(85vw,850px)] relative text-secondary text-xs overflow-hidden font-medium shadow duration-300 rounded-md border border-gray-200">
       {property?.verifyStatusAdmin && (
@@ -87,8 +92,13 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
         </div>
       )}
       <div className="flex flex-col md:flex-row w-full gap-4 md:gap-8 py-2 md:py-4">
-        <div className="flex justify-center items-center overflow-hidden rounded-md border border-gray-100">
-          <img src="/images/main.jpg" alt="" className="duration-300 hover:scale-105 w-[85vw] md:w-[400px] rounded-md h-full " />
+        <div className="flex justify-center items-center overflow-hidden rounded-md border border-gray-100 bg-cover">
+          <img
+            src={property.image}
+            onError={imageOnError}
+            width="400px"
+            className="duration-300 hover:scale-105 w-[85vw] md:w-[400px] rounded-md h-[250px] "
+          />
         </div>
         <div className="flex flex-col gap-2 md:gap-3 w-full">
           <div className="flex justify-between items-center">
