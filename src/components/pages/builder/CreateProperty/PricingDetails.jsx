@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
-import { Button, Input, RadioButton, StepperComponent } from "../../../common";
+import { Button, HelmetHeader, Input, RadioButton, StepperComponent } from "../../../common";
 
 const negotiableLinks = [
   {
@@ -51,7 +51,8 @@ const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpda
     handleSubmitProperty(values);
   };
   return (
-    <div>
+    <>
+      <HelmetHeader title="Pricing Details" />
       <StepperComponent activeStep={3} />
 
       <Formik
@@ -149,7 +150,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpda
           </div>
         )}
       </Formik>
-    </div>
+    </>
   );
 };
 

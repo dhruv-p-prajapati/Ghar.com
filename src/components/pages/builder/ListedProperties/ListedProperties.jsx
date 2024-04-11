@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { getAllCategories, getAllProperties } from "../../../../utils/axiosGloableInstance";
-import { Button, FilterComponent, PropertyCard, SearchComponent, SortComponent } from "../../../common";
+import { Button, FilterComponent, HelmetHeader, PropertyCard, SearchComponent, SortComponent } from "../../../common";
 import useSearch from "../../../../utils/customHooks/useSearch";
 import useFilter from "../../../../utils/customHooks/useFilter";
 import useSort from "../../../../utils/customHooks/useSort";
@@ -55,52 +55,59 @@ const ListedProperties = () => {
   }
 
   return (
-    <div className="flex flex-col xl:flex-row justify-center items-center xl:items-start gap-10 my-10 w-screen ">
-      <div
-        className={
-          showFilter && "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 grid place-items-center w-screen h-screen z-50 bg-[rgba(0,0,0,0.2)]"
-        }>
-        <div className={`${showFilter ? "flex rounded-md" : "hidden"} xl:flex flex-col xl:max-w-80 bg-white py-10 px-5 w-[min(90vw,520px)] xl:p-0`}>
-          <SearchComponent query={query} setQuery={setQuery} />
+    <>
+      <HelmetHeader title="Listed Properties" />
+      <div className="flex flex-col xl:flex-row justify-center items-center xl:items-start gap-10 my-10 w-screen ">
+        <div
+          className={
+            showFilter &&
+            "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 grid place-items-center w-screen h-screen z-50 bg-[rgba(0,0,0,0.2)]"
+          }>
+          <div className={`${showFilter ? "flex rounded-md" : "hidden"} xl:flex flex-col xl:max-w-80 bg-white py-10 px-5 w-[min(90vw,520px)] xl:p-0`}>
+            <SearchComponent query={query} setQuery={setQuery} />
 
-          <FilterComponent
-            propertyType={propertyType}
-            setPropertyType={setPropertyType}
-            subPropertyType={subPropertyType}
-            setSubPropertyType={setSubPropertyType}
-            lookingFor={lookingFor}
-            setLookingFor={setLookingFor}
-            verifiedByAdmin={verifiedByAdmin}
-            setVerifiedByAdmin={setVerifiedByAdmin}
-            categories={categories}
-          />
+            <FilterComponent
+              propertyType={propertyType}
+              setPropertyType={setPropertyType}
+              subPropertyType={subPropertyType}
+              setSubPropertyType={setSubPropertyType}
+              lookingFor={lookingFor}
+              setLookingFor={setLookingFor}
+              verifiedByAdmin={verifiedByAdmin}
+              setVerifiedByAdmin={setVerifiedByAdmin}
+              categories={categories}
+            />
 
-          <SortComponent sortBy={sortBy} setSortBy={setSortBy} descending={descending} setDescending={setDescending} />
+            <SortComponent sortBy={sortBy} setSortBy={setSortBy} descending={descending} setDescending={setDescending} />
 
-          {showFilter && (
-            <Button className="mt-3" onClick={() => setShowFilter(!showFilter)}>
-              Apply Filters
-            </Button>
+            {showFilter && (
+              <Button className="mt-3" onClick={() => setShowFilter(!showFilter)}>
+                Apply Filters
+              </Button>
+            )}
+          </div>
+        </div>
+
+        <div className="xl:hidden">
+          <Button onClick={() => setShowFilter(!showFilter)}>Choose Filters</Button>
+        </div>
+
+        <div className="flex flex-col gap-10 justify-center items-center">
+          {sortedProperties?.length === 0 ? (
+            <div className="flex flex-col items-center w-[min(85vw,850px)]">
+              <div>
+                <img src="/images/Notfound.gif" alt="Not found" />
+              </div>
+              <h2 className="text-lg font-semibold mb-2">No matching properties found !</h2>
+            </div>
+          ) : (
+            sortedProperties?.reverse().map((property) => {
+              return <PropertyCard property={property} key={property.id} />;
+            })
           )}
         </div>
       </div>
-
-      <div className="xl:hidden">
-        <Button onClick={() => setShowFilter(!showFilter)}>Choose Filters</Button>
-      </div>
-
-      <div className="flex flex-col gap-10 justify-center items-center">
-        {sortedProperties?.length === 0 ? (
-          <div className="text-center mt-8 w-[min(85vw,850px)]">
-            <h2 className="text-lg font-semibold mb-2">No matching properties found !</h2>
-          </div>
-        ) : (
-          sortedProperties?.reverse().map((property) => {
-            return <PropertyCard property={property} key={property.id} />;
-          })
-        )}
-      </div>
-    </div>
+    </>
   );
 };
 

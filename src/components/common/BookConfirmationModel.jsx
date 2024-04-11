@@ -7,8 +7,10 @@ import { Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { setRole } from "../../redux/actions/roleAction";
 import bookProperty from "../../utils/commonFunctions/bookProperty";
+import { useNavigate } from "react-router-dom";
 
 const BookConfirmationModel = ({ showBookConfirmation, setShowBookConfirmation, user, builder, property, rerender, setRerender }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const bookPropertySchema = yup.object({
@@ -87,7 +89,9 @@ const BookConfirmationModel = ({ showBookConfirmation, setShowBookConfirmation, 
                   {parseFloat(user.amount) >= parseFloat(property.tokenAmount) ? (
                     <Button type="submit">Book Now</Button>
                   ) : (
-                    <Button type="submit">Add funds</Button>
+                    <Button type="submit" onClick={() => navigate("/profile")}>
+                      Add funds
+                    </Button>
                   )}
                 </div>
               </Form>

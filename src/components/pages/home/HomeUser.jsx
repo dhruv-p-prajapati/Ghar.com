@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import LandingComponent from "../../common/LandingComponent";
 import CarouselComponent from "../../common/CarouselComponent";
-import { PropertyCard } from "../../common";
+import { HelmetHeader, PropertyCard } from "../../common";
 import { getAllProperties } from "../../../utils/axiosGloableInstance";
 
 const HomeUser = () => {
@@ -33,7 +33,8 @@ const HomeUser = () => {
     fetchProperties();
   }, []);
   return (
-    <div>
+    <>
+      <HelmetHeader title="Home | User" />
       <LandingComponent title={title} description={description} />
 
       <div className="py-12 px-5 flex justify-center">
@@ -57,7 +58,7 @@ const HomeUser = () => {
         </div>
       </div>
 
-      <div className="md:px-10 my-5 md:my-12">
+      <div className="md:px-10 my-5 md:my-12 bg-[#f5f5f5] py-5">
         <div className="text-2xl text-center mb-5 flex justify-center flex-col">
           <span className="font-bold">Recently Added</span>
           <span className="text-base">Discover Our Recently Added Properties</span>
@@ -89,7 +90,7 @@ const HomeUser = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

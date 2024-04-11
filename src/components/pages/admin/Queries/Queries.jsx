@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAllQueries } from "../../../../utils/axiosGloableInstance";
 import { toast } from "react-toastify";
+import { HelmetHeader } from "../../../common";
 
 const Queries = () => {
   const [queries, setQueries] = useState([]);
@@ -25,6 +26,7 @@ const Queries = () => {
 
   return (
     <>
+      <HelmetHeader title="Queries" />
       <div className="text-3xl font-semibold text-center mt-10">Queries</div>
       <div className="flex flex-col justify-center items-center gap-5 my-10">
         {queries.map((query) => {

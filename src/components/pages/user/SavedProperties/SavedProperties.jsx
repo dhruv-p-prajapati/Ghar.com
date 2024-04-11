@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { getAllProperties } from "../../../../utils/axiosGloableInstance";
-import { Button, PropertyCard } from "../../../common";
+import { Button, HelmetHeader, PropertyCard } from "../../../common";
 
 const SavedProperties = () => {
   const navigate = useNavigate();
@@ -32,11 +32,14 @@ const SavedProperties = () => {
   }
 
   return (
-    <div className="flex flex-col gap-10 justify-center items-center my-10">
-      {savedProperties.map((property) => {
-        return <PropertyCard property={property} key={property.id} />;
-      })}
-    </div>
+    <>
+      <HelmetHeader title="Saved Properties" />
+      <div className="flex flex-col gap-10 justify-center items-center my-10">
+        {savedProperties.map((property) => {
+          return <PropertyCard property={property} key={property.id} />;
+        })}
+      </div>
+    </>
   );
 };
 

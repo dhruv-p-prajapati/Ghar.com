@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import LandingComponent from "../../common/LandingComponent";
-import { Button } from "../../common";
+import { Button, HelmetHeader } from "../../common";
 
 const HomeBuilder = () => {
   const { builder } = useSelector((state) => state.role);
@@ -18,7 +18,8 @@ const HomeBuilder = () => {
     </p>
   );
   return (
-    <div>
+    <>
+      <HelmetHeader title="Home | Builder" />
       <LandingComponent title={title} description={description} />
       <div className="mt-10 mb-5 text-center px-2">
         <h1 className="text-xl md:text-3xl font-semibold text-gray-800">Discover Endless Opportunities</h1>
@@ -67,7 +68,7 @@ const HomeBuilder = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -4,7 +4,7 @@ import LandingComponent from "../../common/LandingComponent";
 import { useNavigate } from "react-router-dom";
 import { getAllProperties } from "../../../utils/axiosGloableInstance";
 import "react-multi-carousel/lib/styles.css";
-import { PropertyCard } from "../../common";
+import { HelmetHeader, PropertyCard } from "../../common";
 import CarouselComponent from "../../common/CarouselComponent";
 
 const Home = () => {
@@ -36,7 +36,8 @@ const Home = () => {
     fetchProperties();
   }, []);
   return (
-    <div>
+    <>
+      <HelmetHeader title="Home" />
       <LandingComponent title={title} description={description} />
 
       <div className="mt-10 mb-5 text-center px-2">
@@ -62,7 +63,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="md:px-10 my-5 md:my-12">
+      <div className="md:px-10 my-5 md:my-12 bg-[#f5f5f5] py-5">
         <div className="text-2xl text-center mb-5 flex justify-center flex-col">
           <span className="font-bold">Recently Added</span>
           <span className="text-base">Discover Our Recently Added Properties</span>
@@ -93,7 +94,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="md:px-10 my-5 md:my-12">
+      <div className="md:px-10 my-5 md:my-12 bg-[#f5f5f5] py-5">
         <div className="text-2xl text-center mb-5 flex justify-center flex-col">
           <span className="font-bold">Verified by Admin</span>
           <span className="text-base">Your Trusted Source for Authenticated Properties</span>
@@ -123,7 +124,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

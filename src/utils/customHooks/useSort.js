@@ -5,7 +5,7 @@ const useSort = (properties) => {
   const [sortBy, setSortBy] = useState("default");
   const [descending, setDescending] = useState(false);
 
-  let sortedProperties = properties;
+  let sortedProperties = [...properties];
 
   if (sortBy === "price" || sortBy === "tokenAmount") {
     sortedProperties = properties.sort((a, b) => {

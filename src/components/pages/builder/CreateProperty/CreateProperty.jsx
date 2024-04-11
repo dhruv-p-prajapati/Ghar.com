@@ -120,9 +120,9 @@ const CreateProperty = () => {
           ...builder,
           listedProperties: [...builder.listedProperties, propertyObj.id]
         };
+        toast.success("Property registered successfully");
         dispatch(setRole("builder", builderObj));
         await updateBuilder(builder.id, builderObj);
-        toast.success("Property registered successfully");
         navigate("/builder");
       } else {
         console.log("Failed to register property ", error);

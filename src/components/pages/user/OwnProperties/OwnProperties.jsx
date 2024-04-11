@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAllRequests } from "../../../../utils/axiosGloableInstance";
-import { Button, PropertyRequestCard } from "../../../common";
+import { Button, HelmetHeader, PropertyRequestCard } from "../../../common";
 
 const OwnProperties = () => {
   const navigate = useNavigate();
@@ -30,11 +30,14 @@ const OwnProperties = () => {
     );
   }
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center md:px-16 gap-10 mt-10">
-      {currRequests?.map((request) => {
-        return <PropertyRequestCard key={request.id} request={request} showButtons={false} showBuilderDetails={true} />;
-      })}
-    </div>
+    <>
+      <HelmetHeader title="My Properties" />
+      <div className="flex flex-col md:flex-row justify-center items-center md:px-16 gap-10 mt-10">
+        {currRequests?.map((request) => {
+          return <PropertyRequestCard key={request.id} request={request} showButtons={false} showBuilderDetails={true} />;
+        })}
+      </div>
+    </>
   );
 };
 

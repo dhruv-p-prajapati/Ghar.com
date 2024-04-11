@@ -27,7 +27,7 @@ const CarouselComponent = ({ children }) => {
       <Carousel
         swipeable={true}
         draggable={false}
-        showDots={true}
+        showDots={false}
         responsive={responsive}
         infinite={true}
         autoPlay={true}

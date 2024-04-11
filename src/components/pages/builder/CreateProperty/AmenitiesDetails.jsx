@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, Form, Formik } from "formik";
 import * as yup from "yup";
-import { Button, Checkbox, Input, RadioButton, StepperComponent } from "../../../common";
+import { Button, Checkbox, HelmetHeader, Input, RadioButton, StepperComponent } from "../../../common";
 
 const facingLink = [
   {
@@ -152,21 +152,21 @@ const checkBoxDataLand = [
 ];
 
 const amenitiesDetailsSchemaForResidential = yup.object({
-  parking: yup.number().required("*required").positive("*Enter valid number of parkings"),
-  school: yup.number().required("*required").positive("*Enter valid distance for school"),
-  hospital: yup.number().required("*required").positive("*Enter valid distance for hospital"),
-  bus: yup.number().required("*required").positive("*Enter valid distance for bus stand"),
-  shopppingMarket: yup.number().required("*required").positive("*Enter valid distance for Shopping market"),
+  parking: yup.number().required("*required").min(0, "*Enter valid number of parkings"),
+  school: yup.number().required("*required").positive("*Enter valid distance"),
+  hospital: yup.number().required("*required").positive("*Enter valid distance"),
+  bus: yup.number().required("*required").positive("*Enter valid distance"),
+  shopppingMarket: yup.number().required("*required").positive("*Enter valid distance"),
   furnished: yup.string().required("*required").oneOf(["Full-Furnished", "Semi-Furnished", "Un-Furnished"]),
   bhk: yup.string().required("*required").oneOf(["1 BHK", "2 BHK", "3 BHK", "3+ BHK"])
 });
 
 const amenitiesDetailsSchema = yup.object({
-  parking: yup.number().required("*required").positive("*Enter valid number of parkings"),
-  school: yup.number().required("*required").positive("*Enter valid distance for school"),
-  hospital: yup.number().required("*required").positive("*Enter valid distance for hospital"),
-  bus: yup.number().required("*required").positive("*Enter valid distance for bus stand"),
-  shopppingMarket: yup.number().required("*required").positive("*Enter valid distance for Shopping market")
+  parking: yup.number().required("*required").min(0, "*Enter valid number of parkings"),
+  school: yup.number().required("*required").positive("*Enter valid distance"),
+  hospital: yup.number().required("*required").positive("*Enter valid distance"),
+  bus: yup.number().required("*required").positive("*Enter valid distance"),
+  shopppingMarket: yup.number().required("*required").positive("*Enter valid distance")
 });
 
 const AmenitiesDetails = ({ data, nextStep, prevStep }) => {
@@ -243,7 +243,8 @@ const AmenitiesDetails = ({ data, nextStep, prevStep }) => {
   };
 
   return (
-    <div>
+    <>
+      <HelmetHeader title="Amenities Details" />
       <StepperComponent activeStep={2} />
 
       <Formik
@@ -431,7 +432,7 @@ const AmenitiesDetails = ({ data, nextStep, prevStep }) => {
           </div>
         )}
       </Formik>
-    </div>
+    </>
   );
 };
 
