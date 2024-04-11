@@ -1,40 +1,8 @@
 import React from "react";
 import { Form, Formik } from "formik";
-import * as yup from "yup";
 import { Button, HelmetHeader, Input, RadioButton, StepperComponent } from "../../../common";
-
-const negotiableLinks = [
-  {
-    id: "yes",
-    name: "negotiable",
-    text: "Yes"
-  },
-  {
-    id: "no",
-    name: "negotiable",
-    text: "No"
-  }
-];
-
-const constructionStatusLinks = [
-  {
-    id: "readyToMove",
-    name: "constructionStatus",
-    text: "Ready To Move"
-  },
-  {
-    id: "underConstruction",
-    name: "constructionStatus",
-    text: "Under Construction"
-  }
-];
-
-const pricingDetailsSchema = yup.object({
-  price: yup.number().required("*required").positive("*Enter valid Price"),
-  tokenAmount: yup.number().required("*required").positive("*Enter valid token amount"),
-  negotiable: yup.string().required("*required"),
-  constructionStatus: yup.string().required("*required")
-});
+import { pricingDetailsSchema } from "../../../../utils/ValidationSchemas";
+import { constructionStatusLinks, negotiableLinks } from "../../../../utils/RadioButtonsLinks";
 
 const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpdate = false }) => {
   const handleSubmit = (values) => {
@@ -42,6 +10,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpda
       ...data,
       price: values.price,
       tokenAmount: values.tokenAmount,
+      image: values.image,
       negotiable: values.negotiable,
       constructionStatus: values.constructionStatus
     };
@@ -59,6 +28,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpda
         initialValues={{
           price: data.price,
           tokenAmount: data.tokenAmount,
+          image: data.image,
           negotiable: data.negotiable,
           constructionStatus: data.constructionStatus
         }}
@@ -91,6 +61,18 @@ const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpda
                   onBlur={handleBlur}
                   touched={touched?.tokenAmount}
                   error={errors?.tokenAmount}
+                />
+
+                <Input
+                  id="image"
+                  name="image"
+                  value={values.image}
+                  labelText="Image URL"
+                  placeholder="Enter image url"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  touched={touched?.image}
+                  error={errors?.image}
                 />
 
                 <div className="flex flex-col justify-start gap-2">
@@ -129,6 +111,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpda
                           ...data,
                           price: values.price,
                           tokenAmount: values.tokenAmount,
+                          image: values.image,
                           negotiable: values.negotiable,
                           constructionStatus: values.constructionStatus
                         };

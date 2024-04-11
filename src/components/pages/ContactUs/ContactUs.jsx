@@ -2,22 +2,9 @@ import React from "react";
 import { Button, HelmetHeader, Input } from "../../common";
 import { Form, Formik } from "formik";
 import { useSelector } from "react-redux";
-import * as yup from "yup";
 import { registerQuery } from "../../../utils/axiosGloableInstance";
 import { toast } from "react-toastify";
-
-const phNoRules = /^[6-9]\d{9}$/;
-
-const contactSchema = yup.object({
-  name: yup
-    .string()
-    .required("*required")
-    .min(5, "*Property name must contain atleast 5 characters")
-    .max(25, "*Property name must not contain more than 25 characters"),
-  email: yup.string().required("*required").email("*Email is not valid").trim(),
-  phNo: yup.string().required("*required").matches(phNoRules, "*Phone No. is not valid"),
-  description: yup.string().required("*required").min(8, "*Description must contain atleast 8 characters")
-});
+import { contactSchema } from "../../../utils/ValidationSchemas";
 
 const ContactUs = () => {
   const { user, builder } = useSelector((state) => state.role);

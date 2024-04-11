@@ -88,6 +88,11 @@ const PropertyRequestCard = ({ request, showBuilderDetails = false, showButtons 
     }
   };
 
+  const imageOnError = (event) => {
+    event.currentTarget.src = "/images/main.jpg";
+    event.currentTarget.className = "rounded-md max-h-[220px] w-full";
+  };
+
   const fetchData = async () => {
     const { data: userData } = await getUserById(request.userId);
     const { data: builderData } = await getBuilderById(request.builderId);
@@ -111,7 +116,7 @@ const PropertyRequestCard = ({ request, showBuilderDetails = false, showButtons 
         {request.requestStatus}
       </div>
       <div className="rounded-md">
-        <img src="/images/main.jpg" className="rounded-md" />
+        <img src={property?.image} onError={imageOnError} className="rounded-md max-h-[220px] w-full" />
       </div>
       <div className="flex flex-col bg-white w-full text-sm gap-1">
         {showBuilderDetails ? (

@@ -1,32 +1,10 @@
 import React from "react";
-import { MdSell } from "react-icons/md";
 import { Form, Formik } from "formik";
-import * as yup from "yup";
 import { Button, HelmetHeader, Input, RadioButton, StepperComponent } from "../../../common";
-
-const lookingFor = [
-  {
-    id: "rent",
-    name: "lookingFor",
-    text: "Rent",
-    icon: <MdSell />
-  },
-  {
-    id: "sell",
-    name: "lookingFor",
-    text: "Sell",
-    icon: <MdSell />
-  }
-];
+import { basicDetailSchema } from "../../../../utils/ValidationSchemas";
+import { lookingFor } from "../../../../utils/RadioButtonsLinks";
 
 const categoriesLinks = [];
-
-const phNoRules = /^[6-9]\d{9}$/;
-const basicDetailSchema = yup.object({
-  lookingFor: yup.string().required("*required"),
-  propertyType: yup.string().required("*required"),
-  phNo: yup.string().required("*required").matches(phNoRules, "*Phone No. is not valid")
-});
 
 const BasicDetails = ({ data, setData, nextStep, categories, property }) => {
   categories?.map((category) => {

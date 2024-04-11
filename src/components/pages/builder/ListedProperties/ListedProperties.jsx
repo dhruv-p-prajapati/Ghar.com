@@ -20,7 +20,7 @@ const ListedProperties = () => {
 
   const listedProperties = properties?.filter((property) => builder.listedProperties.includes(property.id));
 
-  const [query, setQuery, searchedProperties] = useSearch(listedProperties, "name", "address.city");
+  const [query, setQuery, searchedProperties] = useSearch(listedProperties.reverse(), "name", "address.city");
   const [
     propertyType,
     setPropertyType,
@@ -38,7 +38,7 @@ const ListedProperties = () => {
   const totalPages = Math.ceil(sortedProperties?.length / limit);
 
   const propertiesToShow = () => {
-    return sortedProperties?.slice((currPage - 1) * limit, currPage * limit).reverse();
+    return sortedProperties?.slice((currPage - 1) * limit, currPage * limit);
   };
 
   const fetchData = async () => {
@@ -56,7 +56,7 @@ const ListedProperties = () => {
     return (
       <div className="flex flex-col justify-center items-center h-[70vh]">
         <h2 className="text-lg font-semibold mb-2">You haven't listed any properties yet.</h2>
-        <p className="text-gray-600 mb-4">Start listing your properties now to reach a wider audience!</p>
+        <p className="text-gray-600 mb-4 text-center">Start listing your properties now to reach a wider audience!</p>
         <Button onClick={() => navigate("/create-property")}>Start Listing Properties</Button>
       </div>
     );

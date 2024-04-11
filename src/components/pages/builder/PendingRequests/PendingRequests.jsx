@@ -30,7 +30,7 @@ const PendingRequests = () => {
   return (
     <>
       <HelmetHeader title="Pending Requests" />
-      <div className="flex flex-col md:flex-row justify-center items-center md:px-16 gap-10 mt-10">
+      <div className="flex flex-col lg:flex-row justify-center items-center md:px-16 gap-10 mt-10">
         {currBuilderPendingRequest?.map((request) => {
           return <PropertyRequestCard key={request.id} request={request} />;
         })}

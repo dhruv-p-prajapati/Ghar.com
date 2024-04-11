@@ -6,7 +6,7 @@
       "email": "neha@example.com",
       "password": "password789",
       "phNo": "9870123456",
-      "amount": 15000,
+      "amount": 14500,
       "savedProperties": [
         "2",
         "1",
@@ -63,6 +63,15 @@
       "phNo": "8765432109",
       "amount": 30000,
       "savedProperties": []
+    },
+    {
+      "id": "9",
+      "name": "Govind",
+      "email": "govind@example.com",
+      "phNo": 9312345786,
+      "amount": 25000,
+      "password": "Govind@123",
+      "favouriteProperties": []
     }
   ],
   "builders": [
@@ -75,10 +84,11 @@
       "phNo": "9876543210",
       "reraId": "RERAGJ12345",
       "panNo": "ABCDE1234F",
-      "amount": 0,
+      "amount": 2000,
       "listedProperties": [
         "3",
-        "4"
+        "4",
+        "11"
       ]
     },
     {
@@ -94,7 +104,8 @@
       "listedProperties": [
         "1",
         "2",
-        "10"
+        "10",
+        "12"
       ]
     },
     {
@@ -175,7 +186,7 @@
         "city": "deesa",
         "state": "gujarat"
       },
-      "amount": 3000,
+      "amount": 3500,
       "listedProperties": [
         "5",
         "6",
@@ -183,6 +194,23 @@
         "8",
         "9"
       ]
+    },
+    {
+      "id": "9",
+      "name": "Dhruv Prajapati",
+      "email": "dhruv@example.com",
+      "phNo": 9313914401,
+      "reraId": "RERAGJ12345",
+      "panNo": "FERPP8059A",
+      "password": "Dhruv@123",
+      "address": {
+        "streetNo": "25/A",
+        "addressLine": "shrinagar society",
+        "city": "visnagar",
+        "state": "gujarat"
+      },
+      "amount": 0,
+      "listedProperties": []
     }
   ],
   "categories": [
@@ -231,7 +259,7 @@
         "city": "visnagar",
         "state": "gujarat"
       },
-      "sqFt": 450,
+      "sqFt": 448,
       "facing": "North",
       "parking": 5,
       "nearByPlaces": {
@@ -266,12 +294,13 @@
       },
       "price": 4000000,
       "tokenAmount": 2000,
+      "image": "https://t4.ftcdn.net/jpg/02/81/89/73/360_F_281897358_3rj9ZBSZHo5s0L1ug7uuIHadSxh9Cc75.jpg",
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": true,
       "builderDetail": {
         "id": "2",
-        "amount": -7000,
+        "amount": 28000,
         "name": "Priya Sharma",
         "phNo": "9123456789"
       }
@@ -325,6 +354,7 @@
       },
       "price": 450000,
       "tokenAmount": 2500,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": false,
@@ -389,6 +419,7 @@
       },
       "price": 500000,
       "tokenAmount": 10000,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "No",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": true,
@@ -447,6 +478,7 @@
       },
       "price": 15000,
       "tokenAmount": 2000,
+      "image": "knjdcnj",
       "negotiable": "No",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": true,
@@ -504,6 +536,7 @@
       },
       "price": 40000,
       "tokenAmount": 5000,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": true,
@@ -562,6 +595,7 @@
       },
       "price": 1500000,
       "tokenAmount": 25000,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": false,
@@ -618,6 +652,7 @@
       },
       "price": 450,
       "tokenAmount": 455,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "No",
       "constructionStatus": "Under Construction",
       "verifyStatusAdmin": false,
@@ -627,7 +662,11 @@
         "name": "Jay Prajapati",
         "phNo": 9313914401
       },
-      "bookedBy": {}
+      "bookedBy": {
+        "booked": true,
+        "id": "3",
+        "name": "Neha Gupta"
+      }
     },
     {
       "id": "8",
@@ -678,6 +717,7 @@
       },
       "price": 4000000,
       "tokenAmount": 25000,
+      "image": "knjdcnj",
       "negotiable": "No",
       "constructionStatus": "Under Construction",
       "verifyStatusAdmin": false,
@@ -735,6 +775,7 @@
       },
       "price": 250000,
       "tokenAmount": 12500,
+      "image": "knjdcnj",
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": false,
@@ -792,12 +833,137 @@
       },
       "price": 450000,
       "tokenAmount": 1510,
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
       "negotiable": "Yes",
       "constructionStatus": "Ready To Move",
       "verifyStatusAdmin": false,
       "builderDetail": {
         "id": "2",
         "amount": 25000,
+        "name": "Priya Sharma",
+        "phNo": "9123456789"
+      }
+    },
+    {
+      "id": "11",
+      "lookingFor": "Rent",
+      "propertyType": "land",
+      "phNo": "9876543210",
+      "subPropertyType": "agricultural land",
+      "name": "Ag Farms",
+      "description": "This farm is under rent",
+      "address": {
+        "streetNo": "1",
+        "addressLine": "jay ambe nagar",
+        "city": "visnagar",
+        "state": "gujarat"
+      },
+      "sqFt": 400,
+      "facing": "East",
+      "parking": 0,
+      "nearByPlaces": {
+        "school": 1,
+        "hospital": 0.8,
+        "bus": 0.5,
+        "shopppingMarket": 2
+      },
+      "furnished": "",
+      "bhk": "",
+      "amenitiesForResidential": {
+        "lift": false,
+        "cctv": false,
+        "gym": false,
+        "garden": false,
+        "swimmingPool": false,
+        "clubHouse": false
+      },
+      "amenitiesForCommercial": {
+        "lift": false,
+        "cctv": false,
+        "powerBackup": false,
+        "fireSafety": false,
+        "waterStorage": false,
+        "cafeteria": false,
+        "receptionArea": false
+      },
+      "amenitiesForLand": {
+        "powerBackup": true,
+        "farmHouse": false
+      },
+      "price": 25000,
+      "tokenAmount": 2000,
+      "negotiable": "Yes",
+      "constructionStatus": "Ready To Move",
+      "image": "https://t3.ftcdn.net/jpg/05/02/18/64/360_F_502186443_Kubg3Wl76uE8BYl1tcAuYYXgGKAaO6r4.jpg",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "1",
+        "amount": 0,
+        "name": "Ravi Kumar",
+        "phNo": "9876543210"
+      },
+      "bookedBy": {
+        "booked": true,
+        "id": "3",
+        "name": "Neha Gupta"
+      }
+    },
+    {
+      "id": "12",
+      "lookingFor": "Sell",
+      "propertyType": "residential",
+      "phNo": "9123456789",
+      "subPropertyType": "apartment",
+      "name": "Sweet homes",
+      "description": "we are dedicated to providing a seamless experience for both property buyers and sellers. Our platform bridges the gap between builders and potential homeowners, ensuring transparency, trust, and efficiency in every transaction.",
+      "address": {
+        "streetNo": "45/b",
+        "addressLine": "jay ambe nagar",
+        "city": "ahmedabad",
+        "state": "gujarat"
+      },
+      "sqFt": 470,
+      "facing": "North",
+      "parking": 0,
+      "nearByPlaces": {
+        "school": 0.8,
+        "hospital": 4,
+        "bus": 0.5,
+        "shopppingMarket": 4
+      },
+      "furnished": "Full-Furnished",
+      "bhk": "3 BHK",
+      "amenitiesForResidential": {
+        "lift": true,
+        "cctv": false,
+        "gym": true,
+        "garden": true,
+        "swimmingPool": true,
+        "clubHouse": false
+      },
+      "amenitiesForCommercial": {
+        "lift": false,
+        "cctv": false,
+        "powerBackup": false,
+        "fireSafety": false,
+        "waterStorage": false,
+        "cafeteria": false,
+        "receptionArea": false
+      },
+      "amenitiesForLand": {
+        "powerBackup": false,
+        "waterStorage": false,
+        "farmHouse": false
+      },
+      "price": 1100000,
+      "tokenAmount": 15000,
+      "negotiable": "Yes",
+      "constructionStatus": "Under Construction",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeOBWx0FiZGzvFMbmC3tdWi0ahys7Vf_Gr_jRNuIupug&s",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "2",
+        "amount": 28000,
         "name": "Priya Sharma",
         "phNo": "9123456789"
       }
@@ -812,6 +978,24 @@
       "requestedAt": "4/11/2024, 5:29:19 PM",
       "requestStatus": "accepted",
       "propertyId": "2"
+    },
+    {
+      "id": "2",
+      "userId": "3",
+      "builderId": "8",
+      "amountPaid": 500,
+      "requestedAt": "4/11/2024, 8:47:54 PM",
+      "requestStatus": "pending",
+      "propertyId": "7"
+    },
+    {
+      "id": "3",
+      "userId": "3",
+      "builderId": "1",
+      "amountPaid": 2000,
+      "requestedAt": "4/11/2024, 8:48:27 PM",
+      "requestStatus": "pending",
+      "propertyId": "11"
     }
   ],
   "queries": [

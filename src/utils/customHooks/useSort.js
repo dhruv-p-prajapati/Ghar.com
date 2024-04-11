@@ -12,7 +12,7 @@ const useSort = (properties) => {
       const valueA = parseFloat(a[sortBy]);
       const valueB = parseFloat(b[sortBy]);
 
-      return !descending ? valueB - valueA : valueA - valueB;
+      return descending ? valueB - valueA : valueA - valueB;
     });
   }
   return [sortBy, setSortBy, descending, setDescending, sortedProperties];

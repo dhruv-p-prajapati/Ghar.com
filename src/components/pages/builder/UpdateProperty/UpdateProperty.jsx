@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 
 const UpdateProperty = () => {
   const { propertyId } = useParams();
-  const [property, setProperty] = useState({});
 
   const { builder } = useSelector((state) => state.role);
 
@@ -20,7 +19,6 @@ const UpdateProperty = () => {
 
   const [currStep, setCurrStep] = useState(0);
   const [categories, setCategories] = useState([]);
-  const [properties, setProperties] = useState([]);
   const [data, setData] = useState([]);
 
   const nextStep = (values) => {
@@ -45,6 +43,7 @@ const UpdateProperty = () => {
         ...data,
         price: values.price,
         tokenAmount: values.tokenAmount,
+        image: values.image,
         negotiable: values.negotiable,
         constructionStatus: values.constructionStatus,
         verifyStatusAdmin: data.verifyStatusAdmin,
@@ -75,9 +74,6 @@ const UpdateProperty = () => {
   const fetchData = async () => {
     const { data: categoryData } = await getAllCategories();
     setCategories(categoryData);
-
-    const { data: propertiesData } = await getAllProperties();
-    setProperties(propertiesData);
 
     const { data: propertyData } = await getPropertyById(propertyId);
     setData(propertyData);
