@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import { AiOutlineClose } from "react-icons/ai";
 import Button from "./Button";
 
@@ -30,6 +30,13 @@ const DeleteConfirmationUserModel = ({ showDeleteConfirmation, setShowDeleteConf
       </div>
     </div>
   );
+};
+
+DeleteConfirmationUserModel.propTypes = {
+  showDeleteConfirmation: PropTypes.bool.isRequired,
+  setShowDeleteConfirmation: PropTypes.func.isRequired,
+  handleDeleteUser: PropTypes.func.isRequired,
+  userToBeDeleted: PropTypes.string.isRequired
 };
 
 export default DeleteConfirmationUserModel;

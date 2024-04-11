@@ -2,7 +2,6 @@ import React from "react";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 import { Button, Input, RadioButton, StepperComponent } from "../../../common";
-import { STEPS } from "../../../../utils/constants";
 
 const propertyDetailSchema = yup.object({
   subPropertyType: yup.string().required("*required"),
@@ -53,7 +52,7 @@ const PropertyDetails = ({ data, nextStep, prevStep, categories }) => {
   };
   return (
     <div>
-      <StepperComponent steps={STEPS} activeStep={1} />
+      <StepperComponent activeStep={1} />
 
       <Formik
         initialValues={{

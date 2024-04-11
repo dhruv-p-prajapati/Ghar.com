@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import RadioButton from "./RadioButton";
 
 const FilterComponent = ({
@@ -88,6 +88,18 @@ const FilterComponent = ({
       </div>
     </div>
   );
+};
+
+FilterComponent.propTypes = {
+  propertyType: PropTypes.string,
+  setPropertyType: PropTypes.func,
+  subPropertyType: PropTypes.string,
+  setSubPropertyType: PropTypes.func,
+  lookingFor: PropTypes.string,
+  setLookingFor: PropTypes.func,
+  verifiedByAdmin: PropTypes.bool,
+  setVerifiedByAdmin: PropTypes.func,
+  categories: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default FilterComponent;

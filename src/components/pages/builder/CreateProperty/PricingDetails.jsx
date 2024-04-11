@@ -2,7 +2,6 @@ import React from "react";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 import { Button, Input, RadioButton, StepperComponent } from "../../../common";
-import { STEPS } from "../../../../utils/constants";
 
 const negotiableLinks = [
   {
@@ -53,7 +52,7 @@ const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpda
   };
   return (
     <div>
-      <StepperComponent steps={STEPS} activeStep={3} />
+      <StepperComponent activeStep={3} />
 
       <Formik
         initialValues={{

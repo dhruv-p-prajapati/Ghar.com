@@ -2,7 +2,6 @@ import React from "react";
 import { Field, Form, Formik } from "formik";
 import * as yup from "yup";
 import { Button, Checkbox, Input, RadioButton, StepperComponent } from "../../../common";
-import { STEPS } from "../../../../utils/constants";
 
 const facingLink = [
   {
@@ -245,7 +244,7 @@ const AmenitiesDetails = ({ data, nextStep, prevStep }) => {
 
   return (
     <div>
-      <StepperComponent steps={STEPS} activeStep={2} />
+      <StepperComponent activeStep={2} />
 
       <Formik
         initialValues={{

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Step, Stepper } from "react-form-stepper";
 import { STEPS } from "../../utils/constants";
+import PropTypes from "prop-types";
 
-const StepperComponent = ({ steps, activeStep }) => {
+const StepperComponent = ({ activeStep }) => {
   const [margins, setMargins] = useState({
     mLeft: 0,
     mRight: 0
@@ -12,12 +12,12 @@ const StepperComponent = ({ steps, activeStep }) => {
   useEffect(() => {
     setMargins({
       mLeft: stepRef.current[0].offsetWidth / 2,
-      mRight: stepRef.current[steps?.length - 1].offsetWidth / 2
+      mRight: stepRef.current[STEPS?.length - 1].offsetWidth / 2
     });
-  }, [stepRef.current, steps.length]);
+  }, [stepRef.current, STEPS.length]);
 
   const calcProgressBar = () => {
-    return (activeStep / (steps.length - 1)) * 100;
+    return (activeStep / (STEPS.length - 1)) * 100;
   };
 
   const style = {
@@ -29,7 +29,7 @@ const StepperComponent = ({ steps, activeStep }) => {
   return (
     <div className="flex justify-center mt-10 ">
       <div className="relative flex justify-between items-center w-[min(700px,85vw)]">
-        {steps.map((step, index) => {
+        {STEPS.map((step, index) => {
           return (
             <div key={step.label} ref={(ele) => (stepRef.current[index] = ele)} className={`flex flex-col items-center relative `}>
               <div
@@ -48,6 +48,10 @@ const StepperComponent = ({ steps, activeStep }) => {
       </div>
     </div>
   );
+};
+
+StepperComponent.prototypes = {
+  activeStep: PropTypes.number.isRequired
 };
 
 export default StepperComponent;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getBuilderById,
   getPropertyById,
@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { setLoader } from "../../redux/actions/appAction";
 import { setRole } from "../../redux/actions/roleAction";
 import { MdCurrencyRupee } from "react-icons/md";
+import PropTypes from "prop-types";
 
 const PropertyRequestCard = ({ request, showBuilderDetails = false, showButtons = true }) => {
   const dispatch = useDispatch();
@@ -182,6 +183,12 @@ const PropertyRequestCard = ({ request, showBuilderDetails = false, showButtons 
       </div>
     </div>
   );
+};
+
+PropertyRequestCard.propTypes = {
+  request: PropTypes.object.isRequired,
+  showBuilderDetails: PropTypes.bool,
+  showButtons: PropTypes.bool
 };
 
 export default PropertyRequestCard;

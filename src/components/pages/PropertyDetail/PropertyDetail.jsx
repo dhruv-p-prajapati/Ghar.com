@@ -363,7 +363,6 @@ const PropertyDetail = () => {
                 user={user}
                 builder={property?.builderDetail}
                 property={property}
-                requests={requests}
               />
             )}
 

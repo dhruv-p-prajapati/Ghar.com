@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 import { Field } from "formik";
 
@@ -28,9 +27,14 @@ const CheckBox = ({ checkBoxData = [] }) => {
 };
 
 CheckBox.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  checkBoxData: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      icon: PropTypes.element
+    })
+  ).isRequired
 };
 
 export default CheckBox;

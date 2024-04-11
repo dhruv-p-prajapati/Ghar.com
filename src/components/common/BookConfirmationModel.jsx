@@ -1,17 +1,15 @@
-import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Button from "./Button";
 import Input from "./Input";
+import PropTypes from "prop-types";
 import * as yup from "yup";
 import { Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { setRole } from "../../redux/actions/roleAction";
 import bookProperty from "../../utils/commonFunctions/bookProperty";
-import { useNavigate } from "react-router-dom";
 
 const BookConfirmationModel = ({ showBookConfirmation, setShowBookConfirmation, user, builder, property, rerender, setRerender }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const bookPropertySchema = yup.object({
     amountPaid: yup
@@ -99,6 +97,16 @@ const BookConfirmationModel = ({ showBookConfirmation, setShowBookConfirmation, 
       </div>
     </div>
   );
+};
+
+BookConfirmationModel.propTypes = {
+  showBookConfirmation: PropTypes.bool.isRequired,
+  setShowBookConfirmation: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  builder: PropTypes.object.isRequired,
+  property: PropTypes.object.isRequired,
+  rerender: PropTypes.bool,
+  setRerender: PropTypes.func
 };
 
 export default BookConfirmationModel;

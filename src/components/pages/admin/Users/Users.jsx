@@ -1,13 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Button, DeleteConfirmationUserModel, Table } from "../../../common";
-import {
-  deletePropertyRequest,
-  deleteUser,
-  getAllProperties,
-  getAllRequests,
-  getUsers,
-  updateProperty
-} from "../../../../utils/axiosGloableInstance";
+import { deletePropertyRequest, deleteUser, getAllRequests, getUsers, updateProperty } from "../../../../utils/axiosGloableInstance";
 import { toast } from "react-toastify";
 
 const Users = () => {
