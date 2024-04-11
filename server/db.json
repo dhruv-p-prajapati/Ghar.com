@@ -34,7 +34,11 @@
       "password": "password123",
       "phNo": "8765432109",
       "amount": 20000,
-      "savedProperties": []
+      "savedProperties": [
+        "4",
+        "3",
+        "2"
+      ]
     },
     {
       "id": "7",

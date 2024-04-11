@@ -17,19 +17,19 @@ const FilterComponent = ({
     ...categories?.map(({ propertyType }) => ({ id: propertyType, name: "propertyType", text: propertyType }))
   ];
 
-  const subPropertyTypeDataRadioButton =
-    propertyType === "all"
-      ? [{ id: "all", name: "subPropertyType", text: "all" }]
-      : categories
-          ?.filter((category) => category.propertyType === propertyType && category.subPropertyType)
-          ?.map((category) =>
-            category.subPropertyType.map((subCategory) => ({
-              id: subCategory,
-              name: "subPropertyType",
-              text: subCategory
-            }))
-          )
-          .flat();
+  const subPropertyTypeDataRadioButton = [
+    { id: "all", name: "subPropertyType", text: "all" },
+    ...categories
+      ?.filter((category) => category.propertyType === propertyType && category.subPropertyType)
+      ?.map((category) =>
+        category.subPropertyType.map((subCategory) => ({
+          id: subCategory,
+          name: "subPropertyType",
+          text: subCategory
+        }))
+      )
+      .flat()
+  ];
 
   const lookingForDataRadioButton = [
     { id: "All", name: "lookingFor", text: "all" },

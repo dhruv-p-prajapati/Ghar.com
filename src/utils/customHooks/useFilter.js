@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-const useFilter = (searchedProperties) => {
+const useFilter = (properties) => {
   const [propertyType, setPropertyType] = useState("all");
   const [subPropertyType, setSubPropertyType] = useState("all");
   const [lookingFor, setLookingFor] = useState("all");
   const [verifiedByAdmin, setVerifiedByAdmin] = useState(false);
 
-  const filteredProperty = searchedProperties.filter(
+  const filteredProperty = properties.filter(
     (property) =>
       (propertyType === "all" || property.propertyType === propertyType) &&
       (subPropertyType === "all" || property.subPropertyType === subPropertyType) &&

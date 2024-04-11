@@ -15,6 +15,7 @@ import DeleteConfirmationPropertyModel from "./DeleteConfirmationPropertyModel";
 import DeleteConfirmationUserModel from "./DeleteConfirmationUserModel";
 import SearchComponent from "./SearchComponent";
 import FilterComponent from "./FilterComponent";
+import SortComponent from "./SortComponent";
 
 export {
   Button,
@@ -33,5 +34,6 @@ export {
   DeleteConfirmationPropertyModel,
   DeleteConfirmationUserModel,
   SearchComponent,
-  FilterComponent
+  FilterComponent,
+  SortComponent
 };

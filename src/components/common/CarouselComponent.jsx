@@ -23,7 +23,7 @@ const responsive = {
 
 const CarouselComponent = ({ children }) => {
   return (
-    <div>
+    <div className="w-[90vw] mx-auto">
       <Carousel
         swipeable={true}
         draggable={false}
