@@ -20,7 +20,7 @@ const ListedProperties = () => {
 
   const listedProperties = properties?.filter((property) => builder.listedProperties.includes(property.id));
 
-  const [query, setQuery, searchedProperties] = useSearch(listedProperties, "name", "address.city");
+  const [query, setQuery, searchedProperties] = useSearch(listedProperties.reverse(), "name", "address.city");
   const [
     propertyType,
     setPropertyType,
@@ -38,7 +38,7 @@ const ListedProperties = () => {
   const totalPages = Math.ceil(sortedProperties?.length / limit);
 
   const propertiesToShow = () => {
-    return sortedProperties?.slice((currPage - 1) * limit, currPage * limit).reverse();
+    return sortedProperties?.slice((currPage - 1) * limit, currPage * limit);
   };
 
   const fetchData = async () => {

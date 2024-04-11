@@ -2,32 +2,7 @@ import React from "react";
 import { Form, Formik } from "formik";
 import { Button, HelmetHeader, Input, RadioButton, StepperComponent } from "../../../common";
 import { pricingDetailsSchema } from "../../../../utils/ValidationSchemas";
-
-const negotiableLinks = [
-  {
-    id: "yes",
-    name: "negotiable",
-    text: "Yes"
-  },
-  {
-    id: "no",
-    name: "negotiable",
-    text: "No"
-  }
-];
-
-const constructionStatusLinks = [
-  {
-    id: "readyToMove",
-    name: "constructionStatus",
-    text: "Ready To Move"
-  },
-  {
-    id: "underConstruction",
-    name: "constructionStatus",
-    text: "Under Construction"
-  }
-];
+import { constructionStatusLinks, negotiableLinks } from "../../../../utils/RadioButtonsLinks";
 
 const PricingDetails = ({ data, prevStep, nextStep, handleSubmitProperty, isUpdate = false }) => {
   const handleSubmit = (values) => {

@@ -1,23 +1,8 @@
 import React from "react";
-import { MdSell } from "react-icons/md";
 import { Form, Formik } from "formik";
 import { Button, HelmetHeader, Input, RadioButton, StepperComponent } from "../../../common";
 import { basicDetailSchema } from "../../../../utils/ValidationSchemas";
-
-const lookingFor = [
-  {
-    id: "rent",
-    name: "lookingFor",
-    text: "Rent",
-    icon: <MdSell />
-  },
-  {
-    id: "sell",
-    name: "lookingFor",
-    text: "Sell",
-    icon: <MdSell />
-  }
-];
+import { lookingFor } from "../../../../utils/RadioButtonsLinks";
 
 const categoriesLinks = [];
 
