@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { Button, FilterComponent, Input, Loader, RadioButton, SearchComponent, SortComponent } from "../../common";
 import useSearch from "../../../utils/customHooks/useSearch";
 import useFilter from "../../../utils/customHooks/useFilter";
-import { AiOutlineClose } from "react-icons/ai";
 import useSort from "../../../utils/customHooks/useSort";
 
 const AllProperties = () => {
@@ -38,6 +37,15 @@ const AllProperties = () => {
       setCategories(categoryData);
     })();
   }, [rerender]);
+
+  if (properties.length === 0) {
+    return (
+      <div className="flex flex-col justify-center items-center h-[70vh]">
+        <h2 className="text-lg font-semibold mb-2">No properties found.</h2>
+        <p className="text-gray-600">Please check back later or explore other listings.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col xl:flex-row justify-center items-center xl:items-start gap-10 my-10 w-screen ">
@@ -77,8 +85,7 @@ const AllProperties = () => {
       <div className="flex flex-col gap-10 justify-center items-center">
         {sortedProperties?.length === 0 ? (
           <div className="text-center mt-8 w-[min(85vw,850px)]">
-            <h2 className="text-lg font-semibold mb-2">No properties available at the moment.</h2>
-            <p className="text-gray-600">Please check back later or explore other listings.</p>
+            <h2 className="text-lg font-semibold mb-2">No matching properties found !</h2>
           </div>
         ) : (
           sortedProperties?.reverse().map((property) => {

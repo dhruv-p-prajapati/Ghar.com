@@ -21,7 +21,7 @@ const SavedProperties = () => {
 
   if (savedProperties.length === 0) {
     return (
-      <div className="flex flex-col gap-1 justify-center items-center h-[70vh]">
+      <div className="flex flex-col justify-center items-center h-[70vh]">
         <h2 className="text-lg font-semibold">You haven't saved any properties yet.</h2>
         <p className="text-gray-600 mb-2">Explore our listings and save properties you're interested in for quick access later.</p>
         <Button onClick={() => navigate("/all-properties")}>Explore properties</Button>
