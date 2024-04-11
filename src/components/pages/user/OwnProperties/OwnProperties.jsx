@@ -12,11 +12,13 @@ const OwnProperties = () => {
 
   const currRequests = requests.filter((request) => request.userId === user.id);
 
+  const fetchData = async () => {
+    const { data } = await getAllRequests();
+    setRequests(data);
+  };
+
   useEffect(() => {
-    (async () => {
-      const { data } = await getAllRequests();
-      setRequests(data);
-    })();
+    fetchData();
   }, []);
 
   if (currRequests.length === 0) {

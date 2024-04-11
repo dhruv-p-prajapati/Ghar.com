@@ -7,11 +7,13 @@ const ReviewRequest = () => {
 
   const reviewPendingPrpperty = properties?.filter((property) => property.verifyStatusAdmin === false);
 
+  const fetchData = async () => {
+    const { data } = await getAllProperties();
+    setProperties(data);
+  };
+
   useEffect(() => {
-    (async () => {
-      const { data } = await getAllProperties();
-      setProperties(data);
-    })();
+    fetchData();
   }, [properties]);
 
   if (reviewPendingPrpperty.length === 0) {

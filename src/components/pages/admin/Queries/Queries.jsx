@@ -5,18 +5,13 @@ import { toast } from "react-toastify";
 const Queries = () => {
   const [queries, setQueries] = useState([]);
 
-  const fetchQueries = async () => {
-    try {
-      const { data, error } = await getAllQueries();
-      if (error) throw new Error("Failed to fetch Query");
-      setQueries(data);
-    } catch (error) {
-      toast.error(error);
-    }
+  const fetchData = async () => {
+    const { data } = await getAllQueries();
+    setQueries(data);
   };
 
   useEffect(() => {
-    fetchQueries();
+    fetchData();
   }, []);
 
   if (queries.length === 0) {

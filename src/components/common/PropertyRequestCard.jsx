@@ -87,16 +87,18 @@ const PropertyRequestCard = ({ request, showBuilderDetails = false, showButtons 
     }
   };
 
-  useEffect(() => {
-    (async () => {
-      const { data: userData } = await getUserById(request.userId);
-      const { data: builderData } = await getBuilderById(request.builderId);
-      const { data: propertyData } = await getPropertyById(request.propertyId);
+  const fetchData = async () => {
+    const { data: userData } = await getUserById(request.userId);
+    const { data: builderData } = await getBuilderById(request.builderId);
+    const { data: propertyData } = await getPropertyById(request.propertyId);
 
-      setUser(userData);
-      setBuilder(builderData);
-      setProperty(propertyData);
-    })();
+    setUser(userData);
+    setBuilder(builderData);
+    setProperty(propertyData);
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   return (

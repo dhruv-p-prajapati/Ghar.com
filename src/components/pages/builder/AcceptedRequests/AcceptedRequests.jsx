@@ -12,11 +12,13 @@ const AcceptedRequests = () => {
 
   const currBuilderAcceptedRequest = requests.filter((request) => request.builderId === builder.id && request.requestStatus === "accepted");
 
+  const fetchData = async () => {
+    const { data } = await getAllRequests();
+    setRequests(data);
+  };
+
   useEffect(() => {
-    (async () => {
-      const { data } = await getAllRequests();
-      setRequests(data);
-    })();
+    fetchData();
   }, []);
 
   if (currBuilderAcceptedRequest.length === 0) {

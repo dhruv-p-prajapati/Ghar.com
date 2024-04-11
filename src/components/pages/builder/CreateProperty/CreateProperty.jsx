@@ -135,13 +135,15 @@ const CreateProperty = () => {
     }
   };
 
+  const fetchData = async () => {
+    const { data: categoryData } = await getAllCategories();
+    const { data: propertiesData } = await getAllProperties();
+    setCategories(categoryData);
+    setProperties(propertiesData);
+  };
+
   useEffect(() => {
-    (async () => {
-      const { success, data: categoryData, error } = await getAllCategories();
-      const { data: propertiesData } = await getAllProperties();
-      setCategories(categoryData);
-      setProperties(propertiesData);
-    })();
+    fetchData();
   }, []);
 
   switch (currStep) {

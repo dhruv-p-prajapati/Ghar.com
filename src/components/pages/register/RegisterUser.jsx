@@ -84,18 +84,18 @@ const RegisterUser = () => {
     }
   };
 
+  const fetchData = async () => {
+    const { data: usersData, error: usersError } = await getUsers();
+    const { data: buildersData, error: buildersError } = await getBuilders();
+
+    setUsers(usersData);
+    setBuilders(buildersData);
+  };
+
   useEffect(() => {
     user ? navigate("/user") : builder ? navigate("/builder") : admin ? navigate("/admin") : null;
 
-    (async () => {
-      const { data: usersData, error: usersError } = await getUsers();
-      const { data: buildersData, error: buildersError } = await getBuilders();
-
-      console.log(usersError, buildersError);
-
-      setUsers(usersData);
-      setBuilders(buildersData);
-    })();
+    fetchData();
   }, []);
 
   return (

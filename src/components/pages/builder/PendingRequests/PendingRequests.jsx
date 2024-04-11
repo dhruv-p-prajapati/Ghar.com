@@ -9,11 +9,13 @@ const PendingRequests = () => {
 
   const currBuilderPendingRequest = requests.filter((request) => request.builderId === builder.id && request.requestStatus === "pending");
 
+  const fetchData = async () => {
+    const { data } = await getAllRequests();
+    setRequests(data);
+  };
+
   useEffect(() => {
-    (async () => {
-      const { data } = await getAllRequests();
-      setRequests(data);
-    })();
+    fetchData();
   }, []);
 
   if (currBuilderPendingRequest.length === 0) {

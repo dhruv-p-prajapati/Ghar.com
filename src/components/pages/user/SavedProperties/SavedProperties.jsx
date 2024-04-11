@@ -12,11 +12,13 @@ const SavedProperties = () => {
 
   const savedProperties = properties?.filter((property) => user.savedProperties.includes(property.id));
 
+  const fetchData = async () => {
+    const { data } = await getAllProperties();
+    setProperties(data);
+  };
+
   useEffect(() => {
-    (async () => {
-      const { data } = await getAllProperties();
-      setProperties(data);
-    })();
+    fetchData();
   }, []);
 
   if (savedProperties.length === 0) {

@@ -197,13 +197,15 @@ const PropertyDetail = () => {
     }
   ];
 
+  const fetchData = async () => {
+    const { data: propertyData } = await getPropertyById(propertyId);
+    const { data: requestData } = await getAllRequests();
+    setProperty(propertyData);
+    setRequests(requestData);
+  };
+
   useEffect(() => {
-    (async () => {
-      const { data: propertyData } = await getPropertyById(propertyId);
-      const { data: requestData } = await getAllRequests();
-      setProperty(propertyData);
-      setRequests(requestData);
-    })();
+    fetchData();
   }, [property]);
 
   return (

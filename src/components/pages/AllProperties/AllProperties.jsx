@@ -29,13 +29,15 @@ const AllProperties = () => {
 
   const [sortBy, setSortBy, descending, setDescending, sortedProperties] = useSort(filteredProperty);
 
+  const fetchData = async () => {
+    const { data: propertiesData } = await getAllProperties();
+    const { data: categoryData } = await getAllCategories();
+    setProperties(propertiesData);
+    setCategories(categoryData);
+  };
+
   useEffect(() => {
-    (async () => {
-      const { data } = await getAllProperties();
-      const { data: categoryData } = await getAllCategories();
-      setProperties(data);
-      setCategories(categoryData);
-    })();
+    fetchData();
   }, [rerender]);
 
   if (properties.length === 0) {
