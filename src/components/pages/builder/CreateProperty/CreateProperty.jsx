@@ -120,9 +120,9 @@ const CreateProperty = () => {
           ...builder,
           listedProperties: [...builder.listedProperties, propertyObj.id]
         };
+        toast.success("Property registered successfully");
         dispatch(setRole("builder", builderObj));
         await updateBuilder(builder.id, builderObj);
-        toast.success("Property registered successfully");
         navigate("/builder");
       } else {
         console.log("Failed to register property ", error);
@@ -135,13 +135,15 @@ const CreateProperty = () => {
     }
   };
 
+  const fetchData = async () => {
+    const { data: categoryData } = await getAllCategories();
+    const { data: propertiesData } = await getAllProperties();
+    setCategories(categoryData);
+    setProperties(propertiesData);
+  };
+
   useEffect(() => {
-    (async () => {
-      const { success, data: categoryData, error } = await getAllCategories();
-      const { data: propertiesData } = await getAllProperties();
-      setCategories(categoryData);
-      setProperties(propertiesData);
-    })();
+    fetchData();
   }, []);
 
   switch (currStep) {

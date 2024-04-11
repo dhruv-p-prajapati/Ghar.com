@@ -1,5 +1,5 @@
 import { DataGrid } from "@mui/x-data-grid";
-import React from "react";
+import PropTypes from "prop-types";
 
 const Table = ({ columns, rows, pageSizeOptions }) => {
   return (
@@ -18,6 +18,12 @@ const Table = ({ columns, rows, pageSizeOptions }) => {
       />
     </div>
   );
+};
+
+Table.propTypes = {
+  columns: PropTypes.array.isRequired,
+  rows: PropTypes.array.isRequired,
+  pageSizeOptions: PropTypes.arrayOf(PropTypes.number)
 };
 
 export default Table;

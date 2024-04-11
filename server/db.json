@@ -153,6 +153,29 @@
       },
       "amount": 0,
       "listedProperties": []
+    },
+    {
+      "id": "8",
+      "name": "Jay Prajapati",
+      "email": "jay@example.com",
+      "phNo": 9313914401,
+      "reraId": "reragj12345",
+      "panNo": "abcde1234f",
+      "password": "Jay@123",
+      "address": {
+        "streetNo": "1",
+        "addressLine": "Sukhdevnagar society",
+        "city": "deesa",
+        "state": "gujarat"
+      },
+      "amount": 3000,
+      "listedProperties": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
     }
   ],
   "categories": [
@@ -421,6 +444,294 @@
         "amount": 0,
         "name": "Ravi Kumar",
         "phNo": "9876543210"
+      }
+    },
+    {
+      "id": "5",
+      "lookingFor": "Rent",
+      "propertyType": "commercial",
+      "phNo": 9313914401,
+      "subPropertyType": "retail shop",
+      "name": "electronics world",
+      "description": "This is new Electronics world located in deesa, gujarat",
+      "address": {
+        "streetNo": "1",
+        "addressLine": "Janta market",
+        "city": "dee",
+        "state": "gujarat"
+      },
+      "sqFt": 2500,
+      "facing": "",
+      "parking": 2,
+      "nearByPlaces": {
+        "school": 4,
+        "hospital": 4,
+        "bus": 2,
+        "shopppingMarket": 0.8
+      },
+      "furnished": "",
+      "bhk": "",
+      "amenitiesForResidential": {
+        "lift": false,
+        "cctv": false,
+        "gym": false,
+        "garden": false,
+        "swimmingPool": false,
+        "clubHouse": false
+      },
+      "amenitiesForCommercial": {
+        "lift": true,
+        "cctv": true,
+        "fireSafety": false,
+        "cafeteria": false,
+        "receptionArea": true
+      },
+      "amenitiesForLand": {
+        "powerBackup": false,
+        "waterStorage": false,
+        "farmHouse": false
+      },
+      "price": 40000,
+      "tokenAmount": 5000,
+      "negotiable": "Yes",
+      "constructionStatus": "Ready To Move",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "8",
+        "amount": 0,
+        "name": "Jay Prajapati",
+        "phNo": 9313914401
+      }
+    },
+    {
+      "id": "6",
+      "lookingFor": "Sell",
+      "propertyType": "land",
+      "phNo": 9313914410,
+      "subPropertyType": "camping site",
+      "name": "Jay Camping site",
+      "description": "A new camping site located at dessa",
+      "address": {
+        "streetNo": "4",
+        "addressLine": "Main road",
+        "city": "deesa",
+        "state": "gujarat"
+      },
+      "sqFt": 250,
+      "facing": "",
+      "parking": 0,
+      "nearByPlaces": {
+        "school": 1,
+        "hospital": 5,
+        "bus": 0.5,
+        "shopppingMarket": 0.8
+      },
+      "furnished": "",
+      "bhk": "",
+      "amenitiesForResidential": {
+        "lift": false,
+        "cctv": false,
+        "gym": false,
+        "garden": false,
+        "swimmingPool": false,
+        "clubHouse": false
+      },
+      "amenitiesForCommercial": {
+        "lift": false,
+        "cctv": false,
+        "powerBackup": false,
+        "fireSafety": false,
+        "waterStorage": false,
+        "cafeteria": false,
+        "receptionArea": false
+      },
+      "amenitiesForLand": {
+        "powerBackup": true,
+        "farmHouse": true
+      },
+      "price": 1500000,
+      "tokenAmount": 25000,
+      "negotiable": "Yes",
+      "constructionStatus": "Ready To Move",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "8",
+        "amount": 0,
+        "name": "Jay Prajapati",
+        "phNo": 9313914401
+      }
+    },
+    {
+      "id": "7",
+      "lookingFor": "Sell",
+      "propertyType": "land",
+      "phNo": 9313914401,
+      "subPropertyType": "villa",
+      "name": "sxnsjxnjsnx",
+      "description": "ksmxksmxksmksmkx",
+      "address": {
+        "streetNo": "25",
+        "addressLine": "jxsnjxnj",
+        "city": "mxksmkxs",
+        "state": "kjxsmnsxk"
+      },
+      "sqFt": 470,
+      "facing": "North",
+      "parking": 0,
+      "nearByPlaces": {
+        "school": 5,
+        "hospital": 4,
+        "bus": 4,
+        "shopppingMarket": 2
+      },
+      "furnished": "Semi-Furnished",
+      "bhk": "2 BHK",
+      "amenitiesForResidential": {
+        "lift": false,
+        "cctv": false,
+        "gym": false,
+        "garden": true,
+        "swimmingPool": true,
+        "clubHouse": true
+      },
+      "amenitiesForCommercial": {
+        "lift": false,
+        "cctv": true,
+        "fireSafety": false,
+        "cafeteria": false,
+        "receptionArea": true
+      },
+      "amenitiesForLand": {
+        "powerBackup": true,
+        "farmHouse": false
+      },
+      "price": 450,
+      "tokenAmount": 455,
+      "negotiable": "No",
+      "constructionStatus": "Under Construction",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "8",
+        "amount": 0,
+        "name": "Jay Prajapati",
+        "phNo": 9313914401
+      },
+      "bookedBy": {}
+    },
+    {
+      "id": "8",
+      "lookingFor": "Sell",
+      "propertyType": "residential",
+      "phNo": 9312345645,
+      "subPropertyType": "apartment",
+      "name": "Mumbai skyline",
+      "description": "This is new property located at mumbai",
+      "address": {
+        "streetNo": "15/B",
+        "addressLine": "Skyline oasis",
+        "city": "mumbai",
+        "state": "maharashtra"
+      },
+      "sqFt": 500,
+      "facing": "East",
+      "parking": 5,
+      "nearByPlaces": {
+        "school": 0.5,
+        "hospital": 1,
+        "bus": 0.4,
+        "shopppingMarket": 4
+      },
+      "furnished": "Semi-Furnished",
+      "bhk": "3 BHK",
+      "amenitiesForResidential": {
+        "lift": false,
+        "cctv": false,
+        "gym": false,
+        "garden": true,
+        "swimmingPool": true,
+        "clubHouse": false
+      },
+      "amenitiesForCommercial": {
+        "lift": false,
+        "cctv": false,
+        "powerBackup": false,
+        "fireSafety": false,
+        "waterStorage": false,
+        "cafeteria": false,
+        "receptionArea": false
+      },
+      "amenitiesForLand": {
+        "powerBackup": false,
+        "waterStorage": false,
+        "farmHouse": false
+      },
+      "price": 4000000,
+      "tokenAmount": 25000,
+      "negotiable": "No",
+      "constructionStatus": "Under Construction",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "8",
+        "amount": 2000,
+        "name": "Jay Prajapati",
+        "phNo": 9313914401
+      }
+    },
+    {
+      "id": "9",
+      "lookingFor": "Rent",
+      "propertyType": "commercial",
+      "phNo": 9313914560,
+      "subPropertyType": "showroom",
+      "name": "Maruti suzuki",
+      "description": "new showroom on rent for cars located at mahesana",
+      "address": {
+        "streetNo": "4",
+        "addressLine": "opp. hdfc bank",
+        "city": "mahesana",
+        "state": "gujarat"
+      },
+      "sqFt": 3000,
+      "facing": "West",
+      "parking": 200,
+      "nearByPlaces": {
+        "school": 20,
+        "hospital": 2,
+        "bus": 0.5,
+        "shopppingMarket": 4
+      },
+      "furnished": "",
+      "bhk": "",
+      "amenitiesForResidential": {
+        "lift": false,
+        "cctv": false,
+        "gym": false,
+        "garden": false,
+        "swimmingPool": false,
+        "clubHouse": false
+      },
+      "amenitiesForCommercial": {
+        "lift": false,
+        "cctv": true,
+        "fireSafety": true,
+        "cafeteria": true,
+        "receptionArea": false
+      },
+      "amenitiesForLand": {
+        "powerBackup": false,
+        "waterStorage": false,
+        "farmHouse": false
+      },
+      "price": 250000,
+      "tokenAmount": 12500,
+      "negotiable": "Yes",
+      "constructionStatus": "Ready To Move",
+      "verifyStatusAdmin": false,
+      "builderDetail": {
+        "id": "8",
+        "amount": 2000,
+        "name": "Jay Prajapati",
+        "phNo": 9313914401
       }
     }
   ],

@@ -72,20 +72,19 @@ const UpdateProperty = () => {
     }
   };
 
-  useEffect(() => {
-    (async () => {
-      const { success, data: categoryData, error } = await getAllCategories();
-      const { data: propertiesData } = await getAllProperties();
-      setCategories(categoryData);
-      setProperties(propertiesData);
-    })();
-  }, []);
+  const fetchData = async () => {
+    const { data: categoryData } = await getAllCategories();
+    setCategories(categoryData);
+
+    const { data: propertiesData } = await getAllProperties();
+    setProperties(propertiesData);
+
+    const { data: propertyData } = await getPropertyById(propertyId);
+    setData(propertyData);
+  };
 
   useEffect(() => {
-    (async () => {
-      const { data } = await getPropertyById(propertyId);
-      setData(data);
-    })();
+    fetchData();
   }, []);
 
   if (data.length === 0) {

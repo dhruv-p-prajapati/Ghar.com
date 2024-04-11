@@ -1,6 +1,6 @@
 import { Form, Formik, useFormik } from "formik";
 import React, { useEffect, useState } from "react";
-import { Button, Input } from "../../common";
+import { Button, HelmetHeader, Input } from "../../common";
 import * as yup from "yup";
 import { getBuilders, getUsers, registerBuilder } from "../../../utils/axiosGloableInstance";
 import { toast } from "react-toastify";
@@ -99,205 +99,210 @@ const RegisterBuilder = () => {
     }
   };
 
+  const fetchData = async () => {
+    const { data: usersData, error: userError } = await getUsers();
+    const { data: buildersData, error: buildersError } = await getBuilders();
+
+    setUsers(usersData);
+    setBuilders(buildersData);
+  };
+
   useEffect(() => {
     user ? navigate("/user") : builder ? navigate("/builder") : admin ? navigate("/admin") : null;
 
-    (async () => {
-      const { data: usersData, error: userError } = await getUsers();
-      const { data: buildersData, error: buildersError } = await getBuilders();
-
-      setUsers(usersData);
-      setBuilders(buildersData);
-    })();
+    fetchData();
   }, []);
 
   return (
-    <Formik
-      initialValues={{
-        name: "",
-        email: "",
-        password: "",
-        cpassword: "",
-        phNo: "",
-        reraId: "",
-        panNo: "",
-        streetNo: "",
-        addressLine: "",
-        city: "",
-        state: ""
-      }}
-      onSubmit={handleSubmit}
-      validationSchema={builderSchema}>
-      {({ handleSubmit, handleChange, handleBlur, handleReset, values, errors, touched }) => (
-        <div className="flex justify-center flex-col gap-5 items-center mt-10 sm:px-[5rem]">
-          <span className="text-black font-bold text-3xl pb-3">Register Builder</span>
-          <div className="flex justify-center items-center lg:gap-24">
-            <Form className="flex flex-col gap-2" onSubmit={handleSubmit}>
-              <Input
-                id="name"
-                name="name"
-                value={values.name}
-                labelText="Name"
-                placeholder="Dhruv Prajapati"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                touched={touched?.name}
-                error={errors?.name}
-              />
-
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                value={values.email}
-                labelText="Email"
-                placeholder="dhruv@example.com"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                touched={touched?.email}
-                error={errors?.email}
-              />
-
-              <Input
-                id="phNo"
-                name="phNo"
-                type="number"
-                value={values.phNo}
-                labelText="Phone No."
-                placeholder="1234567890"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                touched={touched?.phNo}
-                error={errors?.phNo}
-              />
-
-              <Input
-                id="reraId"
-                name="reraId"
-                value={values.reraId}
-                labelText="RERA Id"
-                placeholder="RERAGJ12345"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                touched={touched?.reraId}
-                error={errors?.reraId}
-              />
-
-              <Input
-                id="panNo"
-                name="panNo"
-                value={values.panNo}
-                labelText="PAN No."
-                placeholder="ABCPD1234F"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                touched={touched?.panNo}
-                error={errors?.panNo}
-              />
-
-              <div className="flex justify-between gap-2 max-w-96">
+    <>
+      <HelmetHeader title="Register | Builder" />
+      <Formik
+        initialValues={{
+          name: "",
+          email: "",
+          password: "",
+          cpassword: "",
+          phNo: "",
+          reraId: "",
+          panNo: "",
+          streetNo: "",
+          addressLine: "",
+          city: "",
+          state: ""
+        }}
+        onSubmit={handleSubmit}
+        validationSchema={builderSchema}>
+        {({ handleSubmit, handleChange, handleBlur, handleReset, values, errors, touched }) => (
+          <div className="flex justify-center flex-col gap-5 items-center mt-10 sm:px-[5rem]">
+            <span className="text-black font-bold text-3xl pb-3">Register Builder</span>
+            <div className="flex justify-center items-center lg:gap-24">
+              <Form className="flex flex-col gap-2" onSubmit={handleSubmit}>
                 <Input
-                  id="streetNo"
-                  name="streetNo"
-                  value={values.streetNo}
-                  labelText="Street No."
-                  placeholder="25/A"
+                  id="name"
+                  name="name"
+                  value={values.name}
+                  labelText="Name"
+                  placeholder="Dhruv Prajapati"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  touched={touched?.streetNo}
-                  error={errors?.streetNo}
-                  className="w-[min(150px,6rem)]"
-                />
-                <Input
-                  id="addressLine"
-                  name="addressLine"
-                  value={values.addressLine}
-                  labelText="Address"
-                  placeholder="Shrinagar society"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.addressLine}
-                  error={errors?.addressLine}
-                  className="w-[min(300px,16rem)]"
-                />
-              </div>
-
-              <div className="flex justify-between gap-2 max-w-96">
-                <Input
-                  id="city"
-                  name="city"
-                  value={values.city}
-                  labelText="City"
-                  placeholder="Visnagar"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  touched={touched?.city}
-                  error={errors?.city}
-                  className="w-[min(160px,12rem)]"
+                  touched={touched?.name}
+                  error={errors?.name}
                 />
 
                 <Input
-                  id="state"
-                  name="state"
-                  value={values.state}
-                  labelText="State"
-                  placeholder="Gujarat"
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={values.email}
+                  labelText="Email"
+                  placeholder="dhruv@example.com"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  touched={touched?.state}
-                  error={errors?.state}
-                  className="w-[max(160px,12rem)]"
+                  touched={touched?.email}
+                  error={errors?.email}
                 />
-              </div>
 
-              <Input
-                id="password"
-                name="password"
-                type="password"
-                value={values.password}
-                labelText="Password"
-                placeholder="Example@123"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                touched={touched?.password}
-                error={errors?.password}
-              />
-              <Input
-                id="cpassword"
-                name="cpassword"
-                type="password"
-                value={values.cpassword}
-                labelText="Confirm Password"
-                placeholder="Example@123"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                touched={touched?.cpassword}
-                error={errors?.cpassword}
-              />
-              <div className="flex gap-5">
-                <Button variant="primary" type="submit">
-                  Submit
-                </Button>
-                <Button variant="danger" type="reset">
-                  Reset
-                </Button>
+                <Input
+                  id="phNo"
+                  name="phNo"
+                  type="number"
+                  value={values.phNo}
+                  labelText="Phone No."
+                  placeholder="1234567890"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  touched={touched?.phNo}
+                  error={errors?.phNo}
+                />
+
+                <Input
+                  id="reraId"
+                  name="reraId"
+                  value={values.reraId}
+                  labelText="RERA Id"
+                  placeholder="RERAGJ12345"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  touched={touched?.reraId}
+                  error={errors?.reraId}
+                />
+
+                <Input
+                  id="panNo"
+                  name="panNo"
+                  value={values.panNo}
+                  labelText="PAN No."
+                  placeholder="ABCPD1234F"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  touched={touched?.panNo}
+                  error={errors?.panNo}
+                />
+
+                <div className="flex justify-between gap-2 max-w-96">
+                  <Input
+                    id="streetNo"
+                    name="streetNo"
+                    value={values.streetNo}
+                    labelText="Street No."
+                    placeholder="25/A"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    touched={touched?.streetNo}
+                    error={errors?.streetNo}
+                    className="w-[min(150px,6rem)]"
+                  />
+                  <Input
+                    id="addressLine"
+                    name="addressLine"
+                    value={values.addressLine}
+                    labelText="Address"
+                    placeholder="Shrinagar society"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    touched={touched?.addressLine}
+                    error={errors?.addressLine}
+                    className="w-[min(300px,16rem)]"
+                  />
+                </div>
+
+                <div className="flex justify-between gap-2 max-w-96">
+                  <Input
+                    id="city"
+                    name="city"
+                    value={values.city}
+                    labelText="City"
+                    placeholder="Visnagar"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    touched={touched?.city}
+                    error={errors?.city}
+                    className="w-[min(160px,12rem)]"
+                  />
+
+                  <Input
+                    id="state"
+                    name="state"
+                    value={values.state}
+                    labelText="State"
+                    placeholder="Gujarat"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    touched={touched?.state}
+                    error={errors?.state}
+                    className="w-[max(160px,12rem)]"
+                  />
+                </div>
+
+                <Input
+                  id="password"
+                  name="password"
+                  type="password"
+                  value={values.password}
+                  labelText="Password"
+                  placeholder="Example@123"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  touched={touched?.password}
+                  error={errors?.password}
+                />
+                <Input
+                  id="cpassword"
+                  name="cpassword"
+                  type="password"
+                  value={values.cpassword}
+                  labelText="Confirm Password"
+                  placeholder="Example@123"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  touched={touched?.cpassword}
+                  error={errors?.cpassword}
+                />
+                <div className="flex gap-5">
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                  <Button variant="danger" type="reset">
+                    Reset
+                  </Button>
+                </div>
+                <div className="mt-2">
+                  <p>
+                    Already have an account?{" "}
+                    <NavLink to="/login" className="text-primary">
+                      Login here
+                    </NavLink>
+                  </p>
+                </div>
+              </Form>
+              <div className="hidden lg:block">
+                <img src="/images/loginRegister.gif" alt="" />
               </div>
-              <div className="mt-2">
-                <p>
-                  Already have an account?{" "}
-                  <NavLink to="/login" className="text-primary">
-                    Login here
-                  </NavLink>
-                </p>
-              </div>
-            </Form>
-            <div className="hidden lg:block">
-              <img src="/images/loginRegister.gif" alt="" />
             </div>
           </div>
-        </div>
-      )}
-    </Formik>
+        )}
+      </Formik>
+    </>
   );
 };
 

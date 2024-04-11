@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LandingComponent from "../../common/LandingComponent";
-import { Button, PropertyCard } from "../../common";
+import { Button, HelmetHeader, PropertyCard } from "../../common";
 import { getAllProperties } from "../../../utils/axiosGloableInstance";
 import CarouselComponent from "../../common/CarouselComponent";
 
@@ -26,7 +26,8 @@ const HomeAdmin = () => {
   }, []);
 
   return (
-    <div>
+    <>
+      <HelmetHeader title="Home | Admin" />
       <LandingComponent title={title} description={description} />
       <div className="mt-10 mb-5 text-center px-2">
         <h1 className="text-xl md:text-3xl font-semibold text-gray-800">Empower Your Real Estate Vision</h1>
@@ -87,7 +88,7 @@ const HomeAdmin = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

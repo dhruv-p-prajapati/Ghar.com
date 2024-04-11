@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { MdCurrencyRupee, MdVerified } from "react-icons/md";
@@ -11,6 +11,7 @@ import Button from "./Button";
 import DeleteConfirmationPropertyModel from "./DeleteConfirmationPropertyModel";
 import BookConfirmationModel from "./BookConfirmationModel";
 import VerifyUnverifyConfirmationModel from "./VerifyUnverifyConfirmationModel";
+import PropTypes from "prop-types";
 
 const PropertyCard = ({ property, setRerender, rerender }) => {
   const navigate = useNavigate();
@@ -21,21 +22,6 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
   const { user, admin, builder } = useSelector((state) => state.role);
-  const {
-    id,
-    name,
-    description,
-    address,
-    builderDetail,
-    lookingFor,
-    nearByPlaces,
-    price,
-    propertyType,
-    subPropertyType,
-    sqFt,
-    tokenAmount,
-    verifyStatusAdmin
-  } = property;
 
   const handleSavedProperty = async () => {
     if (user === null) {
@@ -120,7 +106,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
                   </div>
                 )
               ) : (
-                <div className="text-sm">{lookingFor === "Rent" ? <p>Available for Rent</p> : <p>Available for Sell</p>}</div>
+                <div className="text-sm">{property?.lookingFor === "Rent" ? <p>Available for Rent</p> : <p>Available for Sell</p>}</div>
               )}
 
               {user && (
@@ -203,7 +189,7 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
               showBookConfirmation={showBookConfirmation}
               setShowBookConfirmation={setShowBookConfirmation}
               user={user}
-              builder={builderDetail}
+              builder={property?.builderDetail}
               property={property}
               rerender={rerender}
               setRerender={setRerender}
@@ -263,6 +249,12 @@ const PropertyCard = ({ property, setRerender, rerender }) => {
       </div>
     </div>
   );
+};
+
+PropertyCard.propTypes = {
+  property: PropTypes.object.isRequired,
+  rerender: PropTypes.bool,
+  setRerender: PropTypes.func
 };
 
 export default PropertyCard;

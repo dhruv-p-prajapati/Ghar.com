@@ -2,8 +2,7 @@ import React from "react";
 import { MdSell } from "react-icons/md";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
-import { Button, Input, RadioButton, StepperComponent } from "../../../common";
-import { STEPS } from "../../../../utils/constants";
+import { Button, HelmetHeader, Input, RadioButton, StepperComponent } from "../../../common";
 
 const lookingFor = [
   {
@@ -48,7 +47,8 @@ const BasicDetails = ({ data, setData, nextStep, categories, property }) => {
 
   return (
     <>
-      <StepperComponent steps={STEPS} activeStep={0} />
+      <HelmetHeader title="Basic Details" />
+      <StepperComponent activeStep={0} />
       <Formik
         initialValues={{
           lookingFor: data?.lookingFor,

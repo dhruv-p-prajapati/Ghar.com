@@ -1,8 +1,7 @@
 import React from "react";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
-import { Button, Input, RadioButton, StepperComponent } from "../../../common";
-import { STEPS } from "../../../../utils/constants";
+import { Button, HelmetHeader, Input, RadioButton, StepperComponent } from "../../../common";
 
 const propertyDetailSchema = yup.object({
   subPropertyType: yup.string().required("*required"),
@@ -52,8 +51,9 @@ const PropertyDetails = ({ data, nextStep, prevStep, categories }) => {
     nextStep(valObj);
   };
   return (
-    <div>
-      <StepperComponent steps={STEPS} activeStep={1} />
+    <>
+      <HelmetHeader title="Property Details" />
+      <StepperComponent activeStep={1} />
 
       <Formik
         initialValues={{
@@ -214,7 +214,7 @@ const PropertyDetails = ({ data, nextStep, prevStep, categories }) => {
           </div>
         )}
       </Formik>
-    </div>
+    </>
   );
 };
 

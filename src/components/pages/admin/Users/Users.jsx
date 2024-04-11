@@ -1,13 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Button, DeleteConfirmationUserModel, Table } from "../../../common";
-import {
-  deletePropertyRequest,
-  deleteUser,
-  getAllProperties,
-  getAllRequests,
-  getUsers,
-  updateProperty
-} from "../../../../utils/axiosGloableInstance";
+import { Button, DeleteConfirmationUserModel, HelmetHeader, Table } from "../../../common";
+import { deletePropertyRequest, deleteUser, getAllRequests, getUsers, updateProperty } from "../../../../utils/axiosGloableInstance";
 import { toast } from "react-toastify";
 
 const Users = () => {
@@ -65,25 +58,21 @@ const Users = () => {
     ];
   }, []);
 
-  const fetchUsers = async () => {
-    try {
-      const { data: userData, error: userError } = await getUsers();
-      if (userError) throw new Error("Failed to fetch user data");
-      setUsers(userData);
+  const fetchData = async () => {
+    const { data: userData, error: userError } = await getUsers();
+    setUsers(userData);
 
-      const { data: requestsData, error: requestsError } = await getAllRequests();
-      if (requestsError) throw new Error("Failed to fetch Requests data");
-      setRequests(requestsData);
-    } catch (error) {
-      toast.error(error);
-    }
+    const { data: requestsData, error: requestsError } = await getAllRequests();
+    setRequests(requestsData);
   };
 
   useEffect(() => {
-    fetchUsers();
+    fetchData();
   }, [userToBeDeleted]);
+
   return (
     <>
+      <HelmetHeader title="Users Detail" />
       {showDeleteConfirmation && (
         <DeleteConfirmationUserModel
           showDeleteConfirmation={showDeleteConfirmation}

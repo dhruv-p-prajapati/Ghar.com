@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 const LandingComponent = ({ title = "", description = "" }) => {
   return (
@@ -11,6 +11,11 @@ const LandingComponent = ({ title = "", description = "" }) => {
       </div>
     </div>
   );
+};
+
+LandingComponent.propTypes = {
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired
 };
 
 export default LandingComponent;

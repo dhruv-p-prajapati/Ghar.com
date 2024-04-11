@@ -1,6 +1,6 @@
-import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import PropTypes from "prop-types";
 
 const responsive = {
   superLargeDesktop: {
@@ -27,7 +27,7 @@ const CarouselComponent = ({ children }) => {
       <Carousel
         swipeable={true}
         draggable={false}
-        showDots={true}
+        showDots={false}
         responsive={responsive}
         infinite={true}
         autoPlay={true}
@@ -37,6 +37,10 @@ const CarouselComponent = ({ children }) => {
       </Carousel>
     </div>
   );
+};
+
+CarouselComponent.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 export default CarouselComponent;

@@ -1,5 +1,5 @@
-import React from "react";
 import Button from "./Button";
+import PropTypes from "prop-types";
 import { AiOutlineClose } from "react-icons/ai";
 import handleVerifyUnverify from "../../utils/commonFunctions/handleVerifyUnverify";
 
@@ -35,6 +35,15 @@ const VerifyUnverifyConfirmationModel = ({ showConfirmationModel, setShowConfirm
       </div>
     </div>
   );
+};
+
+VerifyUnverifyConfirmationModel.propTypes = {
+  showConfirmationModel: PropTypes.bool.isRequired,
+  setShowConfirmationModel: PropTypes.func.isRequired,
+  status: PropTypes.bool.isRequired,
+  property: PropTypes.object.isRequired,
+  rerender: PropTypes.bool,
+  setRerender: PropTypes.func
 };
 
 export default VerifyUnverifyConfirmationModel;

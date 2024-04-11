@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { getAllProperties } from "../../../../utils/axiosGloableInstance";
-import { PropertyCard } from "../../../common";
+import { HelmetHeader, PropertyCard } from "../../../common";
 
 const ReviewRequest = () => {
   const [properties, setProperties] = useState([]);
 
   const reviewPendingPrpperty = properties?.filter((property) => property.verifyStatusAdmin === false);
 
+  const fetchData = async () => {
+    const { data } = await getAllProperties();
+    setProperties(data);
+  };
+
   useEffect(() => {
-    (async () => {
-      const { data } = await getAllProperties();
-      setProperties(data);
-    })();
+    fetchData();
   }, [properties]);
 
   if (reviewPendingPrpperty.length === 0) {
@@ -25,6 +27,7 @@ const ReviewRequest = () => {
 
   return (
     <>
+      <HelmetHeader title="Review Request" />
       <div className="flex flex-col gap-10 justify-center items-center my-10">
         {reviewPendingPrpperty.map((property) => {
           return <PropertyCard property={property} key={property.id} />;

@@ -1,6 +1,6 @@
-import React from "react";
+import PropTypes from "prop-types";
 
-const SortComponent = ({ sortBy, setSortBy, descending, setDescending, sortedProperties }) => {
+const SortComponent = ({ sortBy, setSortBy, descending, setDescending }) => {
   return (
     <div className="flex flex-col gap-2 mt-5">
       <h3 className="font-semibold text-lg">Available For - </h3>
@@ -25,6 +25,13 @@ const SortComponent = ({ sortBy, setSortBy, descending, setDescending, sortedPro
       </div>
     </div>
   );
+};
+
+SortComponent.propTypes = {
+  sortBy: PropTypes.string,
+  setSortBy: PropTypes.func,
+  descending: PropTypes.bool,
+  setDescending: PropTypes.func
 };
 
 export default SortComponent;

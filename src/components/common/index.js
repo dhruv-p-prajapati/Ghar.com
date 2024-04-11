@@ -16,6 +16,7 @@ import DeleteConfirmationUserModel from "./DeleteConfirmationUserModel";
 import SearchComponent from "./SearchComponent";
 import FilterComponent from "./FilterComponent";
 import SortComponent from "./SortComponent";
+import HelmetHeader from "./HelmetHeader";
 
 export {
   Button,
@@ -35,5 +36,6 @@ export {
   DeleteConfirmationUserModel,
   SearchComponent,
   FilterComponent,
-  SortComponent
+  SortComponent,
+  HelmetHeader
 };

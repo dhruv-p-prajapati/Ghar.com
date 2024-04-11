@@ -84,7 +84,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   className: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  onBlur: PropTypes.func.isRequired,
+  onBlur: PropTypes.func,
   autoComplete: PropTypes.string,
   readOnly: PropTypes.bool,
   autoFocus: PropTypes.bool,

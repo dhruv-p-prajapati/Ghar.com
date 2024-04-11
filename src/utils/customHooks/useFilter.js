@@ -6,7 +6,7 @@ const useFilter = (properties) => {
   const [lookingFor, setLookingFor] = useState("all");
   const [verifiedByAdmin, setVerifiedByAdmin] = useState(false);
 
-  const filteredProperty = properties.filter(
+  const filteredProperty = [...properties].filter(
     (property) =>
       (propertyType === "all" || property.propertyType === propertyType) &&
       (subPropertyType === "all" || property.subPropertyType === subPropertyType) &&

@@ -5,7 +5,7 @@ const useSearch = (properties, ...keys) => {
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query);
 
-  const searchedProperties = properties?.filter((property) => {
+  const searchedProperties = [...properties]?.filter((property) => {
     return keys.some((key) => {
       const keyParts = key.split(".");
 

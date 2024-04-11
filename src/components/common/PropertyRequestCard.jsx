@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getBuilderById,
   getPropertyById,
@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { setLoader } from "../../redux/actions/appAction";
 import { setRole } from "../../redux/actions/roleAction";
 import { MdCurrencyRupee } from "react-icons/md";
+import PropTypes from "prop-types";
 
 const PropertyRequestCard = ({ request, showBuilderDetails = false, showButtons = true }) => {
   const dispatch = useDispatch();
@@ -87,16 +88,18 @@ const PropertyRequestCard = ({ request, showBuilderDetails = false, showButtons 
     }
   };
 
-  useEffect(() => {
-    (async () => {
-      const { data: userData } = await getUserById(request.userId);
-      const { data: builderData } = await getBuilderById(request.builderId);
-      const { data: propertyData } = await getPropertyById(request.propertyId);
+  const fetchData = async () => {
+    const { data: userData } = await getUserById(request.userId);
+    const { data: builderData } = await getBuilderById(request.builderId);
+    const { data: propertyData } = await getPropertyById(request.propertyId);
 
-      setUser(userData);
-      setBuilder(builderData);
-      setProperty(propertyData);
-    })();
+    setUser(userData);
+    setBuilder(builderData);
+    setProperty(propertyData);
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   return (
@@ -180,6 +183,12 @@ const PropertyRequestCard = ({ request, showBuilderDetails = false, showButtons 
       </div>
     </div>
   );
+};
+
+PropertyRequestCard.propTypes = {
+  request: PropTypes.object.isRequired,
+  showBuilderDetails: PropTypes.bool,
+  showButtons: PropTypes.bool
 };
 
 export default PropertyRequestCard;
